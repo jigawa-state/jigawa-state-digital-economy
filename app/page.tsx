@@ -31,45 +31,45 @@ import jiglogo from '@/app/images/jiglogo2.png'
 // import budgets from '@/app/images/women_affairs1.png'
 import './styles.css'
 
-const ministries =  [
-  {
-    id: 1,
-    url: "",
-    name: "State Official Website",
-    image: oneGp
-  },
-  {
-    id: 1,
-    url: "",
-    name: "Ministry of Finance ",
-    image: oneGp
-  },
+// const ministries =  [
+//   {
+//     id: 1,
+//     url: "",
+//     name: "State Official Website",
+//     image: oneGp
+//   },
+//   {
+//     id: 1,
+//     url: "",
+//     name: "Ministry of Finance ",
+//     image: oneGp
+//   },
   
-  {
-    id: 1,
-    url: "",
-    name: "Ministry of Budget",
-    image: oneGp
-  },
-  {
-    id: 1,
-    url: "",
-    name: "State Official Website",
-    image: oneGp
-  },
-  {
-    id: 1,
-    url: "",
-    name: "State Official Website",
-    image: oneGp
-  },
-  {
-    id: 1,
-    url: "",
-    name: "State Official Website",
-    image: oneGp
-  },
-]
+//   {
+//     id: 1,
+//     url: "",
+//     name: "Ministry of Budget",
+//     image: oneGp
+//   },
+//   {
+//     id: 1,
+//     url: "",
+//     name: "State Official Website",
+//     image: oneGp
+//   },
+//   {
+//     id: 1,
+//     url: "",
+//     name: "State Official Website",
+//     image: oneGp
+//   },
+//   {
+//     id: 1,
+//     url: "",
+//     name: "State Official Website",
+//     image: oneGp
+//   },
+// ]
 
 export default function Home() {
   return (
