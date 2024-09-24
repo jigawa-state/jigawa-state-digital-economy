@@ -80,6 +80,7 @@ export default function Home() {
        {/* <h1 className=" text-4xl font-semibold text-green-500 font-poppins ">Welcome to Jigawa State Government </h1>
        <span className=" text-2xl font-poppins">The new World</span> */}
        </div>
+       
       </div>
     <div className=" w-full  max-w-7xl mx-auto">
         <div className=" grid grid-cols-4">
