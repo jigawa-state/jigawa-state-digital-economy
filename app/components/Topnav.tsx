@@ -2,8 +2,8 @@ import React from 'react'
 
 const Topnav = () => {
   return (
-    <div>
-        
+    <div className=' w-full shadow-md border-b'>
+        Hello World
     </div>
   )
 }
