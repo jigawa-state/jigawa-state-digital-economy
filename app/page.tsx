@@ -17,7 +17,7 @@ import specialduties from '@/app/images/specialduties.png'
 import water from '@/app/images/water.png'
 // import engage from '@/app/images/Engagement.png'
 // import amis from '@/app/images/AMIS.png'
-// import geo from '@/app/images/Geography.png'
+import geo from '@/app/images/Geography.png'
 // import stb from '@/app/images/STB.png'
 // import tech from '@/app/images/TECHNOLOGY.png'
 // import claimcourt from '@/app/images/claimscourt1.png'
@@ -41,9 +41,9 @@ const ministries =  [
   },
   {
     id: 2,
-    url: "https://finance.jg.gov.ng",
-    name: "Ministry of Finance",
-    image: finance
+    url: "https://emis.jg.gov.ng",
+    name: "Education Management System",
+    image: emis
   },
   
   {
@@ -55,7 +55,7 @@ const ministries =  [
   {
     id: 4,
     url: "https://api.jg.gov.ng",
-    name: "One API",
+    name: "Jigawa One Government Portal",
     image: oneGp
   },
 
@@ -80,9 +80,9 @@ const ministries =  [
   },
   {
     id: 8,
-    url: "https://jigawastate.gov.ng",
-    name: "State Official Website",
-    image: jgwebsite
+    url: "https://finance.jg.gov.ng",
+    name: "Ministry of Finance ",
+    image: finance
   },
   {
     id: 9,
@@ -93,44 +93,44 @@ const ministries =  [
   {
     id: 10,
     url: "",
-    name: "Ministry of Agriculture",
+    name: "Ministry of Agricultural Development",
     image: agric
   },
   {
     id: 11,
     url: "",
-    name: "State Official Website",
+    name: "Climate Change and Digital Energy Information System",
     image: climate
   },
   {
     id: 12,
     url: "",
-    name: "State Official Website",
+    name: "Health Management Information System",
     image: hmis
   },
   {
     id: 13,
     url: "",
-    name: "State Official Website",
+    name: "Jigawa State Universal Basic Education Board ",
     image: subeb
   },
   {
     id: 14,
     url: "",
-    name: "State Official Website",
+    name: "Ministry of Basic Education",
     image: basic
   },
   {
     id: 10,
     url: "",
-    name: "State Official Website",
+    name: "Ministry of Budget",
     image: budget
   },
   {
     id: 10,
     url: "",
-    name: "Education Managament Information System",
-    image: emis
+    name: "Jigawa Geographic Information System",
+    image: geo
   },
 ]
 
@@ -144,10 +144,10 @@ interface Card {
 export default function Home() {
   return (
     <div className=" flex flex-col bg-white space-y-10 w-full">
-      <div className=" w-full max-w-6xl mx-auto h-[80vh] pt-[150px] text-center items-center justify-center">
-       <div className=" flex flex-col space-y-4 justify-center bg my-auto items-center">
+      <div className=" w-full max-w-6xl mx-auto md:h-[90vh] pt-[200px] text-center items-center justify-center">
+       <div className=" flex px-6 flex-col space-y-4 justify-center bg my-auto items-center">
         <Image src={jigawalogo} className=" h-36 w-36 rounded-full border-green-600 border-4" alt="" width={700} height={700} />
-       <h1 className=" text-3xl font-semibold text-green-500 font-poppins ">Welcome to Jigawa State ICT and Digital Economy Service Portal </h1>
+       <h1 className=" text-2xl md:text-3xl font-semibold text-green-500 font-poppins ">Welcome to Jigawa State ICT and Digital Economy Service Portal </h1>
        <span className=" text-xl font-poppins">Powered by the office of the Technical Adviser on ICT and Digital Economy</span>
        </div>
       </div>
@@ -157,7 +157,7 @@ export default function Home() {
             ministries.map((item: Card) => {
               return (
                 <div className="" key={item.id}>
-                <a href="https://www.jigawastate.gov.ng/" className="product-item rounded-lg">
+                <a href="https://www.jigawastate.gov.ng/" className="product-item h-full rounded-lg">
                     <div className="product-item-image w-full items-center flex justify-center">
                         <Image width={1000} height={1000} className=" h-[120px] object-center object-contain w-[120px]" src={item.image} alt="" />
                         <div className="product-item-image-hover">
