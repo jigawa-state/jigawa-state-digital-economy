@@ -1,15 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import jigawalogo from '@/app/images/jigawalogo.jpg'
-import React from 'react'
 
 
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 
