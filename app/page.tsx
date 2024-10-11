@@ -148,7 +148,7 @@ export default function Home() {
        <div className=" flex px-6 flex-col space-y-4 justify-center bg my-auto items-center">
         <Image src={jigawalogo} className=" h-36 w-36 rounded-full border-green-600 border-4" alt="" width={700} height={700} />
        <h1 className=" text-2xl md:text-3xl font-semibold text-green-500 font-poppins ">Welcome to Jigawa State ICT and Digital Economy Service Portal </h1>
-       <span className=" text-xl font-poppins">Powered by the office of the Technical Adviser on ICT and Digital Economy</span>
+       <span className=" text-xl font-poppins">Powered by the ICT and Digital Economy Office</span>
        </div>
       </div>
     <div className=" w-full  max-w-7xl mx-auto">
@@ -185,7 +185,7 @@ export default function Home() {
       <div className="grid-container">
          <div className="grid-x grid-margin-x small-up-1 medium-up-1 large-up-1 grid-x-wrapper">
              <div className="product-box column" style={{textAlign: 'center',  margin: '50px 0 50px'}}>
-               <a href="#" target="_blank" className="">POWERED BY: - Office of Technical Adviser on ICT and Digital Economy</a>
+               <a href="#" target="_blank" className="">Powered by the ICT and Digital Economy Office</a>
             </div>
          </div>
       </div>
