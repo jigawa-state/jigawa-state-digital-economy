@@ -30,7 +30,7 @@ const teamsSocials = [
         }    
     },    
   name: "Dr. Rislan Abdulazeez Kanya", 
-        role: "Technical Assistant to the Executive Governor of Jigawa State on ICT", 
+        role: "Technical Advisor to the Executive Governor of Jigawa State on ICT and Digital Economy", 
         image: rislan 
     },
     { social: { facebook: {
@@ -60,7 +60,7 @@ const teamsSocials = [
           url: 'https://www.linkedin.com/in/hashim-h-hashim/',
           icon: <FaLinkedinIn />,
       }    
-    }, name: "Murtala Lawan", role: "Special Assistant tothe Jigawa State Governor on ICT and Digital Economy", image: murtala },
+    }, name: "Murtala Lawan", role: "Senior Special Assistant to the Executive Governor of Jigawa State on ICT and Digital Economy", image: murtala },
      { social: { facebook: 
         {
           url: '#',
@@ -75,7 +75,7 @@ const teamsSocials = [
           url: 'https://www.linkedin.com/in/habib-kani-60b4088a/',
           icon: <FaLinkedinIn />,
       }    
-  }, name: "Habib Kani", role: "Special Assistant tothe Jigawa State Governor on ICT and Digital Economy", image: habib },
+  }, name: "Habib Kani", role: "Special Advisor to the Executive Governor Jigawa State on Technology and Innovation", image: habib },
   ]
 
 
@@ -87,7 +87,7 @@ const Team = () => {
             <div className=" flex items-center space-x-4 flex-col justify-center text-center md:text-start md:flex-row">
               <Image src={governor} alt='' className=' h-[200px] bg-white rounded-full w-[200px] border-green-500 border-4 object-cover obj' width={700} height={700} />
               <div className=" flex flex-col ">
-                <h1 className=" text-lg font-poppins"> Jigawa State Governor</h1>
+                <h1 className=" text-lg font-poppins">The Executive Governor</h1>
                 <p className=" text-gray-800 text-lg md:text-2xl font-bold">H.E Malam Umar A. Namadi, FCA</p>
               </div>
             </div>
