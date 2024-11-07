@@ -75,7 +75,7 @@ const teamsSocials = [
           url: 'https://www.linkedin.com/in/habib-kani-60b4088a/',
           icon: <FaLinkedinIn />,
       }    
-  }, name: "Habib Kani", role: "Special Advisor to the Executive Governor Jigawa State on Technology and Innovation", image: habib },
+  }, name: "Habib Kani", role: "Special Advisor to the Executive Governor of Jigawa State on Technology and Innovation", image: habib },
   ]
 
 
