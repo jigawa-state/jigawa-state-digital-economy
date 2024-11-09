@@ -1,11 +1,11 @@
 import Image, { StaticImageData } from "next/image";
 import './styles.css'
 import { ministries } from "@/lib/exports";
-import homeBanner from '@/app/assets/images/home-banner.png'
 import { BarChart2, Cpu, Globe, Smartphone } from "lucide-react"
 import jigawaLogo from '@/app/assets/images/jigawa-state.jpg'
 import Link from "next/link"
 import Team from "./components/Team";
+import TextBannerSlider from "./components/home-text-slider";
 
 
 
@@ -18,18 +18,16 @@ interface Card {
 
 export default function Home() {
   return (
-    <div className=" flex flex-col space-y-10 w-full">
-      <div className=" h-[90vh] w-full md:flex hidden mt-10" style={{
-        backgroundImage: `url(${homeBanner.src})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}>
-      </div>
+    <div className=" flex flex-col w-full">
+      {/* <div className=" h-screen w-full md:flex hidden mt-10" >
+      </div> */}
+
+      <TextBannerSlider />
+      <div className=" bg-gray-300 py-6">Hello world </div>
 
       {/* <BannerCarousel /> */}
       
-      <div className=" w-full max-w-6xl h-[80vh] my-auto mx-auto pt-[50px] text-center items-center justify-center">
+      <div className=" w-full max-w-6xl h-[80vh] md:h-[60ch] my-auto mx-auto pt-[50px] text-center items-center justify-center">
         <div className=" flex px-6 flex-col h-full space-y-4 justify-center bg my-auto items-center">
           <Image src={jigawaLogo} className=" h-36 w-36 object-cover rounded-full" alt="" width={700} height={700} />
           <h1 className=" md:text-2xl text-xl font-semibold text-green-500 font-poppins ">Welcome to Jigawa State ICT and Digital Economy Service Portal </h1>

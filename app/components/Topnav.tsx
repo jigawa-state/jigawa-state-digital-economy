@@ -12,10 +12,24 @@ import {
 } from "@/components/ui/sheet"
 
 
+const navigations = [ 
+  {name: 'Home', url: '/'},
+  {name: 'About', url: '/about'},
+  {name: 'Activities', url: '/activities'},
+  {name: 'OneAPI', url: '/oneapi'},
+  {name: "Policies", url: "/policies"},
+  {name: "News", url: "/news "},
+  {name: "Progress Resport", url: 'progress-report'},
+  {name: "Gallery", url: "gallery"},
+  {name: "Impact", url: 'impact'},
+  {name: "KPI's", url: "kpi"}
+]
+
+
 
 const Topnav = () => {
   return (
-    <div className=' w-full dark:text-gray-900 shadow-md py-3 fixed top-0 z-10 bg-white px-4 border-b'>
+    <div className=' w-full dark:text-gray-900 shadow-md py-3 fixed bg-fixed top-0 z-10 bg-white px-4 border-b'>
         <div className=" max-w-7xl mx-auto flex justify-between ">
           <Link href={'/'} className=' flex space-x-3 items-center'>
           <Image src={jigawaLogo} alt='' className=' h-12 object-contain max-w-max object-left rounded-full' width={700} height={700} />
@@ -23,10 +37,16 @@ const Topnav = () => {
           </Link>
 
           <div className=" md:flex space-x-6 hidden items-center">
-              <Link href={'/'} className=' font-poppins font-semibold'>Home</Link>
-              <Link href={'/about'} className=' font-poppins font-semibold'>About</Link>
-              <Link href={'/activities'} className=' font-poppins font-semibold'>Activities</Link>
-              <Link href={'/oneapi'} className=' font-poppins font-semibold bg-green-500 px-4 py-2 rounded-md text-white'>OneAPI</Link>
+            {
+              navigations.map(( nav ) => {
+                return (
+                  <Link href={nav.url} key={nav.url} className=' font-poppins font-semibold text-sm'>{ nav.name }</Link>
+                )
+              })
+            }
+              {/* <Link href={'/'} className=' font-poppins font-semibold'>Home</Link>
+              <Link href={'/activities'} className=' font-poppins font-semibold'>Activities</Link> */}
+              {/* <Link href={'/oneapi'} className=' font-poppins font-semibold bg-green-500 px-4 py-2 rounded-md text-white'>OneAPI</Link> */}
           </div>
           <div className=" flex md:hidden items-center">
           <Sheet>
