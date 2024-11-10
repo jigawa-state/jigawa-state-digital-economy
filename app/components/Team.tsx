@@ -13,7 +13,6 @@ import { FaLinkedinIn } from "react-icons/fa";
 
 
 
-
 const teamsSocials = [
     { social: { facebook: {
       url: '#',
@@ -87,7 +86,7 @@ const teamsSocials = [
       image: governor,
     },
     {
-      id: 1,
+      id: 2,
       name: "H.E Engr. Aminu Usman",
       designation: "Deputy Governor of Jigawa State",
       image: deputy

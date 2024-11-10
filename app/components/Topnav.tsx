@@ -63,21 +63,16 @@ const Topnav = () => {
                   </Link>
 
                 <div className="flex flex-col space-y-1 items-start my-4">
-                    <Link href={'/'} className=' font-poppins font-semibold py-2'>
-                        <SheetTrigger>
-                          Home
-                        </SheetTrigger>
-                   </Link>
-                    <Link href={'/about'} className=' font-poppins font-semibold py-2'>
-                        <SheetTrigger>
-                              About
-                          </SheetTrigger>
-                        </Link>
-                    <Link href={'/activities'} className=' font-poppins font-semibold py-2'>
-                        <SheetTrigger>
-                          Activities
-                        </SheetTrigger>
-                    </Link>
+                   {
+                    navigations.map((nav ) => {
+                      return  <Link  key={nav.url} href={nav.url} className=' font-poppins font-semibold py-2'>
+                                    <SheetTrigger>
+                                      {nav.name}
+                                    </SheetTrigger>
+                              </Link>
+                    })
+                   }
+                   
                 </div>
               </SheetHeader>
             </SheetContent>
