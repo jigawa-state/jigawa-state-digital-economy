@@ -45,12 +45,12 @@ export default function TextBannerSlider() {
     <div
     style={{
         backgroundImage: `url(${homeBanner.src})`,
-    backgroundSize: 'cover',
+        backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
 
-    className="w-full  h-[100vh] flex md:items-start items-center justify-center text-center md:text-start mt-10 bg-gradient-to-r from-green-700 to-green-800 text-green-700">
+    className="w-full  h-[100vh] flex md:items-start bg-right items-center justify-center text-center md:text-start mt-10 bg-gradient-to-r from-green-700 to-green-800 text-green-700">
       <div className="container mx-auto px-4 space-y-6 flex flex-col py-16 md:py-24 lg:py-32">
         <div className="grid grid-cols-1 justify-center h-full md:grid-cols-2 gap-10 items-center">
           <div className="space-y-4 flex flex-col">
