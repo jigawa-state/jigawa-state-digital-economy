@@ -9,7 +9,7 @@ const PagesBanner = ( {message}: {message: string}) => {
         <Image src={jigawaLogo} alt='' className=' h-32 object-contain max-w-max object-left' width={700} height={700} />
         <h1 className="text-2xl font-semibold font-poppins tracking-tight text-green-200 sm:text-2xl md:text-2xl"><span className="text-white">Jigawa State</span> ICT and Digital Economy
         </h1>
-        <p className="mt-6 max-w-3xl text-3xl font-bold font-poppins text-white">
+        <p className="mt-6 max-w-3xl md:text-3xl text-lg font-bold font-poppins text-white">
             {message}
         </p>
     </div>
