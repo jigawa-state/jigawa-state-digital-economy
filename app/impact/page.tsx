@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { CheckCircle2, Users, Laptop, GraduationCap, Briefcase } from 'lucide-react'
+import { CheckCircle2, Users, Laptop, GraduationCap } from 'lucide-react'
 import PagesBanner from "../components/PagesBanner"
 
 export default function ImpactPage() {
