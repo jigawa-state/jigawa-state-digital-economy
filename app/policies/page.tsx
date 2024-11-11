@@ -21,7 +21,7 @@ const policies = [
         id: 1,
         title: "5th Govt Inaugural Speach",
         description: "This is a brief description of Policy 1. It outlines important guidelines and regulations for the ICT and Digital Economy sector in Jigawa State.",
-        documentUrl: "/documents/5th-govts-inaugural-speach.pdf",
+        documentUrl: "https://jigawa-state.s3.us-east-1.amazonaws.com/5th-govts-inaugural-speach.pdf",
         policyUrl: "/policies/5th-govts-inaugural-speach"
       }, 
 
@@ -42,7 +42,7 @@ const policies = [
                 strategic approach to achieve widespread broadband penetration, economic growth and improved quality of life for the 
                 residents of the State
                 ` ,
-      documentUrl: "/documents/adoption-of-national-broadband-plan.pdf",
+      documentUrl: "https://jigawa-state.s3.us-east-1.amazonaws.com/adoption-of-national-broadband-plan.pdf",
         policyUrl: "/policies/adoption-of-national-broadband-plan"
     },
     {
@@ -61,7 +61,7 @@ const policies = [
       National Information Technology Development Agency (NITDA), is the first to adopt and adapt the 
       Nigeria e-Government Master Plan. 
       `,
-      documentUrl: "/documents/jigawa-egovt-master-plan.pdf",
+      documentUrl: "https://jigawa-state.s3.us-east-1.amazonaws.com/Jigawa-egovt-master-plan.pdf",
         policyUrl: "/policies/jigawa-egovt-master-plan"
     },
     {
@@ -89,8 +89,8 @@ const policies = [
                 civil society. Their input ensured a comprehensive and inclusive approach 
                 and was also integral in shaping the strategies and initiatives expressed in 
                 the draft document 
-        `,
-      documentUrl: "/documents/digital-job-playbook.pdf",
+              `,
+      documentUrl: "https://jigawa-state.s3.us-east-1.amazonaws.com/digital-job-playbook.pdf",
         policyUrl: "/policies/digital-job-playbook"
     },
     {
@@ -104,21 +104,21 @@ const policies = [
         solutions and platforms the government uses to improve governance, streamline 
         service delivery and encourage citizen engagement
       `,
-      documentUrl: "/documents/intergrating-govtech-solution.pdf",
+      documentUrl: "https://jigawa-state.s3.us-east-1.amazonaws.com/intergrating-govTech-solution.pdf",
         policyUrl: "/policies/integrating-govtech-solution"
     },
     {
       id: 6, 
       title: "Jigawa Digital Economy Plans and Strategies",
       description: `
-      That we would collaborate with the National Information Technology 
-Development Agency (NITDA) to implement the State ICT Master Plan, 
-promote e-governance, and the gradual emergence of the digital economy. 
-Part of our resolve in this respect is to ensure that Jigawa State reaps the 
-dividends of the fourth industrial revolution through the vigorous pursuit of 
-innovation and technology
-      `,
-      documentUrl: "/documents/jigawa-digital-economy-plans-and-strategies.pdf",
+        That we would collaborate with the National Information Technology 
+        Development Agency (NITDA) to implement the State ICT Master Plan, 
+        promote e-governance, and the gradual emergence of the digital economy. 
+        Part of our resolve in this respect is to ensure that Jigawa State reaps the 
+        dividends of the fourth industrial revolution through the vigorous pursuit of 
+        innovation and technology
+       `,
+      documentUrl: "https://jigawa-state.s3.us-east-1.amazonaws.com/jigawa-digital-economy-plans-and-strategies.pdf",
         policyUrl: "/policies/jigawa-digital-economy-plans-and-strategies"
     },
     {
@@ -163,7 +163,7 @@ innovation and technology
         policies, the state strives to ensure that affordable and accessible internet 
         connectivity becomes a reality for all
       `,
-      documentUrl: "/documents/right-of-way-cost-reduction-recommedations.pdf",
+      documentUrl: "https://jigawa-state.s3.us-east-1.amazonaws.com/right-of-way-cost-reduction-recommedations.pdf",
         policyUrl: "/policies/right-of-way-cost-reduction-recommedations"
     }
     
