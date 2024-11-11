@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
 import img1 from '@/public/img/250-staff-training.jpg'
 import img2 from '@/public/img/250-staff-training2.jpg'
