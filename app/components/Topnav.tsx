@@ -32,7 +32,7 @@ const Topnav = () => {
     <div className=' w-full dark:text-gray-900 shadow-md py-3 fixed bg-fixed top-0 z-10 bg-white px-4 border-b'>
         <div className=" max-w-7xl mx-auto flex justify-between ">
           <Link href={'/'} className=' flex space-x-3 items-center'>
-          <Image src={jigawaLogo} alt='' className=' h-12 object-contain max-w-max object-left rounded-full' width={700} height={700} />
+          <Image src={jigawaLogo} alt='' className=' h-12 flex-none object-contain max-w-max object-left rounded-full' width={700} height={700} />
             {/* <p className='font-poppins font-semibold '></p> */}
           </Link>
 
@@ -58,7 +58,7 @@ const Topnav = () => {
             <SheetContent side={'left'}>
               <SheetHeader className=' flex flex-col'>
               <   Link href={'/'} className=' flex space-x-3 items-center'>
-                  <Image src={jigawaLogo} alt='' className=' h-12 object-contain max-w-max object-left rounded-full' width={700} height={700} />
+                  <Image src={jigawaLogo} alt='' className=' h-12 flex-none object-contain max-w-max object-left rounded-full' width={700} height={700} />
                     {/* <p className='font-poppins font-semibold '></p> */}
                   </Link>
 
