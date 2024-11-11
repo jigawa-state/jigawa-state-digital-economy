@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChevronLeft, ChevronRight, FileText, Link } from "lucide-react"
+import { ChevronLeft, ChevronRight, FileText } from "lucide-react"
 import PagesBanner from '../components/PagesBanner'
 
 
@@ -48,7 +48,19 @@ const policies = [
     {
       id: 3,
       title: "Jigawa egovt master plan",
-      description: "This is a brief description of Policy 1. It outlines important guidelines and regulations for the ICT and Digital Economy sector in Jigawa State.",
+      description: `
+      Jigawa State from its creation from Kano State in 1991 had always sought to create a new future for
+      the citizens and economy, hence the slogan: 'A New World' to reflect this vision. The Present 
+      administration led by His Excellency, Badaru Abubakar, is seeking to extend this vision by developing 
+      plans and strategies to prepare the Jigawa State for the Digital Economy and the global 4 Industrial 
+      Revolution (4IR). At digital economy age, creating a new world and future for Jigawa State requires
+      the Government to position digital at the core of its developmental reforms, plans and strategies; 
+      provide enabling environment for itself to first digitally transform and get digital transformation to 
+      effectively take off. The Jigawa State as part of the Federating Unit is taking after the Federal 
+      Government of Nigeria in its digital transformation efforts. The State, with the support of the 
+      National Information Technology Development Agency (NITDA), is the first to adopt and adapt the 
+      Nigeria e-Government Master Plan. 
+      `,
       documentUrl: "/documents/jigawa-egovt-master-plan.pdf",
         policyUrl: "/policies/jigawa-egovt-master-plan"
     },
@@ -84,22 +96,74 @@ const policies = [
     {
       id: 5,
       title: "Intergrating GovTech Solution",
-      description: "Intergrating GovTech Solution. It outlines important guidelines and regulations for the ICT and Digital Economy sector in Jigawa State.",
+      description: `
+      The executive summary provides an overview of the comprehensive 
+        implementation framework for e-government tools in Jigawa state and includes 
+        technology tools for Government-to-Government (G2G), Government-to-Business 
+        (G2B), and Government-to-Citizen (G2C). E-government tools refer to technology 
+        solutions and platforms the government uses to improve governance, streamline 
+        service delivery and encourage citizen engagement
+      `,
       documentUrl: "/documents/intergrating-govtech-solution.pdf",
         policyUrl: "/policies/integrating-govtech-solution"
     },
     {
       id: 6, 
       title: "Jigawa Digital Economy Plans and Strategies",
-      description: " Jigawa Digital Economy Plans and Strategies. It outlines important guidelines and regulations for the ICT and Digital Economy sector in Jigawa State.",
+      description: `
+      That we would collaborate with the National Information Technology 
+Development Agency (NITDA) to implement the State ICT Master Plan, 
+promote e-governance, and the gradual emergence of the digital economy. 
+Part of our resolve in this respect is to ensure that Jigawa State reaps the 
+dividends of the fourth industrial revolution through the vigorous pursuit of 
+innovation and technology
+      `,
       documentUrl: "/documents/jigawa-digital-economy-plans-and-strategies.pdf",
         policyUrl: "/policies/jigawa-digital-economy-plans-and-strategies"
     },
     {
       id: 7,
       title: "Right Of Way Cost Reduction Recommedations",
-      description: "Right Of Way Cost Reduction Recommedaations. It outlines important guidelines and regulations for the ICT and Digital Economy sector in Jigawa State.",
-      documentUrl: "/documents/right-of-way-cost-reduction-recommedaations.pdf",
+      description: `
+        This draft Action Plan for Policy and Regulatory Reforms on Right-of-Way (RoW) in 
+        Jigawa State outlines the vision and mission to reduce the cost of internet Right–
+        of–Way (RoW) and foster affordable and inclusive connectivity for all. The action 
+        plan objectives include expanding broadband access, enhancing affordability, 
+        promoting capacity building and digital skills development, establishing favorable 
+        policies and regulatory frameworks, and encouraging collaboration and 
+        partnerships.
+
+
+        In achieving these objectives, the aim is to create a scenario where affordable and 
+        accessible internet connectivity is available to all, breaking down barriers and 
+        ensuring inclusivity in the digital world. This action plan identifies key stakeholders, 
+        suggests institutional arrangements, and outlines a timeline for implementation 
+        over the next 1-5 years.
+
+        The action plan takes cognizance of the numerous opportunities associated with 
+        the reduction of Right-of-WAY costs, such as job creation, economic growth, social 
+        well-being, increased revenue generation, smart agriculture, productivity 
+        enhancement, social inclusion, creation of new market value chains, and attraction 
+        of investors.
+
+        To mitigate potential risks, strategies have been identified such as cost reduction of 
+        Right-of-Way, increased infrastructure development, and faster deployment. These 
+        strategies are aimed at addressing challenges such as insufficient power supply, 
+        potential revenue loss, unequal distribution of access to broadband connectivity, 
+        and job opportunities.
+
+        Key performance indicators to measure progress, including internet access across 
+        the state, broadband penetration rates, number of jobs created, and increased 
+        digital literacy levels over a period of 2(two) years have been effectively identified.
+
+        By implementing this action plan, the primary goal is to establish an environment 
+        that nurtures affordable and all-encompassing connectivity, leading to economic 
+        growth, increased job opportunities, enhanced digital literacy, and greater social 
+        inclusion. Through collaboration with stakeholders and the adoption of favorable 
+        policies, the state strives to ensure that affordable and accessible internet 
+        connectivity becomes a reality for all
+      `,
+      documentUrl: "/documents/right-of-way-cost-reduction-recommedations.pdf",
         policyUrl: "/policies/right-of-way-cost-reduction-recommedations"
     }
     
