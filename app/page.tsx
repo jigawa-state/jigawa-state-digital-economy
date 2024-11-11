@@ -23,7 +23,7 @@ export default function Home() {
       </div> */}
 
       <TextBannerSlider />
-      <div className=" bg-gray-300 py-6">Hello world </div>
+      {/* <div className=" bg-gray-300 py-6"></div> */}
 
       {/* <BannerCarousel /> */}
       
