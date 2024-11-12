@@ -16,7 +16,7 @@ export default function ImpactPage() {
       <PagesBanner message='Transforming Jigawa State through ICT and Digital Economy Initiatives' />
 
       <main className="container mx-auto flex flex-col space-y-6 px-4 py-12">
-        <Tabs defaultValue="overview" className="space-y-4 rounded-lg py-6 px-6 flex-wrap">
+        <Tabs defaultValue="overview" className="space-y-4 rounded-lg py-6 flex-wrap">
           <TabsList className=" py-6 items-center justify-start ">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="digital-literacy">Digital Literacy</TabsTrigger>

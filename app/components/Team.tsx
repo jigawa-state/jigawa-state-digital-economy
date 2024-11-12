@@ -6,6 +6,7 @@ import governor from '@/app/assets/team/governor.png'
 import deputy from '@/app/assets/team/deputy.png'
 import murtala from '@/app/assets/team/murtala.jpg'
 import habib from '@/app/assets/team/habib.jpg'
+import Link from 'next/link'
 import jigawaFlag from '@/app/assets/images/ng-flag.png'
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -82,12 +83,14 @@ const teamsSocials = [
     {
       id: 1,
       name: "H.E Malam Umar A. Namadi, FCA",
+      slug: 'governor',
       designation: "The Executive Governor of Jigawa State",
       image: governor,
     },
     {
       id: 2,
       name: "H.E Engr. Aminu Usman",
+      slug: 'deputy',
       designation: "Deputy Governor of Jigawa State",
       image: deputy
     }
@@ -102,13 +105,13 @@ const Team = () => {
           {
             executives.map(( executive ) => {
               return (
-                <div key={executive.id} className=" flex items-center space-x-4 flex-col justify-center text-center md:text-start md:flex-row">
+                <Link href={`executives/${executive.slug}`} key={executive.id} className=" hover:bg-green-200/40 p-3 rounded-md  flex items-center space-x-4 flex-col justify-center text-center md:text-start md:flex-row">
                     <Image src={executive.image} alt='' className=' h-[200px] bg-white rounded-full w-[200px] border-green-500 border-4 object-cover obj' width={700} height={700} />
-                    <div className=" flex flex-col ">
+                    <div className="flex flex-col">
                     <h1 className=" font-poppins">{ executive.designation}</h1>
-                      <p className=" text-gray-800 text-lg md:text-2xl font-bold"> { executive.name } </p>
+                      <p className=" text-gray-800 hover:underline text-lg md:text-2xl font-bold"> { executive.name } </p>
                     </div>
-                </div>
+                </Link>
               )
             } )
           }

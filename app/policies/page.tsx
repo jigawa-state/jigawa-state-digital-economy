@@ -20,7 +20,16 @@ const policies = [
     {
         id: 1,
         title: "5th Govt Inaugural Speach",
-        description: "This is a brief description of Policy 1. It outlines important guidelines and regulations for the ICT and Digital Economy sector in Jigawa State.",
+        description: `
+        My fellow beloved citizens of Jigawa State. Today’s inauguration marks the beginning of a new dawn for our dear State for 
+        which we express our utmost gratitude to Allah, the Most Beneficent and Most Merciful, Al-Fattah - Malikui-Mulk, Dhul Jalali 
+        Wal Ikram - The Giver of Victory, The Owner of Sovereignty, The Lord of Majesty, and Generosity. It is with His special grace 
+        that we are alive, healthy, and present to witness the proceedings of this very auspicious day in the historical development of our dear State. 
+        The day we are assuming the mantle of leadership of our dear State with my humble self as the 5th democratically elected Governor and the 2nd under our great party, the All-Progressive Congress.
+        Our victory and the victory of our great party at both the State and Federal level elections is a victory for democracy, 
+        for the progressives and for a united Jigawa State and a united Nigeria. It is a Victory for Greater Jigawa. We profoundly 
+        thank Allah (SWT) for the resounding victories. By this, the people of Nigeria and indeed, the People of Jigawa State; have sent a clear message of their satisfaction with the gradual, but undoubtedly positive, transformations taking place under our great party, the APC. We profoundly thank the good people of Jigawa State and Nigeria in general for the confidence reposed in us and our party by entrusting us with the mandate to continue to govern, to manage your affairs and resources, to steer the ship of state and to sustain and improve on the momentum of ongoing transformations taking place across the length and breadth of our dear State and the Nation in general.
+        `,
         documentUrl: "https://jigawa-state.s3.us-east-1.amazonaws.com/5th-govts-inaugural-speach.pdf",
         policyUrl: "/policies/5th-govts-inaugural-speach"
       }, 
@@ -47,7 +56,7 @@ const policies = [
     },
     {
       id: 3,
-      title: "Jigawa egovt master plan",
+      title: "Jigawa eGovt Master Plan",
       description: `
       Jigawa State from its creation from Kano State in 1991 had always sought to create a new future for
       the citizens and economy, hence the slogan: 'A New World' to reflect this vision. The Present 
@@ -193,13 +202,13 @@ export default function PolicyPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <PagesBanner message='' />
+      <PagesBanner message='Jigawa State Policies' />
       <main className="container mx-auto px-4 py-12">
         <div className=" flex flex-col space-y-4">
           {currentPolicies.map((policy) => (
             <Card key={policy.id} className="flex flex-col">
               <CardHeader>
-                <CardTitle className="text-2xl font-poppins font-semibold text-green-700">{policy.title}</CardTitle>
+                <CardTitle className="text-2xl font-poppins text-center md:text-start font-semibold text-green-700">{policy.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
                 <CardDescription className="text-gray-600 text-lg text-justify">{policy.description}</CardDescription>

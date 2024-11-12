@@ -16,9 +16,11 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Jigawa State",
-  description: "Jigawa State Digital Economy",
+  title: "JICTDE",
+  description: "Jigawa State Digital ICT and Digital Economy",
 };
+
+
 
 export default function RootLayout({
   children,
