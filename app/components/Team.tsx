@@ -90,7 +90,7 @@ const teamsSocials = [
     {
       id: 2,
       name: "H.E Engr. Aminu Usman",
-      slug: 'deputy',
+      slug: 'deputy-governor',
       designation: "Deputy Governor of Jigawa State",
       image: deputy
     }

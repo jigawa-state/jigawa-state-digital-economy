@@ -4,8 +4,8 @@ import governor from '@/app/assets/team/governor.png'
 import Image from 'next/image'
 import GovernorBiography from '../_components/governors-biography'
 
-const page = ( { params }: any ) => {
-    console.log(params)
+const page = ( ) => {
+   
   return (
     <div className=' w-full'>
       <PagesBanner message='The Executive Governor of Jigawa State ' />

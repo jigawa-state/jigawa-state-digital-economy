@@ -19,10 +19,10 @@ const navigations = [
   {name: 'OneAPI', url: '/oneapi'},
   {name: "Policies", url: "/policies"},
   {name: "News", url: "/news "},
-  {name: "Progress Resport", url: 'progress-report'},
-  {name: "Gallery", url: "gallery"},
-  {name: "Impact", url: 'impact'},
-  {name: "KPI's", url: "kpi"}
+  {name: "Progress Resport", url: '/progress-report'},
+  {name: "Gallery", url: "/gallery"},
+  {name: "Impact", url: '/impact'},
+  {name: "KPI's", url: "/kpi"}
 ]
 
 
