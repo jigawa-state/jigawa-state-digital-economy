@@ -19,6 +19,8 @@ import {  ResponsiveContainer,
   Sector } from 'recharts'
 
   
+  const d = new Date();
+    let year = d.getFullYear();
 
 // Example data - replace with your actual data
 const monthlyData = [
@@ -197,12 +199,12 @@ export default function KPIPage() {
         </Card>
       </main>
 
-      <footer className="bg-green-800 text-white py-8 mt-12">
-        <div className="container mx-auto px-4 text-center">
-          <p>For more detailed KPI reports, please contact the JICTDE office.</p>
-          <p className="mt-2">© 2023 Jigawa State ICT and Digital Economy. All rights reserved.</p>
+      {/* <footer className="bg-gray-100 text-green-900 py-3 mt-12">
+        <div className="container mx-auto text-sm px-4 text-center">
+          <p className=' font-poppins'>For more detailed KPI reports, please contact the JICTDE office.</p>
+          <p className="mt-2 font-poppins">© {year} Jigawa State ICT and Digital Economy. All rights reserved.</p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   )
 }

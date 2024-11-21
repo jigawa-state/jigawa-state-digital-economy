@@ -138,12 +138,12 @@ export default function ImpactPage() {
         </Card>
       </main>
 
-      <footer className="bg-green-800 text-white py-8 mt-12">
+      {/* <footer className="bg-green-800 text-white py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
           <p>For more information about our impact and initiatives, please contact the JICTDE office.</p>
           <p className="mt-2">© 2023 Jigawa State ICT and Digital Economy. All rights reserved.</p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   )
 }
