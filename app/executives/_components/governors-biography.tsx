@@ -78,7 +78,7 @@ export default function GovernorBiography() {
       <footer className="bg-green-800 text-white py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
           <p>For more information about Governor Mallam Umar Namadi, please contact the Jigawa State Government office.</p>
-          <p className="mt-2">© 2023 Jigawa State Government. All rights reserved.</p>
+          <p className="mt-2">© 2024 Jigawa State Government. All rights reserved.</p>
         </div>
       </footer>
     </div>
