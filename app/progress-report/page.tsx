@@ -5,6 +5,7 @@ import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend, LineChart, Line } from 'recharts'
 import PagesBanner from "../components/PagesBanner"
+import JEMISProgressReport from "./_components/jemis"
 
 const digitalLiteracyData = [
   { year: 2019, rate: 45 },
@@ -43,7 +44,9 @@ export default function ProgressReport() {
     <div className="min-h-screen bg-gray-50">
       <PagesBanner message="Jigawa State ICT and Digital Economy Progress Report" />
 
-      <main className="container mx-auto px-4 py-12">
+      <JEMISProgressReport />
+
+      {/* <main className="container mx-auto px-4 py-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
           <Card>
             <CardHeader>
@@ -183,7 +186,7 @@ export default function ProgressReport() {
             </ul>
           </CardContent>
         </Card>
-      </main>
+      </main> */}
 
       {/* <footer className="bg-green-800 text-white py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
