@@ -14,7 +14,7 @@ import {
 
 const navigations = [ 
   {name: 'Home', url: '/'},
-  {name: 'About', url: '/about'},
+  {name: 'About', url: '/about-us'},
   {name: 'Activities', url: '/activities'},
   {name: 'OneAPI', url: '/oneapi'},
   {name: "Policies", url: "/policies"},
