@@ -1,0 +1,271 @@
+Jigawa State Digital Economy Plan and Strategy (JDEPS)
+
+Five Year Plan 2023 - 2028
+Implementation Strategy
+Pillar 1
+JDEPS
+Establish a Jigawa state agency for digital economy.
+11
+Initiatives
+KPIs Risks Mitigation Strategies
+Jigawa State
+Digital Economy
+Policy and Strategy
+Timeline of the establishment
+of the agency.
+
+
+Vision
+
+•“To transform Jigawa into a leading digital economy state in Nigeria
+providing quality life and digital economies for all.”
+
+Mission
+•“To build a state where digital innovation and entrepreneurship are
+leveraged to create value and prosperity for all.”
+
+
+This is a quote by the executive governor 
+That we would collaborate with the National Information Technology
+Development Agency (NITDA) to implement the State ICT Master Plan,
+promote e-governance, and the gradual emergence of the digital economy.
+Part of our resolve in this respect is to ensure that Jigawa State reaps the
+dividends of the fourth industrial revolution through the vigorous pursuit of
+innovation and technology….”
+
+
+Excerpt from Inaugural Speech of His Excellency,
+
+Malam Umar A. Namadi FCA
+
+Executive Governor of Jigawa State
+
+
+
+
+
+Preface 
+We are standing on the threshold of a new era, wherein the digital revolution is reshaping the world and transforming the way we
+live, work, and conduct business. As Jigawa State embraces this era of rapid technological advancements, we recognize the
+immense potential of the digital economy to drive inclusive growth, foster innovation, and empower the people of our state. The
+Jigawa State Digital Economy Policy and Strategy (JDEPS) serves as a roadmap to harness the power of the digital economy and
+unleash its transformative impact on our state. This policy is a testament to our commitment to creating an enabling
+environment that nurtures digital innovation, attracts investments, and unlocks new opportunities for our citizens. In developing
+this policy draft, we have engaged in consultations with experts, stakeholders, and industry leaders to gain valuable insights and
+best practices. We have listened to the aspirations of our people and understood their needs, ensuring that this policy is rooted
+in the realities and aspirations of Jigawa State. The digital economy policy outlines a comprehensive strategy that encompasses
+various dimensions of the digital economy, ranging from digital infrastructure and connectivity to digital skills development,
+entrepreneurship, and digital governance. It takes into account the unique strengths and challenges of our state, leveraging our
+rich cultural heritage, entrepreneurial spirit, and technological advancement.
+
+
+This policy draft emphasizes the importance of collaboration and partnerships. We acknowledge that the digital economy is not
+built by the government alone but requires the active participation of academia, the private sector, civil society, and our citizens.
+By fostering collaboration and leveraging collective expertise, resources, and ideas, we can accelerate digital transformation.
+Furthermore, inclusivity lies at the heart of developing this digital economy policy and strategy. Jigawa State is committed to
+bridging the digital divide, ensuring that every citizen, regardless of their background or location, has access to affordable and
+reliable digital infrastructure. We prioritize digital skills development, particularly among underserved communities, to empower
+people with the knowledge and tools to fully participate in the digital economy. As Jigawa State embarks on this journey towards
+a thriving digital economy, we are aware of the challenges and risks that lie ahead.
+
+
+We recognize the need for a robust regulatory framework that safeguards privacy, protects intellectual property rights, and
+ensures cybersecurity. We are committed to addressing these challenges head-on by adapting our policies and regulations to
+the evolving digital landscape. The Jigawa State Digital Economy Policy and Strategy is not just a document; it is a commitment
+to our people, a call to action for all stakeholders, and a roadmap to a brighter future. We invite all citizens, businesses, and
+institutions to join us on this transformative journey as we build a prosperous, inclusive, and digitally empowered Jigawa State.
+Together, let us embrace the digital revolution and create a future where innovation flourishes, entrepreneurship thrives, and our
+people reap the full benefits of the digital economy.
+
+
+
+Pillar 1 (Developmental Regulation)
+Developmental Regulation has to do with the government's social, economic, and environmental policy objectives. To
+develop a thriving digital economy, it is necessary to implement the appropriate regulatory instruments. Currently, there
+are no dedicated MDAs responsible for the digital economy in Jigawa state as such, MDAs implement ICT projects in
+silos.
+
+
+Furthermore, there is bureaucracy and a slow legislative/governance process to approving policies and the awareness
+level of the existing regulations with regards to the digital economy is low amongst key players and stakeholders.
+However, the state has developed an E-government master plan and strategy document governing the digital
+economy in the State.
+
+
+
+Jigawa State developed strategic frameworks and action plans to promote a sustainable and socio-economically
+developed state through exemplary and transparent leadership, provision of social service through strong and
+functional institutions, and the development of physical infrastructure based on broad participation by the people
+(Planning, 2016). The State also developed a framework for an e-government masterplan to have an efficient and
+innovative public service and digitally empowered citizens and businesses that leverage the State’s comparative
+advantages and the global digital economy opportunities for social, economic, and sustainable development. Galaxy
+ITT is in charge of the e-government master plan in the state (Ministry of Justice, no date)
+
+
+Pillars objectives 
+
+- To review and upgrade ICT-related existing laws and policies such as e-procurement, e-finance, digitization of revenue collection (e-tax), e-certificate in land registry, etc.
+- To make a law that will regulate all ICT activities in the State.
+- To Secure formal approval of the e-governance master plan for implementation
+- To establish a full-pledged ICT Agency in the State
+
+
+
+Pillar 2 (Digital Literacy and Skills)
+
+Situation Analysis
+A digital economy can only be as robust as its citizens' level of digital literacy. Literacy today encompasses more than
+the capacity to read and write. A person who is literate in the fourth industrial revolution must be digitally literate. As the
+significance of digital technology to society increases, so does the value of digital literacy as an instrument for lifelong
+education. In terms of government initiatives about digital literacy and skills in Jigawa state, the state has a policy on
+digital literacy in its education bill, through the Ministry of Education, Science and Technology
+
+Jigawa State has been one of the early movers to drive digital literacy in Nigeria since 2000 when it launched the
+Jigawa State Institute of Informatics and International ICT Scholarship (State Ministry of Education) to provide digital
+technology skills to its youthful population. This institute has trained over 5000 youths amidst low digital literacy
+inclusion and deepening, as about 50% of Jigawa state citizens are rural dwellers who do not have network coverage
+and thus find it almost impossible to access the digital literacy initiatives.
+
+Pillars Objectives
+
+- To integrate digital literacy and skills into the state educational curriculum at all levels.
+- To support training and capacity building among public sector employees.
+- To create a pool of Jigawa state citizens with digital skills.
+- To bridge the gap between academia and industry.
+- To minimize access barriers to digital tools for Jigawa citizens.
+
+
+
+Pillar 3 ( Solid Infrastructure ) 
+
+Situation analysis
+The solid infrastructure pillar will address the deployment of fixed and mobile infrastructure to increase the state’s
+broadband penetration. Without nationwide access to high-speed Internet, an inclusive and thriving digital economy
+will be difficult to achieve. Currently, in Jigawa state there are no policies guiding broadband access, data center, and
+spectrum frequency management. There’s a low level of awareness of the Nigerian National Broadband Plan (NNBP)
+including the Right of Way (RoW) policy. Ironically, the Jigawa State House of Assembly does not have a committee on
+ICT/Digital Transformation.
+
+The data center in the State Secretariat is the offshoot of the project called State and Local Government (SLOGO) which
+started in 2016. SLOGO also has a component called State Integrated Financial Management Information System
+(SIFMIS). It was financed by the European Union (EU) through the World Bank. Previously, Jigawa State used Integrated
+Financial Management. Jigawa State also took the giant stride to set
+
+
+
+Pillar Objectives 
+- To identify and fill existing gaps of the required ICT physical infrastructure.
+- To accelerate the penetration of affordable and quality broadband internet in the state.
+- Support proliferation of data centers across the state.
+
+
+Pillar 4 ( Service Infrastructure ) 
+
+The service infrastructure pillar will address the provision of dependable digital platforms to propel the digital economy.
+These platforms facilitate online transactions and interactions. In addition, they enable a supply of data from which the
+government and private sector can obtain useful insights for the development of the digital economy. Currently, Jigawa
+State has the State Integrated Financial Management Information System (SIFMIS) which is the information system
+used by the Jigawa State Government for recording, accounting, and reporting on its overall fiscal operations. The state
+also has a Payroll system, Integrated Financial Management System (IFMIS), and Jigawa State Government E-Procurement.
+This pillar supports the provision of a centralized online platform for the government to communicate with
+citizens and investors. It facilitates the implementation of digital government services and a paperless system. Without
+digital platforms to access services, the objective of developing a digital economy will remain unattainable.
+
+Pillar Objectives 
+
+- Approval and implementation of the E-government Master Plan, including the State e-government Interoperability Framework (SeGIF) and Enterprise Architecture.
+- Promotion and adoption of digital platforms.
+- Use of digital platforms for the extraction and warehousing of anonymized big data for the public good.
+- Promote the creation and use of digital platforms in government and non-government sectors.
+
+Pillar 5 (Digital Service Development and Promotion )
+
+Situation Analysis 
+
+The digital services development and promotion pillar will focus on the creation of an innovative digital ecosystem that
+supports Innovative Driven Enterprises (IDEs) and Micro Small and Medium Enterprises (MSMEs). Currently, Jigawa state
+does not have any policy, framework, or guidelines supporting technology Startups or Services. There is a need to
+support the existing training centers in terms of training and to upgrade their capability to innovation hubs. There is little
+or no discussion about the startup bill or awareness about it among stakeholders. Furthermore, there’s a need for
+innovation hubs that can build the capacity of both government employees and citizens.
+
+
+Pillar Objectives 
+- Support for the creation of innovation-driven enterprises and digitally enabled SMEs.
+- Facilitation of mentorship and funding programmes to support innovation driven enterprises and digitally enabled MSMEs.
+- Enabling innovation driven enterprises and digitally enabled MSMEs.
+- Facilitate the launch of Digital Innovation and Scale-up Centers (DISC), IT and innovation hubs.
+- Facilitate PPP synergy to promote digital services in the State.
+
+
+
+Pillar 6 ( Soft Infrastructure )
+
+Situation Analysis
+The soft infrastructure pillar aims to increase public trust in the use of digital technologies and participation in the
+digital economy. It emphasizes the significance of cybersecurity and other standards, frameworks, and guidelines that
+encourage citizens to adopt digital technologies. This pillar addresses data privacy and the deployment of technologies
+such as the public key infrastructure. Currently, there is no harmonized existing law or policy governing the digital
+economy in Jigawa state. Thus, much work is needed to be done in this pillar to achieve a robust digital economy in
+Jigawa state.
+
+
+Pillars Objectives
+- Review and Strengthen Cyber Security Instruments to ensure that Citizens are Secured.
+- Strengthening Data protection Instrument.
+- Support Digital for Data Implementation Programme.
+
+
+Pillar 7 (Digital Society and Emerging Technologies )
+
+
+Situation Analysis
+The digital society and emerging technologies concentrate on tying the growth of the digital economy to measures of
+the well-being of average citizens. The objectives of this pillar include addressing digital inclusion and financial
+inclusion. Currently, there are no robust provisions for PWDs in the digital economy draft plan and policy of the state.
+Furthermore, there is no strategy for women's inclusion in tech.
+
+
+Thus, there is much work needed to be done in this pillar to achieve a robust digital economy in Jigawa state. Currently,
+the private sector in the state has taken the initiative to drive the digital society through programs such as Start-up
+Jigawa, and Next Jigawa. “Next Jigawa” is a platform driving agenda settings for digital policy. Next Jigawa involves
+CSOs, state and non-state actors, business membership organizations, people with disabilities (PWDs), academics,
+women, etc. to develop the policy of the citizen’s charter which is shared, reviewed, modified, and used to drive digital
+inclusion of women in the state and Engausa Digital Literacy program in Ringim, etc.
+
+
+Pillar Objectives 
+Digital Inclusion across gender, disability, and social strata
+Financial Inclusion through the use of fintech solutions.
+Establishment of Emerging Technology Centers
+
+
+Pillars 8 (Indigenous Content Development and Adoption )
+
+
+Situation Analysis
+
+The indigenous content development and adoption pillar will provide a policy direction for promoting local digital
+innovations vis-à-vis digital service opportunities through the adoption and adaptation of digital technologies
+propelled and driven by indigenous digital talents in the State. It will identify jobs that are presently being outsourced
+and promote their repatriation to Jigawa citizens with digital skills. Currently, there are no laws or regulations about
+indigenous content development in Jigawa State. Indigenous talents and service providers are not being patronized
+enough. The state government needs to give more opportunities to its indigenes because of the pool of talent that
+exists. By promoting and implementing indigenous content, Jigawa state will be able to profit from the globalization of
+the digital technology market. It will also help the state save foreign currency and increase exports. The activities in this
+pillar will ensure that the grade of "Made in Jigawa" digital economy products meets international standards.
+Additionally, this pillar will aim to make Jigawa state a global outsourcing destination for digital employment.
+
+
+Pillars Objectives 
+Promotion of indigenous content
+Increasing public and private sectors’ patronage of indigenous digital technology and busines
+Support for Original Equipment Manufacturers (OEMs)
+Ensure compliance with regulatory guidelines for the Nigerian Content
+
+
+
+
+
+
+

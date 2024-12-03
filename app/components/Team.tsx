@@ -102,7 +102,7 @@ const Team = () => {
     <div>
          <section style={{ backgroundImage: `url(${jigawaFlag.src})` }} className=" bg-contain bg-no-repeat bg-center bg-blend-overlay bg-white/50 py-20 h-full pt-20 px-4 sm:px-6 lg:px-8">
         <div className="relative max-w-7xl grid grid-cols-1 md:grid-cols-2 space-x-4 space-y-4 items-center pt-20 mx-auto">
-          {
+          {/* {
             executives.map(( executive ) => {
               return (
                 <Link href={`executives/${executive.slug}`} key={executive.id} className=" hover:bg-green-200/40 p-3 rounded-md  flex items-center space-x-4 flex-col justify-center text-center md:text-start md:flex-row">
@@ -114,7 +114,7 @@ const Team = () => {
                 </Link>
               )
             } )
-          }
+          } */}
         </div>
       </section>
       {/* Team Section */}

@@ -7,23 +7,16 @@ import PagesBanner from "../components/PagesBanner"
 export default function ImpactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* <header className="bg-green-600 text-white py-12">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">JICTDE Impact</h1>
-          <p className="text-xl">Transforming Jigawa State through ICT and Digital Economy Initiatives</p>
-        </div>
-      </header> */}
       <PagesBanner message='Transforming Jigawa State through ICT and Digital Economy Initiatives' />
 
       <main className="container mx-auto flex flex-col space-y-6 px-4 py-12">
         <Tabs defaultValue="overview" className="space-y-4 rounded-lg py-6 flex-wrap">
-          <TabsList className=" py-6 items-center justify-start ">
+          <TabsList className=" py-2 items-center px-3 justify-start ">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="digital-literacy">Digital Literacy</TabsTrigger>
             <TabsTrigger value="infrastructure">Infrastructure</TabsTrigger>
             <TabsTrigger value="economy">Economy</TabsTrigger>
           </TabsList>
-
           <TabsContent className=" mt-6" value="overview">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <ImpactCard
@@ -50,7 +43,7 @@ export default function ImpactPage() {
             </div>
           </TabsContent>
 
-          <TabsContent value="digital-literacy">
+          {/* <TabsContent value="digital-literacy">
             <Card>
               <CardHeader>
                 <CardTitle>Digital Literacy Progress</CardTitle>
@@ -65,9 +58,9 @@ export default function ImpactPage() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
+          </TabsContent> */}
 
-          <TabsContent value="infrastructure">
+          {/* <TabsContent value="infrastructure">
             <Card>
               <CardHeader>
                 <CardTitle>ICT Infrastructure Development</CardTitle>
@@ -82,9 +75,9 @@ export default function ImpactPage() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
+          </TabsContent> */}
 
-          <TabsContent value="economy">
+          {/* <TabsContent value="economy">
             <Card>
               <CardHeader>
                 <CardTitle>Economic Impact</CardTitle>
@@ -111,10 +104,10 @@ export default function ImpactPage() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
+          </TabsContent> */}
         </Tabs>
 
-        <Card className="mt-12">
+        {/* <Card className="mt-12">
           <CardHeader>
             <CardTitle>Success Stories</CardTitle>
             <CardDescription>Real-world examples of JICTDE's impact</CardDescription>
@@ -135,7 +128,7 @@ export default function ImpactPage() {
               />
             </div>
           </CardContent>
-        </Card>
+        </Card> */}
       </main>
 
     
@@ -155,7 +148,7 @@ function ImpactCard({ icon, title, description, stat, statDescription }: ImpactC
   return (
     <Card>
       <CardHeader>
-        <div className="flex items-center space-x-2">
+        <div className="flex px-10 items-center space-x-2">
           {icon}
           <CardTitle>{title}</CardTitle>
         </div>
