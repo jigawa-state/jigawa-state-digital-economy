@@ -115,6 +115,28 @@ const Team = () => {
               )
             } )
           } */}
+
+          <div className="">
+              <Link href="/executives/governor" className="  p-3 rounded-md  flex items-center space-x-4 flex-col justify-center text-center md:text-start md:flex-row">
+                  <Image src={governor} alt='' className=' h-[200px] bg-white rounded-full w-[200px] border-green-500 border-4 object-cover obj' width={700} height={700} />
+                  <div className="flex flex-col">
+                  <h1 className=" font-poppins">The Executive Governor of Jigawa State</h1>
+                    <p className=" text-gray-800 hover:underline text-lg md:text-2xl font-bold"> H.E Malam Umar A. Namadi, FCA </p>
+                  </div>
+              </Link>
+          </div>
+          <div className=" flex flex-col space-y-4">
+              <div className="">
+                <p className=' font-poppins italic text-lg justify-between text-center'>
+                  "That we would collaborate with the National Information Technology
+                    Development Agency (NITDA) to implement the State ICT Master Plan,
+                    promote e-governance, and the gradual emergence of the digital economy.
+                    Part of our resolve in this respect is to ensure that Jigawa State reaps the
+                    dividends of the fourth industrial revolution through the vigorous pursuit of
+                    innovation and technology"
+                    </p>
+              </div>
+          </div>
         </div>
       </section>
       {/* Team Section */}

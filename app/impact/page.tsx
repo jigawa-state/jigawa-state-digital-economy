@@ -17,14 +17,15 @@ export default function ImpactPage() {
             <TabsTrigger value="infrastructure">Infrastructure</TabsTrigger>
             <TabsTrigger value="economy">Economy</TabsTrigger>
           </TabsList>
+
           <TabsContent className=" mt-6" value="overview">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <ImpactCard
                 icon={<Users className="h-8 w-8 text-green-600" />}
                 title="Digital Inclusion"
                 description="Increased access to digital services across all demographics"
-                stat="500,000+"
-                statDescription="Citizens reached"
+                stat="250+"
+                statDescription="Government Staffs"
               />
               <ImpactCard
                 icon={<Laptop className="h-8 w-8 text-green-600" />}
@@ -35,10 +36,10 @@ export default function ImpactPage() {
               />
               <ImpactCard
                 icon={<GraduationCap className="h-8 w-8 text-green-600" />}
-                title="ICT Education"
-                description="Enhanced ICT skills among students and professionals"
-                stat="100,000+"
-                statDescription="Individuals trained"
+                title="J-Compete"
+                description="Education Information Management System"
+                stat="4,000"
+                statDescription="Teachers and Students Trained"
               />
             </div>
           </TabsContent>
