@@ -26,18 +26,14 @@ leveraged to create value and prosperity for all.”
 
 
 This is a quote by the executive governor 
-That we would collaborate with the National Information Technology
-Development Agency (NITDA) to implement the State ICT Master Plan,
-promote e-governance, and the gradual emergence of the digital economy.
-Part of our resolve in this respect is to ensure that Jigawa State reaps the
-dividends of the fourth industrial revolution through the vigorous pursuit of
-innovation and technology….”
 
+" That we would collaborate with the National Information Technology 
+Development Agency (NITDA) to implement the State ICT Master Plan, 
+promote e-governance, and the gradual emergence of the digital economy. 
+Part of our resolve in this respect is to ensure that Jigawa State reaps the 
+dividends of the fourth industrial revolution through the vigorous pursuit of innovation and technology ”
 
-Excerpt from Inaugural Speech of His Excellency,
-
-Malam Umar A. Namadi FCA
-
+Excerpt from Inaugural Speech of His Excellency, ( Malam Umar A. Namadi FCA )
 Executive Governor of Jigawa State
 
 
@@ -190,6 +186,7 @@ or no discussion about the startup bill or awareness about it among stakeholders
 innovation hubs that can build the capacity of both government employees and citizens.
 
 
+
 Pillar Objectives 
 - Support for the creation of innovation-driven enterprises and digitally enabled SMEs.
 - Facilitation of mentorship and funding programmes to support innovation driven enterprises and digitally enabled MSMEs.
@@ -258,10 +255,10 @@ Additionally, this pillar will aim to make Jigawa state a global outsourcing des
 
 
 Pillars Objectives 
-Promotion of indigenous content
-Increasing public and private sectors’ patronage of indigenous digital technology and busines
-Support for Original Equipment Manufacturers (OEMs)
-Ensure compliance with regulatory guidelines for the Nigerian Content
+- Promotion of indigenous content
+- Increasing public and private sectors’ patronage of indigenous digital technology and business
+- Support for Original Equipment Manufacturers (OEMs)
+- Ensure compliance with regulatory guidelines for the Nigerian Content
 
 
 
