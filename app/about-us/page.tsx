@@ -3,6 +3,7 @@ import Image from "next/image"
 import jigawaLogo from '@/app/assets/images/jg-logo-white.png'
 import Team from "../components/Team"
 import PagesBanner from "../components/PagesBanner"
+import Pillars from "./_components/Pillars"
 
 export default function AboutUs() {
   return (
@@ -29,6 +30,7 @@ export default function AboutUs() {
         </div>
 
        </div>
+       <Pillars />
       <Team />
     </div>
   )
