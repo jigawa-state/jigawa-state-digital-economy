@@ -1,3 +1,4 @@
+import { auth } from "@/auth"
 import { stat } from "fs"
 import { z } from "zod"
 
@@ -76,17 +77,45 @@ export const loginSchema = z.object({
     receiverCompany: z.string(),
   })
 
-  export const transactionsSchema = z.object({
-    type: z.string(),
-    product: z.string(),
-    balance: z.string(),
-    status: z.string(),
-    totalTransactionAmount: z.string(),
-    bankName: z.string(),
-    category: z.string().optional(),
-    description: z.string().optional(),
-    sender: senderSchema,
-    receiver: receiverSchema
+
+
+
+  export const Author = z.object({
+    name: z.string(),
+    designation: z.string(),
   })
 
+
+  export const createNewsSchema = z.object({
+    title: z.string(),
+    imageUrl: z.string(),
+    content: z.string(),
+    published: z.boolean(),
+    // category: z.string(),
+    author: z.string(),
+  })
+
+
+  export const createGallerySchema = z.object({
+    title: z.string(),
+    imageUrl: z.string(),
+    description: z.string(),
+    published: z.boolean(),
+  })
+
+  export const createActivitySchema = z.object({
+    title: z.string(),
+    imageUrl: z.string(),
+    content: z.string(),
+    published: z.boolean(),
+    author: z.string(),
+  })
+
+  export const createPolicySchema = z.object({
+    title: z.string(),
+    imageUrl: z.string(),
+    description: z.string(),
+    published: z.boolean(),
+    author: z.string(),
+  })
 
