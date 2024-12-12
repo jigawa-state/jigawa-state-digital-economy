@@ -13,6 +13,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useRouter } from 'next/navigation'
 import { createNewsSchema } from '@/lib/schema'
 import { createNewsAction } from '@/actions/news'
+import { AuthorType, NewsType } from '@/typings'
 
 
 
@@ -20,7 +21,8 @@ type NewsTypeInterface = {
   onSubmit: (data: NewsType) => void
 }
 
-export function AddNewsForm({ onSubmit }: NewsTypeInterface) {
+// export function AddNewsForm({ onSubmit }: NewsTypeInterface) {
+export function AddNewsForm({ authors, onSubmit }: { authors: AuthorType[], onSubmit: (data: NewsType) => void }) {
   const [isPending, setIsPending] = useState(false)
   // const [isPending, startTransition] = useTransition()
   const [error, setError] = useState<string | undefined>('')
