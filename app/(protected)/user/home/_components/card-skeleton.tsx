@@ -10,8 +10,6 @@ export function CardSkeleton() {
       <CardContent>
         <Skeleton className="h-8 w-24 mb-2" />
         <Skeleton className="h-4 w-full mb-4" />
-        <Skeleton className="h-4 w-full mb-2" />
-        <Skeleton className="h-4 w-full mb-2" />
         <Skeleton className="h-4 w-full" />
       </CardContent>
     </Card>
