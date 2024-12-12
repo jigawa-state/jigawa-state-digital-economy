@@ -42,6 +42,8 @@ export const loginSchema = z.object({
       message: "Email must be of type email"
     }),
   })
+
+  
   
 
   export const signUpSchema = z.object({
@@ -100,7 +102,6 @@ export const loginSchema = z.object({
     title: z.string(),
     imageUrl: z.string(),
     description: z.string(),
-    published: z.boolean(),
   })
 
   export const createActivitySchema = z.object({
