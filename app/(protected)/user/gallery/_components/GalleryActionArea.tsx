@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { NewsItemCard } from './NewsItem'
+import { GalleryItem } from './GalleryItem'
 import {
   Dialog,
   DialogContent,
@@ -21,36 +21,34 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { AddNewsForm } from './AddNewsForm'
+import { AddGalleryForm } from './AddGalleryForm'
+import { GalleryType } from '@/typings'
 
 const logout = () => {
   signOut()
 }
 
-export function NewsActionArea({
-  authors,
-  news
+export function GalleryActionArea({
+  galleries
 }: {
-  authors: AuthorType[]
-  news: NewsType[]
+  galleries: GalleryType[]
 }) {
-  const [newsItems, setNewsItems] = useState<(NewsType)[]>([...news,])
+  const [galleryItems, setGalleriesItems] = useState<(GalleryType)[]>([...galleries,])
   const [currentPage, setCurrentPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
 
   const itemsPerPage = 20
 
-  const filteredNews = newsItems.filter(item =>
+  const filtredGalleries = galleryItems.filter(item =>
     // item?.driverName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     item?.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item?.content?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item?.author?.name?.toLowerCase().includes(searchTerm.toLowerCase())
+    item?.description?.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
-  const totalPages = Math.ceil(filteredNews.length / itemsPerPage)
+  const totalPages = Math.ceil(filtredGalleries.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
-  const currentNewsItems = filteredNews.slice(startIndex, endIndex)
+  const currentGalleries = filtredGalleries.slice(startIndex, endIndex)
 
   return (
     <div className="flex flex-col w-full h-[calc(100vh-5vh)]">
@@ -105,7 +103,7 @@ export function NewsActionArea({
                         <p className='flex items-start text-center font-poppins text-blue-800'>Add News</p>
                       </DialogTitle>
                     </DialogHeader>
-                    <AddNewsForm onSubmit={(data) => setNewsItems([...newsItems, data])} />
+                    <AddGalleryForm onSubmit={(data) => setGalleriesItems([...galleryItems, data])} />
                   </DialogContent>
                 </Dialog>
                 
@@ -133,8 +131,8 @@ export function NewsActionArea({
       <ScrollArea className="flex-grow ">
         <div className="p-4">
           <div className="grid max-w-7xl mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {currentNewsItems.map((news,) => (
-              <NewsItemCard news={news} key={news.id} />
+            {currentGalleries.map((gallery) => (
+              <GalleryItem gallery={gallery} key={gallery.id} />
             ))}
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { PoliciesType } from "@/typings"
 
 
 
@@ -6,8 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 //   dispatch: inputDispatch | outPutDispatch
 // }
 
-export function NewsItemCard({ news }:{
-  news:  NewsType
+export function PoliciesItem({ policy }:{
+  policy:  PoliciesType
 }) {
 
 

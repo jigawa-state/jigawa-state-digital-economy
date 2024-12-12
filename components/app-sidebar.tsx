@@ -25,6 +25,11 @@ const homes = [
       url: "/user/gallery",
       icon: Search,
     },
+    {
+      title: "Activities ",
+      url: "/user/activities",
+      icon: Search,
+    },
   ]
 
 

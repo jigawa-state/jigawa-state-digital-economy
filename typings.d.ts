@@ -1,3 +1,5 @@
+import { Author } from "@prisma/client"
+
 interface User {
     id:                 string
     fullName:           string 
@@ -9,18 +11,17 @@ interface User {
 
 
 interface PoliciesType {
-    id:                  string      
-    imageUrl:            string      
-    title:               string
-    description:         string
-    published:           boolean
-    author:              Author     
-    authorId:            string
+  id: string;
+  imageUrl: string;
+  title: string;
+  description: string;
+  published: boolean;
+  authorId: string | null;
 }
 
 
 interface ActivitiesType {
-    id:                  string      
+    id:                  string     
     imageUrl:            string      
     title:               string
     content:             string
@@ -45,7 +46,7 @@ interface NewsType {
   interface AuthorType {
     id: string;
     name: string;
-    designation
+    designation: string;
   }
 
 

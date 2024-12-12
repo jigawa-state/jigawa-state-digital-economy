@@ -2,17 +2,17 @@
 import { getAllAuthors } from '@/actions/author'
 import { getAllNews } from '@/actions/news'
 import React from 'react'
-import { NewsActionArea } from './_components/NewsActionArea'
+import { GalleryActionArea } from './_components/GalleryActionArea'
+import { getAllGalleries } from '@/actions/galleries'
+import { GalleryType } from '@/typings'
 
 const AdminCasePage = async () => {
 
-  const allNews = await getAllNews() as NewsType[]
-
-  const allAuthors = await getAllAuthors() as AuthorType[]
+  const galleries = await getAllGalleries() as GalleryType[]
 
   return (
     <div className='flex bg-white dark:bg-dark-bg'>
-        <NewsActionArea authors={allAuthors} news={allNews} />
+        <GalleryActionArea galleries={galleries} />
     </div>
     )
 }

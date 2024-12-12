@@ -5,49 +5,53 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { Button } from "@/components/ui/button"
-import { useTransition } from 'react'
 import { Textarea } from '@/components/ui/textarea'
 import { Input } from "@/components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-
 import { useRouter } from 'next/navigation'
-import { createNewsSchema } from '@/lib/schema'
-import { createNewsAction } from '@/actions/news'
+import { createPolicySchema } from '@/lib/schema'
+import { createPolicy } from '@/actions/policies'
+import { AuthorType, PoliciesType } from '@/typings'
 
 
 
-type NewsTypeInterface = {
-  onSubmit: (data: NewsType) => void
+type PolicyInterface = {
+  onSubmit: (data: PoliciesType) => void
 }
 
-export function AddNewsForm({ onSubmit }: NewsTypeInterface) {
+export function AddPolicyForm({ authors, onSubmit }: { authors: AuthorType[], onSubmit: (data: PoliciesType) => void }) {
+  
   const [isPending, setIsPending] = useState(false)
   // const [isPending, startTransition] = useTransition()
   const [error, setError] = useState<string | undefined>('')
   const [success, setSuccess] = useState<string | undefined>('')
   const router = useRouter()
 
-  const form = useForm<z.infer<typeof createNewsSchema>>({
-    resolver: zodResolver(createNewsSchema),
+
+  console.log(authors)
+
+  const form = useForm<z.infer<typeof createPolicySchema>>({
+    resolver: zodResolver(createPolicySchema),
     defaultValues: {
         author: "",
         title: "",
-        content: "",
-        // category: "",
+        description: "",
         imageUrl: "",
+        published: false
     },
   })
 
-  async function handleSubmit(values: z.infer<typeof createNewsSchema>) {
+  async function handleSubmit(values: z.infer<typeof createPolicySchema>) {
     setError('')
     setSuccess('')
-
     setIsPending(true)
+
+
     try {
-    const data = await createNewsAction(values)
-    console.log(data.news)
+    const data = await createPolicy(values)
+    
       await new Promise(resolve => setTimeout(resolve, 1000))
-      onSubmit(data.news as NewsType)
+      onSubmit(data.policy as PoliciesType)
       form.reset()
     } catch (error) {
       console.error('Error submitting form:', error)
@@ -56,7 +60,6 @@ export function AddNewsForm({ onSubmit }: NewsTypeInterface) {
       router.refresh()
     }
   }
-
 
 
 
@@ -69,7 +72,7 @@ export function AddNewsForm({ onSubmit }: NewsTypeInterface) {
             name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Driver Name</FormLabel>
+                <FormLabel>Title</FormLabel>
                 <FormControl>
                   <Input disabled={isPending} {...field} />
                 </FormControl>
@@ -79,10 +82,10 @@ export function AddNewsForm({ onSubmit }: NewsTypeInterface) {
           />
           <FormField
             control={form.control}
-            name="content"
+            name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Driver Phone Number</FormLabel>
+                <FormLabel>Policy Description</FormLabel>
                 <FormControl>
                   <Textarea disabled={isPending} {...field} />
                 </FormControl>
