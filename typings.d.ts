@@ -21,12 +21,13 @@ interface PoliciesType {
 
 
 interface ActivitiesType {
-    id:                  string     
-    imageUrl:            string      
-    title:               string
-    content:             string
-    published:           boolean
-    author:              Author?     
+  id:            string      
+  imageUrl:      string      
+  title:         string
+  content:       string
+  published:     boolean
+  author:        Author     
+  authorId:      string   
 }
 
 

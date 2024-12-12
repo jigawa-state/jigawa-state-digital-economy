@@ -11,43 +11,44 @@ import { Input } from "@/components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 
 import { useRouter } from 'next/navigation'
-import { createNewsSchema } from '@/lib/schema'
+import { createActivitySchema, createNewsSchema } from '@/lib/schema'
 import { createNewsAction } from '@/actions/news'
+import { ActivitiesType, AuthorType } from '@/typings'
+import { createActivities } from '@/actions/activities'
 
 
 
-type NewsTypeInterface = {
-  onSubmit: (data: NewsType) => void
+type ActivityInterface = {
+  onSubmit: (data: ActivitiesType) => void
 }
 
-export function AddNewsForm({ onSubmit }: NewsTypeInterface) {
+  export function AddActivityForm({ authors, onSubmit }: { authors: AuthorType[], onSubmit: (data: ActivitiesType) => void }) {
   const [isPending, setIsPending] = useState(false)
   // const [isPending, startTransition] = useTransition()
   const [error, setError] = useState<string | undefined>('')
   const [success, setSuccess] = useState<string | undefined>('')
   const router = useRouter()
 
-  const form = useForm<z.infer<typeof createNewsSchema>>({
-    resolver: zodResolver(createNewsSchema),
+  const form = useForm<z.infer<typeof createActivitySchema>>({
+    resolver: zodResolver(createActivitySchema),
     defaultValues: {
         author: "",
         title: "",
         content: "",
-        // category: "",
         imageUrl: "",
     },
   })
 
-  async function handleSubmit(values: z.infer<typeof createNewsSchema>) {
+  async function handleSubmit(values: z.infer<typeof createActivitySchema>) {
     setError('')
     setSuccess('')
 
     setIsPending(true)
     try {
-    const data = await createNewsAction(values)
-    console.log(data.news)
+    const data = await createActivities(values)
+    // console.log(data.news)
       await new Promise(resolve => setTimeout(resolve, 1000))
-      onSubmit(data.news as NewsType)
+      onSubmit(data.activities as ActivitiesType)
       form.reset()
     } catch (error) {
       console.error('Error submitting form:', error)
