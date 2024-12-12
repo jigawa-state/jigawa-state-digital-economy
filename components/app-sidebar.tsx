@@ -1,8 +1,8 @@
 import { Calendar, Home, Inbox, Search, Settings,} from "lucide-react"
 import { Switch } from "@/components/ui/switch"
-import { LockOpen1Icon } from "@radix-ui/react-icons"
-import logo from '@/app/assets/images/jictde.png'
 
+import logo from '@/app/assets/images/jictde.png'
+import LogoutButton from "./auth/LogOutButton"
 
 const homes = [
     {
@@ -78,12 +78,9 @@ import Image from "next/image"
             </SidebarGroup>
         </SidebarContent>
         <SidebarFooter className="">
-         <div className=" dark:bg-gray-600/50 bg items-center flex justify-between py-1 bg-white dark:bg-stone-950 px-3 rounded-xl w-full h-full">
-                <button className=" flex text-sm bg-stone-200 dark:bg-stone-800 dark:text-stone-400 text-stone-900 rounded-full px-3 py-2 items-center space-x-2">
-                  <p className=" text-xs">Log Out</p>
-                  <LockOpen1Icon className=" h-3 w-3" />
-                </button> 
+         <div className=" dark:bg-gray-600/50 bg items-center flex justify-between py-2 bg-white dark:bg-stone-950 px-3 rounded-xl w-full h-full">
                 <DarkButton />
+                <LogoutButton />
          </div>
         </SidebarFooter>
      </Sidebar>
