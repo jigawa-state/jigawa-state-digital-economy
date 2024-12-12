@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 import JGLogo from '@/app/assets/images/jg-logo-white.png'
-import jictde from '@/app/assets/images/jictde.png'
+import jictde from "@/app/assets/images/jictde.png"
 import homeBanner from '@/app/assets/images/home-banner.png'
 import Image from 'next/image'
 
