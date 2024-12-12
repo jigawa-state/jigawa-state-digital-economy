@@ -2,6 +2,7 @@
 import { db } from '@/lib/db'
 
 
+
 export const getAllRecords = async () => {
     const news = await db.news.findMany({
         include: {
@@ -15,11 +16,13 @@ export const getAllRecords = async () => {
         }
     })
 
+    const galleries = await db.gallery.findMany()
+
     const policies = await db.policies.findMany({
         include: {
             author: true
         }
     })
 
-    return {news, activities}
+    return { news, activities, galleries, policies }
 }
