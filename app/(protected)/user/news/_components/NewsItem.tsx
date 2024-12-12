@@ -1,10 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { NewsType } from "@/typings"
 
 
-
-// type DispatchItemProps = {
-//   dispatch: inputDispatch | outPutDispatch
-// }
 
 export function NewsItemCard({ news }:{
   news:  NewsType
