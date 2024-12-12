@@ -7,7 +7,7 @@ import logo from '@/app/assets/images/jictde.png'
 const homes = [
     {
       title: "Home",
-      url: "#",
+      url: "/user/home",
       icon: Home,
     },
     {
