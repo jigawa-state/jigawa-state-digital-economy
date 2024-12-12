@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import logo from '@/public/img/logo-icon.png'
+import logo from '@/app/assets/images/jictde.png'
 import Image from "next/image"
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox"
@@ -69,10 +69,13 @@ export function SignUpForm() {
 
 
   return (
-    <div className=" mt-20 flex flex-col bg-white py-12 space-y-4 border border-yellow-500 shadow-lg rounded-lg  w-full">
-      
-       <div className=" w-full items-center flex text-center bg-yellow-500 py-4 justify-center">
-        <h1 className=" text-2xl font-poppins font-bold">AUG Legacy Oil</h1>
+    <div className=" w-full flex flex-col space-y-6">
+        <div className="flex items-center justify-center">
+         <Image src={logo} alt="logo" className=" object-contain h-[100px]" width={500} height={500} />
+        </div>
+        <div className=" flex flex-col bg-white py-12 space-y-4 border border-green-500 shadow-lg rounded-lg  w-full">
+        <div className= " flex w-full text-center items-center justify-center py-4 bg-green-500">
+        <h1 className=" text-xl text-white font-poppins">Create Your Account  😊</h1>
       </div>
       <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 px-10 w-full">
@@ -83,7 +86,7 @@ export function SignUpForm() {
             <FormItem>
               <FormLabel>Full Name </FormLabel>
               <FormControl>
-                <Input disabled={isPending} className=" outline-yellow-500" placeholder="Full Name" {...field} />
+                <Input disabled={isPending} className=" outline-green-500" placeholder="Full Name" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -97,7 +100,7 @@ export function SignUpForm() {
             <FormItem>
               <FormLabel>Email Address</FormLabel>
               <FormControl>
-                <Input disabled={isPending} className=" outline-yellow-500" placeholder="Email Address" {...field} />
+                <Input disabled={isPending} className=" outline-green-500" placeholder="Email Address" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -110,7 +113,7 @@ export function SignUpForm() {
             <FormItem>
               <FormLabel>Phone Number</FormLabel>
               <FormControl>
-                <Input disabled={isPending} className=" outline-yellow-500" placeholder="(234) 000 000 000" {...field} />
+                <Input disabled={isPending} className=" outline-green-500" placeholder="(234) 000 000 000" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -126,7 +129,7 @@ export function SignUpForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input type="password" disabled={isPending} className=" outline-yellow-500" placeholder="Passsord" {...field} />
+                <Input type="password" disabled={isPending} className=" outline-green-500" placeholder="Passsord" {...field} />
               </FormControl>
 
               <FormMessage />
@@ -140,7 +143,7 @@ export function SignUpForm() {
             <FormItem>
               <FormLabel>Password Confirmation</FormLabel>
               <FormControl>
-                <Input type="password"disabled={isPending} className=" outline-yellow-500" placeholder="Confirm Password" {...field} />
+                <Input type="password"disabled={isPending} className=" outline-green-500" placeholder="Confirm Password" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -151,9 +154,10 @@ export function SignUpForm() {
     </div>
           <FormSuccess message={success} />
           <FormError message={error} />
-       <Button type="submit" disabled={isPending} className=" bg-yellow-500 hover:bg-black/80 text-white w-full">Create an Account</Button>
+       <Button type="submit" disabled={isPending} className=" bg-green-500 hover:bg-black/80 text-white w-full">Create an Account</Button>
       </form>
     </Form>
+    </div>
     </div>
   )
 }

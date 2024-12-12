@@ -74,8 +74,8 @@ export function LoginForm() {
   return (
    <div className=" w-full flex flex-col space-y-6">
      <div className="flex items-center justify-center">
-    <Image src={logo} alt="logo" className=" object-contain h-[100px]" width={500} height={500} />
-  </div>
+         <Image src={logo} alt="logo" className=" object-contain h-[100px]" width={500} height={500} />
+    </div>
     <div className="flex flex-col space-y-6 bg-white py-12 border border-green-500 shadow-lg rounded-lg  w-full">
       <div className= " flex w-full text-center items-center justify-center py-4 bg-green-500">
         <h1 className=" text-xl text-white font-poppins">Welcome Back 😊</h1>
