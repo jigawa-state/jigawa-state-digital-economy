@@ -90,25 +90,6 @@ export function AddGalleryForm({ onSubmit }: GalleryTypeInterface) {
               </FormItem>
             )}
           />
-
-          {/* THE AUTHOR SELECT INPUT HERE */}
-         
-          {/* <FormField
-            control={form.control}
-            name=""
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Vehicle Type</FormLabel>
-                <FormControl>
-                  <Input disabled={isPending} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          /> */}
-         
-
-
         </div>
         <Button type="submit" disabled={isPending}>
           {isPending ? 'Submitting...' : 'Submit'}
