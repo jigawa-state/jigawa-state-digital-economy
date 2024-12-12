@@ -2,17 +2,19 @@
 import { getAllAuthors } from '@/actions/author'
 import { getAllNews } from '@/actions/news'
 import React from 'react'
-import { NewsActionArea } from './_components/NewsActionArea'
+import { ActivityActionArea } from './_components/ActivityActionArea'
+import { getAllActivities } from '@/actions/activities'
+import { ActivitiesType, AuthorType } from '@/typings'
 
 const AdminCasePage = async () => {
 
-  const allNews = await getAllNews() as NewsType[]
+  const activities = await getAllActivities() as ActivitiesType[]
 
   const allAuthors = await getAllAuthors() as AuthorType[]
 
   return (
     <div className='flex bg-white dark:bg-dark-bg'>
-        <NewsActionArea authors={allAuthors} news={allNews} />
+        <ActivityActionArea authors={allAuthors} activities={activities} />
     </div>
     )
 }

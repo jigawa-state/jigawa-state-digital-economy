@@ -3,6 +3,7 @@ import { getAllAuthors } from '@/actions/author'
 import { getAllNews } from '@/actions/news'
 import React from 'react'
 import { NewsActionArea } from './_components/NewsActionArea'
+import { AuthorType, NewsType } from '@/typings'
 
 const AdminCasePage = async () => {
 
