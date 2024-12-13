@@ -99,8 +99,8 @@ export function GalleryActionArea({
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[700px] max-h-[80%] md:max-w-xl overflow-y-auto">
                     <DialogHeader>
-                      <DialogTitle className='py-5 flex text-center bg-blue-200 rounded-lg justify-center'>
-                        <p className='flex items-start text-center font-poppins text-blue-800'>Add Gallery</p>
+                      <DialogTitle className='py-5 flex text-center bg-green-200 dark:bg-green-800/30 rounded-lg justify-center'>
+                        <p className='flex items-start text-center font-poppins dark:text-green-200 text-green-800'>Add Gallery</p>
                       </DialogTitle>
                     </DialogHeader>
                     <AddGalleryForm onSubmit={(data) => setGalleriesItems([...galleryItems, data])} />
