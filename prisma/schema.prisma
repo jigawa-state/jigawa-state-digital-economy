@@ -80,7 +80,7 @@ model Author {
 
 model Policies {
     id                  String      @id @default(auto()) @map("_id") @db.ObjectId
-    imageUrl            String      // @default("https://via.placeholder.com/150") to be added later
+    imageUrl            String?      // @default("https://via.placeholder.com/150") to be added later
     title               String
     description         String
     published           Boolean
@@ -103,7 +103,7 @@ model Activities {
 model News {
   id            String      @id @default(auto()) @map("_id") @db.ObjectId
   title         String
-  imageUrl      String      // @default("https://via.placeholder.com/150") to be added later
+  imageUrl      String?      // @default("https://via.placeholder.com/150") to be added later
   content       String
   published     Boolean
   author        Author?     @relation(fields: [authorId], references: [id], onDelete: SetNull)
@@ -115,7 +115,7 @@ model Gallery {
     id            String      @id @default(auto()) @map("_id") @db.ObjectId
     imageUrl      String      // @default("https://via.placeholder.com/150") to be added later
     title         String
-    description   String
+    description   String?
     published     Boolean
 }
 

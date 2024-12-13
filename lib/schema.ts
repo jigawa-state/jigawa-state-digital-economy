@@ -89,19 +89,25 @@ export const loginSchema = z.object({
 
 
   export const createNewsSchema = z.object({
-    title: z.string(),
-    imageUrl: z.string(),
-    content: z.string(),
-    published: z.boolean(),
-    // category: z.string(),
-    author: z.string(),
+    title: z.string().min(3, {
+      message: "Title is required"
+    }),
+    imageUrl: z.string().optional(),
+    content: z.string().min(3, {
+      message: "Content is required"
+    }),
+
+    published: z.boolean().default(false),
+    author: z.string().optional(),
   })
 
 
   export const createGallerySchema = z.object({
     title: z.string(),
-    imageUrl: z.string(),
-    description: z.string(),
+    imageUrl: z.string().min(3, {
+      message: "Image is required"
+    }),
+    description: z.string().optional(),
   })
 
   export const createActivitySchema = z.object({
