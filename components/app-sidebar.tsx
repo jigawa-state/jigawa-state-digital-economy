@@ -1,4 +1,4 @@
-import { Blinds, PencilLine, LayoutGrid, Images, Siren} from "lucide-react"
+import { Blinds, PencilLine, LayoutGrid, Images, Siren, User} from "lucide-react"
 
 import logo from '@/app/assets/images/jictde.png'
 import LogoutButton from "./auth/LogOutButton"
@@ -8,6 +8,11 @@ const homes = [
       title: "Home",
       url: "/user/home",
       icon: LayoutGrid,
+    },
+    {
+      title: "Authors",
+      url: "/user/authors",
+      icon: User,
     },
     {
       title: "News",

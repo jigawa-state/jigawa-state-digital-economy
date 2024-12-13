@@ -1,6 +1,7 @@
 import React from 'react'
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
+import { Toaster } from "@/components/ui/toaster"
 
 const AuthLayout = ({ children }: { children:  React.ReactNode}) => {
   return (
@@ -11,6 +12,7 @@ const AuthLayout = ({ children }: { children:  React.ReactNode}) => {
             <main className=' w-full dark:bg-dark-bg '>
               <SidebarTrigger />
               {children}
+              <Toaster />
             </main>
         </SidebarProvider>
     </>

@@ -24,5 +24,8 @@ export const getAllRecords = async () => {
         }
     })
 
-    return { news, activities, galleries, policies }
+
+    const authors = await db.author.findMany()
+
+    return { news, activities, galleries, policies, authors }
 }
