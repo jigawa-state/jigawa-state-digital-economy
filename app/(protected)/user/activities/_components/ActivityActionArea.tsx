@@ -58,27 +58,26 @@ export function ActivityActionArea({
         <div className="w-full items-center flex px-6 justify-between py-4 rounded-lg">
           <div className="flex flex-col space-y-8 md:space-y-0 md:flex-row w-full md:justify-between md:items-center">
             <div className="flex space-y-2 flex-col">
-              <p className='text-lg font-poppins font-semibold'>Activities Management System</p>
+              <p className='text-lg font-poppins font-semibold'>Activities Management</p>
               <div className="flex space-x-2">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className='font-poppins text-white dark:bg-green-500'>Add News</Button>
+                    <Button className='font-poppins text-white dark:bg-green-500'>Add Activity</Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[700px] h-[80%] md:max-w-4xl overflow-y-auto">
+                  <DialogContent className="sm:max-w-[700px] max-h-[85%] md:max-w-xl overflow-y-auto">
                     <DialogHeader>
-                      <DialogTitle className='py-5 flex text-center bg-blue-200 rounded-lg justify-center'>
-                        <p className='flex items-start text-center font-poppins text-blue-800'>Add News</p>
+                      <DialogTitle className='py-5 flex text-center bg-green-200 dark:bg-green-900/30 rounded-lg justify-center'>
+                        <p className='flex items-start text-center font-poppins dark:text-green-200 text-green-800'>Add Activity</p>
                       </DialogTitle>
                     </DialogHeader>
                     <AddActivityForm authors={authors} onSubmit={(data) => setActivitiesItems([...activitiesItems, data])} />
                   </DialogContent>
                 </Dialog>
-                
               </div>
             </div>
             <div className="flex flex-col">
               <div className="mb-4 flex flex-col space-y-2">
-                <Label htmlFor="search" className='text-base font-poppins font-semibold'>Search News</Label>
+                <Label htmlFor="search" className='text-base font-poppins font-semibold'>Search Activity</Label>
                 <Input
                   id="search"
                   type="text"

@@ -1,5 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings,} from "lucide-react"
-import { Switch } from "@/components/ui/switch"
+import { Blinds, PencilLine, LayoutGrid, Images, Siren} from "lucide-react"
 
 import logo from '@/app/assets/images/jictde.png'
 import LogoutButton from "./auth/LogOutButton"
@@ -8,27 +7,27 @@ const homes = [
     {
       title: "Home",
       url: "/user/home",
-      icon: Home,
+      icon: LayoutGrid,
     },
     {
       title: "News",
       url: "/user/news",
-      icon: Inbox,
+      icon: Blinds,
     },
     {
       title: "Policies",
       url: "/user/policies",
-      icon: Calendar,
+      icon: Siren,
     },
     {
       title: "Gallery ",
       url: "/user/gallery",
-      icon: Search,
+      icon: Images,
     },
     {
       title: "Activities ",
       url: "/user/activities",
-      icon: Search,
+      icon: PencilLine,
     },
   ]
 
