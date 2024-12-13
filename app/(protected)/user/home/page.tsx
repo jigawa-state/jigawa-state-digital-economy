@@ -15,7 +15,8 @@ const HomeDashboard = async () => {
     policies,
     galleries,
     news,
-    activities
+    activities,
+    authors
   } = await getAllRecords()
 
 
@@ -47,13 +48,18 @@ const HomeDashboard = async () => {
       id: 4,
       title: "Activities",
       count: activities.length
+    },
+    {
+      id: 5,
+      title: "Authors",
+      count: authors.length
     }
   ]
 
 
   return (
-    <div className="p-6 bg-gray-100 dark:bg-dark-bg min-h-[calc(100vh-5vh)] ">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="p-6 bg-gray-100 border-t dark:bg-dark-bg min-h-[calc(100vh-5vh)] ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
         {cards.map((card) => (
           <Suspense key={card.id} fallback={<CardSkeleton />}>
             <DashboardSummary  count={card.count} title={card.title} />

@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { GalleryItem } from './GalleryItem'
+import { AuthorItem } from './AuthorsItem'
 import {
   Dialog,
   DialogContent,
@@ -21,34 +21,54 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { AddGalleryForm } from './AddGalleryForm'
-import { GalleryType } from '@/typings'
+import { AddAuthorForm } from './AddAuthorForm'
+import { AuthorType } from '@/typings'
+import { useToast } from "@/hooks/use-toast"
+import { deleteAuthorAction } from "@/actions/author"
 
 const logout = () => {
   signOut()
 }
 
-export function GalleryActionArea({
-  galleries
+export function AuthorActionArea({
+  authors,
 }: {
-  galleries: GalleryType[]
+  authors: AuthorType[]
 }) {
-  const [galleryItems, setGalleriesItems] = useState<(GalleryType)[]>([...galleries,])
+  const [authorsItems, setAuthorItems] = useState<AuthorType[]>([...authors])
   const [currentPage, setCurrentPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
+  const { toast } = useToast()
 
   const itemsPerPage = 20
 
-  const filtredGalleries = galleryItems.filter(item =>
-    // item?.driverName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item?.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item?.description?.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredAuthors = authorsItems.filter(item =>
+    item?.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item?.designation?.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
-  const totalPages = Math.ceil(filtredGalleries.length / itemsPerPage)
+  const totalPages = Math.ceil(filteredAuthors.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
-  const currentGalleries = filtredGalleries.slice(startIndex, endIndex)
+  const currentAuthorItems = filteredAuthors.slice(startIndex, endIndex)
+
+  const handleDeleteAuthor = async (authorId: string) => {
+    try {
+      await deleteAuthorAction(authorId)
+      setAuthorItems(prevItems => prevItems.filter(item => item.id !== authorId))
+      toast({
+        title: "Author Deleted",
+        description: "Author has been deleted successfully",
+      })
+    } catch (error) {
+      console.error("Error deleting author:", error)
+      toast({
+        title: "Error",
+        description: "Failed to delete author. Please try again.",
+        variant: "destructive",
+      })
+    }
+  }
 
   return (
     <div className="flex flex-col w-full h-[calc(100vh-5vh)]">
@@ -56,30 +76,30 @@ export function GalleryActionArea({
         <div className="w-full items-center flex px-6 justify-between py-4 rounded-lg">
           <div className="flex flex-col space-y-8 md:space-y-0 md:flex-row w-full md:justify-between md:items-center">
             <div className="flex space-y-2 flex-col">
-              <p className='text-lg font-poppins font-semibold'>Gallery Management</p>
+              <p className='text-lg font-poppins font-semibold'>Author Management</p>
               <div className="flex space-x-2">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className='font-poppins text-white dark:bg-green-500'>Add Gallery</Button>
+                    <Button className='font-poppins text-white dark:bg-green-500'>Add Author</Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[700px] max-h-[80%] md:max-w-xl overflow-y-auto">
+                  <DialogContent className="sm:max-w-[700px] max-h-[85%] md:max-w-xl overflow-y-auto">
                     <DialogHeader>
-                      <DialogTitle className='py-5 flex text-center bg-green-200 dark:bg-green-800/30 rounded-lg justify-center'>
-                        <p className='flex items-start text-center font-poppins dark:text-green-200 text-green-800'>Add Gallery</p>
+                      <DialogTitle className='py-5 flex text-center bg-green-200 dark:bg-green-900/30 rounded-lg justify-center'>
+                        <p className='flex items-start text-center font-poppins text-green-800 dark:text-green-300'>Add Author</p>
                       </DialogTitle>
                     </DialogHeader>
-                    <AddGalleryForm onSubmit={(data) => setGalleriesItems([...galleryItems, data])} />
+                    <AddAuthorForm onSubmit={(data) => setAuthorItems([...authorsItems, data])} />
                   </DialogContent>
                 </Dialog>
               </div>
             </div>
             <div className="flex flex-col">
               <div className="mb-4 flex flex-col space-y-2">
-                <Label htmlFor="search" className='text-base font-poppins font-semibold'>Search Gallery</Label>
+                <Label htmlFor="search" className='text-base font-poppins font-semibold'>Search Author</Label>
                 <Input
                   id="search"
                   type="text"
-                  placeholder="Search by title, content, or author"
+                  placeholder="Search by name or designation"
                   value={searchTerm}
                   onChange={(e) => {
                     setSearchTerm(e.target.value)
@@ -94,9 +114,13 @@ export function GalleryActionArea({
       </div>
       <ScrollArea className="flex-grow ">
         <div className="p-4">
-          <div className="grid max-w-7xl mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {currentGalleries.map((gallery) => (
-              <GalleryItem gallery={gallery} key={gallery.id} />
+          <div className="grid max-w-7xl mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+            {currentAuthorItems.map((author) => (
+              <AuthorItem 
+                key={author.id} 
+                author={author} 
+                onDelete={handleDeleteAuthor}
+              />
             ))}
           </div>
         </div>
@@ -105,7 +129,7 @@ export function GalleryActionArea({
         <Button
           onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
-          className=' bg-black dark:bg-gray-600'
+          className='bg-black dark:bg-gray-600'
         >
           Previous
         </Button>
@@ -115,7 +139,7 @@ export function GalleryActionArea({
         <Button
           onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
           disabled={currentPage === totalPages}
-          className=' bg-black dark:bg-gray-600'
+          className='bg-black dark:bg-gray-600'
         >
           Next
         </Button>
