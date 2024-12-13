@@ -6,7 +6,6 @@ dotenv.config();
 // import { env } from "process";
 import process from "process"; 
 
-// Configure S3 client
 const s3Client = new S3Client({
   region: process.env.AWS_REGION,
   credentials: {
@@ -15,9 +14,12 @@ const s3Client = new S3Client({
   }
 });
 
+
+
+
+
 export const uploadFileToS3 = async (file: File, bucketName: string): Promise<string> => {
   const fileName = `${Date.now()}-${file.name}`;
-  
   const upload = new Upload({
     client: await s3Client,
     params: {
