@@ -47,8 +47,6 @@ export function PoliciesActionArea({
     item?.description?.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
-
-
   const totalPages = Math.ceil(filteredPolicy.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
@@ -67,16 +65,15 @@ export function PoliciesActionArea({
                   <DialogTrigger asChild>
                     <Button className='font-poppins text-white dark:bg-green-500'>Add Policy</Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[700px] h-[80%] md:max-w-4xl overflow-y-auto">
+                  <DialogContent className="sm:max-w-[700px] max-h-[80%] md:max-w-xl overflow-y-auto">
                     <DialogHeader>
-                      <DialogTitle className='py-5 flex text-center bg-blue-200 rounded-lg justify-center'>
-                        <p className='flex items-start text-center font-poppins text-blue-800'>Add Policy</p>
+                      <DialogTitle className='py-5 flex text-center bg-green-200 dark:text-green-200 dark:bg-green-900/30 rounded-lg justify-center'>
+                        <p className='flex items-start text-center font-poppins text-green-900'>Add Policy</p>
                       </DialogTitle>
                     </DialogHeader>
                     <AddPolicyForm authors={authors} onSubmit={(data) => setNewPolicy([...policies, data])} />
                   </DialogContent>
                 </Dialog>
-                
               </div>
             </div>
             <div className="flex flex-col">

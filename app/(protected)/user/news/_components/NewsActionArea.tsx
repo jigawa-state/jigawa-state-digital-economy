@@ -63,12 +63,12 @@ export function NewsActionArea({
               <div className="flex space-x-2">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className='font-poppins text-white dark:bg-green-500'>Add News</Button>
+                    <Button className='font-poppins text-white dark:bg-green-500'>Publish News</Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[700px] h-[80%] md:max-w-4xl overflow-y-auto">
+                  <DialogContent className="sm:max-w-[700px] max-h-[85%] md:max-w-xl overflow-y-auto">
                     <DialogHeader>
-                      <DialogTitle className='py-5 flex text-center bg-blue-200 rounded-lg justify-center'>
-                        <p className='flex items-start text-center font-poppins text-blue-800'>Add News</p>
+                      <DialogTitle className='py-5 flex text-center bg-green-200 dark:bg-green-900/30 rounded-lg justify-center'>
+                        <p className='flex items-start text-center font-poppins text-green-800 dark:text-green-300'>Publish News</p>
                       </DialogTitle>
                     </DialogHeader>
                     <AddNewsForm authors={authors} onSubmit={(data) => setNewsItems([...newsItems, data])} />
