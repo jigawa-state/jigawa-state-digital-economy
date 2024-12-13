@@ -1,6 +1,6 @@
 "use server"
 import { db } from '@/lib/db'
-import { Author, createPolicySchema } from '@/lib/schema'
+import { AuthorSchema, createPolicySchema } from '@/lib/schema'
 import * as z from 'zod'
 
 
