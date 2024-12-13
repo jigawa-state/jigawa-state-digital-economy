@@ -1,6 +1,6 @@
 "use server"
 import { db } from '@/lib/db'
-import { Author } from '@/lib/schema'
+import { AuthorSchema } from '@/lib/schema'
 import * as z from 'zod'
 
 
@@ -21,9 +21,9 @@ export const getAuthorById = async (id: string) => {
     })
 }
 
-export const createAuthor = async (data: z.infer<typeof Author>) => {
+export const createAuthor = async (data: z.infer<typeof AuthorSchema>) => {
 
-    const fieldValidation = Author.safeParse(data);
+    const fieldValidation = AuthorSchema.safeParse(data);
 
     if (!fieldValidation.success) {
         return { error: "field Validation failed " }
@@ -34,16 +34,18 @@ export const createAuthor = async (data: z.infer<typeof Author>) => {
         designation,
     } = fieldValidation.data
 
-    return await db.author.create({
+    const author =  await db.author.create({
         data: {
             name,
             designation
         }
     })
+
+    return { success: "Author has been created successfully", author }
 }
 
-export const updateAuthor = async (id: string, data: z.infer<typeof Author>) => {
-    const fieldValidation = Author.safeParse(data);
+export const updateAuthor = async (id: string, data: z.infer<typeof AuthorSchema>) => {
+    const fieldValidation = AuthorSchema.safeParse(data);
 
     if (!fieldValidation.success) {
         return { error: "field Validation failed " }
@@ -66,7 +68,7 @@ export const updateAuthor = async (id: string, data: z.infer<typeof Author>) => 
 }
 
 
-export const deleteAuthor = async (id: string) => {
+export const deleteAuthorAction = async (id: string) => {
 
     if (!id) {
         return { error: "Author Not Found" }

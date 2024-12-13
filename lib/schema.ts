@@ -82,7 +82,7 @@ export const loginSchema = z.object({
 
 
 
-  export const Author = z.object({
+  export const AuthorSchema = z.object({
     name: z.string(),
     designation: z.string(),
   })
