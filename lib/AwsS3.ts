@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // import { env } from "process";
-import process from "process";
+import process from "process"; 
 
 // Configure S3 client
 const s3Client = new S3Client({
