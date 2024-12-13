@@ -59,15 +59,6 @@ const HomeDashboard = async () => {
             <DashboardSummary  count={card.count} title={card.title} />
           </Suspense>
         ))}
-        {/* <Suspense fallback={<CardSkeleton />}>
-          <DashboardSummary type={galleries} />
-        </Suspense>
-        <Suspense fallback={<CardSkeleton />}>
-          <DashboardSummary type={news} />
-        </Suspense>
-        <Suspense fallback={<CardSkeleton />}>
-          <DashboardSummary type={activities}  />
-        </Suspense> */}
       </div>
     </div>
     )

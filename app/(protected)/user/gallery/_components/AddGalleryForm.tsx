@@ -9,10 +9,8 @@ import { useTransition } from 'react'
 import { Textarea } from '@/components/ui/textarea'
 import { Input } from "@/components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-
 import { useRouter } from 'next/navigation'
-import { createGallerySchema, createNewsSchema } from '@/lib/schema'
-import { createNewsAction } from '@/actions/news'
+import { createGallerySchema } from '@/lib/schema'
 import { GalleryType } from '@/typings'
 import { createGallery } from '@/actions/galleries'
 
@@ -63,13 +61,13 @@ export function AddGalleryForm({ onSubmit }: GalleryTypeInterface) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4">
           <FormField
             control={form.control}
             name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Driver Name</FormLabel>
+                <FormLabel>Title</FormLabel>
                 <FormControl>
                   <Input disabled={isPending} {...field} />
                 </FormControl>
@@ -82,7 +80,7 @@ export function AddGalleryForm({ onSubmit }: GalleryTypeInterface) {
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Driver Phone Number</FormLabel>
+                <FormLabel>Description</FormLabel>
                 <FormControl>
                   <Textarea disabled={isPending} {...field} />
                 </FormControl>
@@ -90,6 +88,49 @@ export function AddGalleryForm({ onSubmit }: GalleryTypeInterface) {
               </FormItem>
             )}
           />
+
+<FormField
+            control={form.control}
+            name="imageUrl"
+            render={({ field: { value, onChange, ...field } }) => (
+              <FormItem>
+                <FormLabel>Image URL (if any)</FormLabel>
+                <FormControl>
+                  <Input disabled={isPending} className=' border-green-400'
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={(e) => onChange(e.target.files)}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+
+        <FormField
+            control={form.control}
+            name="imageUrl"
+            render={({ field: { value, onChange, ...field } }) => (
+              <FormItem>
+                <FormLabel>Picture</FormLabel>
+                <FormControl>
+                  <Input disabled={isPending} className=' border-green-400'
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={(e) => onChange(e.target.files)}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+        
         </div>
         <Button type="submit" disabled={isPending}>
           {isPending ? 'Submitting...' : 'Submit'}
