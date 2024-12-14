@@ -1,34 +1,12 @@
-// "use client"
-
-// import React from 'react'
-
-
-
-// interface logOutButtonProps {
-//     children?: React.ReactNode;
-// }
-
-// export const LogOutButton = ( {children}: logOutButtonProps) => {
-//   return (
-//     <div>{children}</div>
-//   )
-// }
-
 'use client'
-
 import { logOut } from "@/actions/logout"
 import { LockOpen1Icon } from "@radix-ui/react-icons"
 
 
 export default function LogoutButton() {
   const handleLogout = async () => {
-    // Clear any client-side storage first
-    localStorage.clear()
-    sessionStorage.clear()
-    
     try {
       await logOut()
-      
       // Force a complete page reload to clear any remaining state
       window.location.href = '/'
     } catch (error) {
