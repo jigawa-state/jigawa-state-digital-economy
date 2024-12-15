@@ -14,7 +14,11 @@ export function PoliciesItem({ policy }:{
 
 
   return (
-   <div className="">HEllo NEws</div>
+   <div className=" flex flex-col bg-white space-y-4">
+      {policy?.title && (
+        <div className="">{ policy.title }</div>
+      )}
+   </div>
   )
 }
 

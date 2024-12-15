@@ -9,13 +9,21 @@ interface User {
 }
 
 
+interface AuthorType {
+  id: string;
+  name: string;
+  designation: string;
+}
+
+
 
 interface PoliciesType {
   id: string;
-  imageUrl: string;
+  imageUrl: any | undefined;
   title: string;
   description: string;
   published: boolean;
+  author: string;
   authorId: string | null;
 }
 
@@ -43,12 +51,6 @@ interface NewsType {
   }
 
 
-
-  interface AuthorType {
-    id: string;
-    name: string;
-    designation: string;
-  }
 
 
 

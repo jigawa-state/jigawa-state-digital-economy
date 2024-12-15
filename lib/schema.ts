@@ -3,6 +3,36 @@ import { stat } from "fs"
 import { z } from "zod"
 
 
+const isBrowser = typeof window !== 'undefined';
+
+// Custom file validation function
+const fileValidation = (maxSize: number, allowedTypes: string[]) =>
+    z.any()
+      .refine(
+        (file) => {
+          if (!isBrowser) return true; // Skip validation on server
+          return file instanceof File;
+        },
+        "Expected a file."
+      )
+      .refine(
+        (file) => {
+          if (!isBrowser) return true; // Skip validation on server
+          return file.size <= maxSize;
+        },
+        `Max file size is ${maxSize / 1000000}MB.`
+      )
+      .refine(
+        (file) => {
+          if (!isBrowser) return true; // Skip validation on server
+          return allowedTypes.includes(file.type);
+        },
+        `Only ${allowedTypes.join(', ')} files are allowed.`
+      );
+
+
+
+
 export const SettingsSchema = z.object({
   name: z.optional(z.string()),
   email: z.optional(z.string()),
@@ -120,7 +150,8 @@ export const loginSchema = z.object({
 
   export const createPolicySchema = z.object({
     title: z.string(),
-    imageUrl: z.string(),
+    // imageUrl: z.string(),
+    imageUrl: fileValidation(5000000, ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']).optional(),
     description: z.string(),
     published: z.boolean(),
     author: z.string(),

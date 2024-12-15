@@ -71,7 +71,7 @@ export function PoliciesActionArea({
                         <p className='flex items-start text-center font-poppins text-green-900'>Add Policy</p>
                       </DialogTitle>
                     </DialogHeader>
-                    <AddPolicyForm authors={authors} onSubmit={(data) => setNewPolicy([...policies, data])} />
+                    <AddPolicyForm authors={authors} formSubmit={(data) => setNewPolicy([...policies, data])} />
                   </DialogContent>
                 </Dialog>
               </div>
