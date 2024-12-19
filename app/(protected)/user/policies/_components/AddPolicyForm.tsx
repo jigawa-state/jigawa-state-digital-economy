@@ -1,6 +1,6 @@
 'use client'
 
-import { startTransition, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
@@ -19,57 +19,60 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { uploadFileToS3 } from '@/actions/amazon-s3'
+import { useToast } from '@/hooks/use-toast'
 
-
-
-
-type PolicyInterface = {
-  onSubmit: (data: PoliciesType) => void
+interface AddPolicyFormProps {
+  authors: AuthorType[]
+  onSubmit: (policy: PoliciesType) => void
+  onClose: () => void
 }
 
-export function AddPolicyForm({ authors, onSubmit }: { authors: AuthorType[], onSubmit: (data: PoliciesType) => void }) {
-  
+export function AddPolicyForm({ authors, onSubmit, onClose }: AddPolicyFormProps) {
   const [isPending, setIsPending] = useState(false)
-  // const [isPending, startTransition] = useTransition()
-  const [error, setError] = useState<string | undefined>('')
-  const [success, setSuccess] = useState<string | undefined>('')
   const router = useRouter()
-
-
-  console.log(authors)
+  const { toast } = useToast()
 
   const form = useForm<z.infer<typeof createPolicySchema>>({
     resolver: zodResolver(createPolicySchema),
     defaultValues: {
-        author: "",
-        title: "",
-        description: "",
-        imageUrl: "",
-        published: false
+      author: "",
+      title: "",
+      description: "",
+      fileUrl: undefined,
+      published: false
     },
   })
 
-  async function handleSubmit(values: z.infer<typeof createPolicySchema>) {
-    setError('')
-    setSuccess('')
+  async function handleSubmit(data: z.infer<typeof createPolicySchema>) {
     setIsPending(true)
-
-
     try {
-    const data = await createPolicy(values)
-    
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      onSubmit(data.policy as PoliciesType)
+      let formDataToSubmit: any = { ...data };
+
+      if (data.fileUrl) {
+        formDataToSubmit.fileUrl = await uploadFileToS3(data.fileUrl, 'jigawa-state');
+      }
+
+      const records = await createPolicy(formDataToSubmit)
+      onSubmit(records.policy as PoliciesType)
       form.reset()
+      onClose()
+      toast({
+        title: "Policy Added",
+        description: "New policy has been added successfully",
+      })
     } catch (error) {
-      console.error('Error submitting form:', error)
+      console.error('Error processing form submission:', error);
+      toast({
+        title: "Error",
+        description: "Failed to add policy. Please try again.",
+        variant: "destructive",
+      })
     } finally {
       setIsPending(false)
       router.refresh()
     }
   }
-
-
 
   return (
     <Form {...form}>
@@ -95,16 +98,14 @@ export function AddPolicyForm({ authors, onSubmit }: { authors: AuthorType[], on
               <FormItem>
                 <FormLabel>Policy Description</FormLabel>
                 <FormControl>
-                  <Textarea className=' h-[120px]' disabled={isPending} {...field} />
+                  <Textarea className='h-[120px]' disabled={isPending} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-
-
-      <FormField
+          <FormField
             control={form.control}
             name="author"
             render={({ field }) => (
@@ -112,36 +113,34 @@ export function AddPolicyForm({ authors, onSubmit }: { authors: AuthorType[], on
                 <FormLabel>Author</FormLabel>
                 <FormControl>
                   <Select disabled={isPending} onValueChange={field.onChange} defaultValue={field.value}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select Author" />
-                      </SelectTrigger>
-                      <SelectContent>
-
-                        {
-                          authors.map((author) => (
-                            <SelectItem key={author.id} value={author.id}>{author.name}</SelectItem>
-                          ))
-                        }
-                      </SelectContent>
-                    </Select>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select Author" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {authors.map((author) => (
+                        <SelectItem key={author.id} value={author.id}>{author.name}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-        <FormField
+          <FormField
             control={form.control}
-            name="imageUrl"
+            name="fileUrl"
             render={({ field: { value, onChange, ...field } }) => (
               <FormItem>
-                <FormLabel>Image URL (if any)</FormLabel>
+                <FormLabel>File (if any)</FormLabel>
                 <FormControl>
-                  <Input disabled={isPending} className=' border-green-400'
+                  <Input
+                    disabled={isPending}
+                    className='border-green-400'
                     type="file"
-                    accept="image/*"
-                    multiple
-                    onChange={(e) => onChange(e.target.files)}
+                    accept=".pdf,.doc,.docx"
+                    onChange={(e) => onChange(e.target.files?.[0])}
                     {...field}
                   />
                 </FormControl>
@@ -149,9 +148,6 @@ export function AddPolicyForm({ authors, onSubmit }: { authors: AuthorType[], on
               </FormItem>
             )}
           />
-         
-
-
         </div>
         <Button type="submit" disabled={isPending}>
           {isPending ? 'Submitting...' : 'Submit'}
@@ -160,5 +156,4 @@ export function AddPolicyForm({ authors, onSubmit }: { authors: AuthorType[], on
     </Form>
   )
 }
-
 

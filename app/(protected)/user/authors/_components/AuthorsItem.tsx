@@ -37,10 +37,10 @@ export function AuthorItem({
           <p className="text-stone-900 font-poppins text-sm dark:text-green-200">{author.designation}</p>
         </div>
       </div>
-      <div className="flex justify-end w-full">
+      <div className="flex justify-center w-full">
         <AlertDialog>
           <AlertDialogTrigger>
-            <p className="dark:text-red-500/30 px-3 py-2 transition-all hover:no-underline hover:text-red-600">Delete Author</p>
+            <p className="dark:text-stone-200/30 px-3 py-2 font-semibold transition-all hover:underline hover:dark:text-red-300 hover:text-red-600">Delete Author</p>
           </AlertDialogTrigger>
           <AlertDialogContent className="w-[90%] md:w-[500px] rounded-xl">
             <AlertDialogHeader>

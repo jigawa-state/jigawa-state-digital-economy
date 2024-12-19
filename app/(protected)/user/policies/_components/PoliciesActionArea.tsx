@@ -1,14 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { signOut, useSession } from 'next-auth/react'
-import Link from 'next/link'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
-import { DarkButton } from '@/components/DarkButton'
+import { signOut } from 'next-auth/react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -23,6 +16,11 @@ import {
 } from "@/components/ui/dialog"
 import { AddPolicyForm } from './AddPolicyForm'
 import { AuthorType, PoliciesType } from '@/typings'
+import { useToast } from "@/hooks/use-toast"
+import { deletePolicy } from '@/actions/policies'
+// import { deletePolicyAction } from '@/actions/policies'
+
+
 
 const logout = () => {
   signOut()
@@ -35,23 +33,50 @@ export function PoliciesActionArea({
   authors: AuthorType[]
   policies: PoliciesType[]
 }) {
-  const [policy, setNewPolicy] = useState<(PoliciesType)[]>([...policies])
+  const [policyItems, setPolicyItems] = useState<PoliciesType[]>([...policies])
   const [currentPage, setCurrentPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const { toast } = useToast()
 
   const itemsPerPage = 20
 
-  const filteredPolicy = policy.filter(item =>
-    // item?.driverName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  const filteredPolicies = policyItems.filter(item =>
     item?.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     item?.description?.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
-  const totalPages = Math.ceil(filteredPolicy.length / itemsPerPage)
+  const totalPages = Math.ceil(filteredPolicies.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
-  const currentPolicies = filteredPolicy.slice(startIndex, endIndex)
-  
+  const currentPolicies = filteredPolicies.slice(startIndex, endIndex)
+
+  const handleDeletePolicy = async (policyId: string) => {
+    try {
+      await deletePolicy(policyId)
+      setPolicyItems(prevItems => prevItems.filter(item => item.id !== policyId))
+      toast({
+        title: "Policy Deleted",
+        description: "Policy has been deleted successfully",
+      })
+    } catch (error) {
+      console.error("Error deleting policy:", error)
+      toast({
+        title: "Error",
+        description: "Failed to delete policy. Please try again.",
+        variant: "destructive",
+      })
+    }
+  }
+
+  const handleAddPolicy = (newPolicy: PoliciesType) => {
+    setPolicyItems(prevItems => [...prevItems, newPolicy])
+    setIsDialogOpen(false)
+    toast({
+      title: "Policy Added",
+      description: "New policy has been added successfully",
+    })
+  }
 
   return (
     <div className="flex flex-col w-full h-[calc(100vh-5vh)]">
@@ -61,7 +86,7 @@ export function PoliciesActionArea({
             <div className="flex space-y-2 flex-col">
               <p className='text-lg font-poppins font-semibold'>Policy Management System</p>
               <div className="flex space-x-2">
-                <Dialog>
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogTrigger asChild>
                     <Button className='font-poppins text-white dark:bg-green-500'>Add Policy</Button>
                   </DialogTrigger>
@@ -71,7 +96,7 @@ export function PoliciesActionArea({
                         <p className='flex items-start text-center font-poppins text-green-900'>Add Policy</p>
                       </DialogTitle>
                     </DialogHeader>
-                    <AddPolicyForm authors={authors} onSubmit={(data) => setNewPolicy([...policies, data])} />
+                    <AddPolicyForm authors={authors} onSubmit={handleAddPolicy} onClose={() => setIsDialogOpen(false)} />
                   </DialogContent>
                 </Dialog>
               </div>
@@ -82,7 +107,7 @@ export function PoliciesActionArea({
                 <Input
                   id="search"
                   type="text"
-                  placeholder="Search by title, content, or author"
+                  placeholder="Search by title or description"
                   value={searchTerm}
                   onChange={(e) => {
                     setSearchTerm(e.target.value)
@@ -95,11 +120,11 @@ export function PoliciesActionArea({
           </div>
         </div>
       </div>
-      <ScrollArea className="flex-grow ">
+      <ScrollArea className="flex-grow">
         <div className="p-4">
-          <div className="grid max-w-7xl mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <div className="grid max-w-7xl mx-auto grid-cols-1 md:grid-cols-3 gap-3">
             {currentPolicies.map((policy) => (
-              <PoliciesItem policy={policy} key={policy.id} />
+              <PoliciesItem policy={policy} key={policy.id} onDelete={handleDeletePolicy} />
             ))}
           </div>
         </div>
@@ -108,7 +133,7 @@ export function PoliciesActionArea({
         <Button
           onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
-          className=' bg-black dark:bg-gray-600'
+          className='bg-black dark:bg-gray-600'
         >
           Previous
         </Button>
@@ -118,7 +143,7 @@ export function PoliciesActionArea({
         <Button
           onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
           disabled={currentPage === totalPages}
-          className=' bg-black dark:bg-gray-600'
+          className='bg-black dark:bg-gray-600'
         >
           Next
         </Button>
