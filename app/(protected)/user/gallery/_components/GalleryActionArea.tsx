@@ -1,14 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { signOut, useSession } from 'next-auth/react'
-import Link from 'next/link'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
-import { DarkButton } from '@/components/DarkButton'
+import { signOut } from 'next-auth/react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -23,6 +16,8 @@ import {
 } from "@/components/ui/dialog"
 import { AddGalleryForm } from './AddGalleryForm'
 import { GalleryType } from '@/typings'
+import { useToast } from "@/hooks/use-toast"
+import { deleteGallery } from '@/actions/galleries'
 
 const logout = () => {
   signOut()
@@ -33,22 +28,50 @@ export function GalleryActionArea({
 }: {
   galleries: GalleryType[]
 }) {
-  const [galleryItems, setGalleriesItems] = useState<(GalleryType)[]>([...galleries,])
+  const [galleryItems, setGalleryItems] = useState<GalleryType[]>([...galleries])
   const [currentPage, setCurrentPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const { toast } = useToast()
 
   const itemsPerPage = 20
 
-  const filtredGalleries = galleryItems.filter(item =>
-    // item?.driverName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  const filteredGalleries = galleryItems.filter(item =>
     item?.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     item?.description?.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
-  const totalPages = Math.ceil(filtredGalleries.length / itemsPerPage)
+  const totalPages = Math.ceil(filteredGalleries.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
-  const currentGalleries = filtredGalleries.slice(startIndex, endIndex)
+  const currentGalleries = filteredGalleries.slice(startIndex, endIndex)
+
+  const handleDeleteGallery = async (galleryId: string) => {
+    try {
+      await deleteGallery(galleryId)
+      setGalleryItems(prevItems => prevItems.filter(item => item.id !== galleryId))
+      toast({
+        title: "Gallery Deleted",
+        description: "Gallery has been deleted successfully",
+      })
+    } catch (error) {
+      console.error("Error deleting gallery:", error)
+      toast({
+        title: "Error",
+        description: "Failed to delete gallery. Please try again.",
+        variant: "destructive",
+      })
+    }
+  }
+
+  const handleAddGallery = (newGallery: GalleryType) => {
+    setGalleryItems(prevItems => [...prevItems, newGallery])
+    setIsDialogOpen(false)
+    toast({
+      title: "Gallery Added",
+      description: "New gallery has been added successfully",
+    })
+  }
 
   return (
     <div className="flex flex-col w-full h-[calc(100vh-5vh)]">
@@ -58,7 +81,7 @@ export function GalleryActionArea({
             <div className="flex space-y-2 flex-col">
               <p className='text-lg font-poppins font-semibold'>Gallery Management</p>
               <div className="flex space-x-2">
-                <Dialog>
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogTrigger asChild>
                     <Button className='font-poppins text-white dark:bg-green-500'>Add Gallery</Button>
                   </DialogTrigger>
@@ -68,7 +91,7 @@ export function GalleryActionArea({
                         <p className='flex items-start text-center font-poppins dark:text-green-200 text-green-800'>Add Gallery</p>
                       </DialogTitle>
                     </DialogHeader>
-                    <AddGalleryForm onSubmit={(data) => setGalleriesItems([...galleryItems, data])} />
+                    <AddGalleryForm onSubmit={handleAddGallery} onClose={() => setIsDialogOpen(false)} />
                   </DialogContent>
                 </Dialog>
               </div>
@@ -79,7 +102,7 @@ export function GalleryActionArea({
                 <Input
                   id="search"
                   type="text"
-                  placeholder="Search by title, content, or author"
+                  placeholder="Search by title or description"
                   value={searchTerm}
                   onChange={(e) => {
                     setSearchTerm(e.target.value)
@@ -96,7 +119,7 @@ export function GalleryActionArea({
         <div className="p-4">
           <div className="grid max-w-7xl mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {currentGalleries.map((gallery) => (
-              <GalleryItem gallery={gallery} key={gallery.id} />
+              <GalleryItem gallery={gallery} key={gallery.id} onDelete={handleDeleteGallery} />
             ))}
           </div>
         </div>
@@ -105,7 +128,7 @@ export function GalleryActionArea({
         <Button
           onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
-          className=' bg-black dark:bg-gray-600'
+          className='bg-black dark:bg-gray-600'
         >
           Previous
         </Button>
@@ -115,7 +138,7 @@ export function GalleryActionArea({
         <Button
           onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
           disabled={currentPage === totalPages}
-          className=' bg-black dark:bg-gray-600'
+          className='bg-black dark:bg-gray-600'
         >
           Next
         </Button>

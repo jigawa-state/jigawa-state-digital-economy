@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 import JGLogo from '@/app/assets/images/jg-logo-white.png'
 import jictde from "@/app/assets/images/jictde.png"
-import homeBanner from '@/app/assets/images/home-banner.png'
+// import homeBanner from '@/app/assets/images/home-banner.png'
+import homeBanner1 from '@/app/assets/images/banner.png'
 import Image from 'next/image'
 
 
@@ -36,25 +37,28 @@ export default function TextBannerSlider() {
   }, [])
 
   useEffect(() => {
-    const timer = setInterval(goToNext, 8000) // Change headline every 8 seconds
-
+    const timer = setInterval(goToNext, 8000) 
     return () => clearInterval(timer)
   }, [goToNext])
 
   return (
     <div
     style={{
-        backgroundImage: `url(${homeBanner.src})`,
+        backgroundImage: `url(${homeBanner1.src})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
 
-    className="w-full  h-[100vh] flex md:items-start bg-right items-center justify-center text-center md:text-start mt-10 bg-gradient-to-r from-green-700 to-green-800 text-green-700">
+  
+    className="w-full  h-[90vh] bg-blend-multiply flex md:items-start bg-right items-center justify-center text-center md:text-start mt-10 text-green-900">
       <div className="container mx-auto px-4 space-y-6 flex flex-col py-16 md:py-24 lg:py-32">
-        <div className="grid grid-cols-1 justify-center h-full md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-4 flex flex-col">
+        <div className="grid grid-cols-1 justify-center h-full md:grid-cols-3 gap-10 items-center">
+          <div className="space-y-4 flex bg-white/80 col-span-2 px-10 py-6 shadow-sm flex-col">
             <div className=" w-full ">
+              {/* <div className=" text-4xl font-bold text-white font-poppins">
+                JICTDE
+              </div> */}
                 <Image src={jictde} alt='' className=' h-32 object-center object-contain md:object-left' />
             </div>
             <AnimatePresence mode="wait">
@@ -86,7 +90,6 @@ export default function TextBannerSlider() {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="flex items-center space-x-4"
             >
-             
               <div className="flex w-full justify-center md:justify-start space-x-6">
                 <button 
                   onClick={goToPrevious}

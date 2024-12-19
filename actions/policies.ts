@@ -1,6 +1,7 @@
 "use server"
 import { db } from '@/lib/db'
 import { AuthorSchema, createPolicySchema } from '@/lib/schema'
+import { slugify } from '@/lib/utils'
 import * as z from 'zod'
 
 
@@ -32,7 +33,7 @@ export const createPolicy = async (data: z.infer<typeof createPolicySchema>) => 
     const {
        author,
        description,
-       imageUrl,
+       fileUrl,
        published,
        title,
     } = fieldValidation.data
@@ -41,7 +42,8 @@ export const createPolicy = async (data: z.infer<typeof createPolicySchema>) => 
         data: {
             title,
             description,
-            imageUrl,
+            slug: slugify(title),
+            fileUrl,
             published,
             author: {
                 connect: {
@@ -64,7 +66,7 @@ export const updatePolicy = async (id: string, data: z.infer<typeof createPolicy
     const {
        author,
        description,
-       imageUrl,
+       fileUrl,
        published,
        title,
     } = fieldValidation.data
@@ -80,7 +82,7 @@ export const updatePolicy = async (id: string, data: z.infer<typeof createPolicy
                 }
             },
             description,
-            imageUrl,
+            fileUrl,
             published,
             title,
         }

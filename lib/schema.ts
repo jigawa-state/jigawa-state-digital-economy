@@ -3,6 +3,36 @@ import { stat } from "fs"
 import { z } from "zod"
 
 
+const isBrowser = typeof window !== 'undefined';
+
+// Custom file validation function
+const fileValidation = (maxSize: number, allowedTypes: string[]) =>
+    z.any()
+      .refine(
+        (file) => {
+          if (!isBrowser) return true; // Skip validation on server
+          return file instanceof File;
+        },
+        "Expected a file."
+      )
+      .refine(
+        (file) => {
+          if (!isBrowser) return true; // Skip validation on server
+          return file.size <= maxSize;
+        },
+        `Max file size is ${maxSize / 1000000}MB.`
+      )
+      .refine(
+        (file) => {
+          if (!isBrowser) return true; // Skip validation on server
+          return allowedTypes.includes(file.type);
+        },
+        `Only ${allowedTypes.join(', ')} files are allowed.`
+      );
+
+
+
+
 export const SettingsSchema = z.object({
   name: z.optional(z.string()),
   email: z.optional(z.string()),
@@ -92,37 +122,42 @@ export const loginSchema = z.object({
     title: z.string().min(3, {
       message: "Title is required"
     }),
-    imageUrl: z.string().optional(),
+    imageUrl: fileValidation(5000000, ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']).optional(),
     content: z.string().min(3, {
       message: "Content is required"
     }),
 
     published: z.boolean().default(false),
-    author: z.string().optional(),
+    author: z.string().min(3, {
+      message: "Author is required"
+    }),
   })
 
 
   export const createGallerySchema = z.object({
     title: z.string(),
-    imageUrl: z.string().min(3, {
-      message: "Image is required"
-    }),
+    imageUrl: fileValidation(5000000, ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']).optional(),
     description: z.string().optional(),
   })
 
   export const createActivitySchema = z.object({
     title: z.string(),
-    imageUrl: z.string(),
+    imageUrl: fileValidation(5000000, ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']).optional(),
     content: z.string(),
-    published: z.boolean(),
-    author: z.string(),
+    published: z.boolean().default(false),
+    author: z.string().min(3, {
+      message: "Please select or create an Author"
+    })
   })
 
   export const createPolicySchema = z.object({
     title: z.string(),
-    imageUrl: z.string(),
+    // imageUrl: z.string(),
+    fileUrl: fileValidation(5000000, ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']).optional(),
     description: z.string(),
     published: z.boolean(),
-    author: z.string(),
+    author: z.string().min(3, {
+      message: "Please select or create an Author"
+    }),
   })
 

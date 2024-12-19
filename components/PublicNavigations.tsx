@@ -3,7 +3,7 @@ import React from 'react'
 import { useSession } from 'next-auth/react'
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
-import logo from '@/public/metrohuts-logo.svg'
+
 
 
 
@@ -16,41 +16,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Separator } from '@radix-ui/react-separator'
 
-//   const navLinks = [
-//     {
-//         id: 1,
-//         name: 'HOME',
-//         url: "/",
-//         icon: ""
-//     },
-//     {
-//         id: 1,
-//         name: 'ABOUT',
-//         url: "/about",
-//         icon: ""
-//     },
-//     {
-//         id: 1,
-//         name: 'CONTACT',
-//         url: "/contact",
-//         icon: ""
-//     },
-//   ]
-
-//   const auth = [
-//     {
-//         id: 1,
-//         name: 'Log In',
-//         url: "/login",
-//         icon: ""
-//     },
-//     {
-//         id: 2,
-//         name: 'Sign Up',
-//         url: "/register",
-//         icon: ""
-//     },
-//   ]
 
 export const PublicNavigations = () => {
     const session = useSession()
@@ -109,7 +74,7 @@ export const PublicNavigations = () => {
                     </div>
             </SheetContent>
           </Sheet>
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex bg-red-300 items-center space-x-8">
 
           {menuItems.map((item) => (
                     <motion.a

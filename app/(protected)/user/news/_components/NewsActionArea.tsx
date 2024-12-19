@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/dialog"
 import { AddNewsForm } from './AddNewsForm'
 import { AuthorType, NewsType } from '@/typings'
+import { deleteNews } from '@/actions/news'
+import { useToast } from '@/hooks/use-toast'
 
 const logout = () => {
   signOut()
@@ -38,6 +40,41 @@ export function NewsActionArea({
   const [newsItems, setNewsItems] = useState<(NewsType)[]>([...news,])
   const [currentPage, setCurrentPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
+    const [isDialogOpen, setIsDialogOpen] = useState(false)
+
+
+  const { toast } = useToast()
+
+
+    const handleDeleteNews = async (newsId: string) => {
+      try {
+        await deleteNews(newsId)
+        setNewsItems(prevItems => prevItems.filter(item => item.id !== newsId))
+        toast({
+          title: "Author Deleted",
+          description: "Author has been deleted successfully",
+        })
+      } catch (error) {
+        console.error("Error deleting author:", error)
+        toast({
+          title: "Error",
+          description: "Failed to delete author. Please try again.",
+          variant: "destructive",
+        })
+      }
+    }
+
+
+      const handleAddNews = (newNews: NewsType) => {
+        setNewsItems(prevItems => [...prevItems, newNews])
+        setIsDialogOpen(false)
+        toast({
+          title: "Author Added",
+          description: "New author has been added successfully",
+        })
+      }
+    
+  
 
   const itemsPerPage = 20
 
@@ -71,7 +108,10 @@ export function NewsActionArea({
                         <p className='flex items-start text-center font-poppins text-green-800 dark:text-green-300'>Publish News</p>
                       </DialogTitle>
                     </DialogHeader>
-                    <AddNewsForm authors={authors} onSubmit={(data) => setNewsItems([...newsItems, data])} />
+                    <AddNewsForm authors={authors} onClose={() => setIsDialogOpen(false)} 
+                    formSubmit={handleAddNews} 
+                    // formSubmit={(data) => setNewsItems([...newsItems, data])}
+                     />
                   </DialogContent>
                 </Dialog>
                 
@@ -100,7 +140,10 @@ export function NewsActionArea({
         <div className="p-4">
           <div className="grid max-w-7xl mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {currentNewsItems.map((news,) => (
-              <NewsItemCard news={news} key={news.id} />
+              <NewsItemCard 
+              onDelete={ handleDeleteNews }
+               news={news} 
+               key={news.id} />
             ))}
           </div>
         </div>

@@ -1,14 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { signOut, useSession } from 'next-auth/react'
-import Link from 'next/link'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
-import { DarkButton } from '@/components/DarkButton'
+import { signOut } from 'next-auth/react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -23,6 +16,8 @@ import {
 } from "@/components/ui/dialog"
 import { AddActivityForm } from './AddActivityForm'
 import { ActivitiesType, AuthorType } from '@/typings'
+import { useToast } from '@/hooks/use-toast'
+import { deleteActivity } from '@/actions/activities'
 
 const logout = () => {
   signOut()
@@ -35,22 +30,52 @@ export function ActivityActionArea({
   authors: AuthorType[]
   activities: ActivitiesType[]
 }) {
-  const [activitiesItems, setActivitiesItems] = useState<(ActivitiesType)[]>([...activities])
+  const [activitiesItems, setActivitiesItems] = useState<ActivitiesType[]>([...activities])
   const [currentPage, setCurrentPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+
+  const { toast } = useToast()
 
   const itemsPerPage = 20
 
-  const filteredActivites = activitiesItems.filter(item =>
+  const filteredActivities = activitiesItems.filter(item =>
     item?.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     item?.content?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     item?.author?.name?.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
-  const totalPages = Math.ceil(filteredActivites.length / itemsPerPage)
+  const totalPages = Math.ceil(filteredActivities.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
-  const currentActivities = filteredActivites.slice(startIndex, endIndex)
+  const currentActivities = filteredActivities.slice(startIndex, endIndex)
+
+  const handleDeleteActivity = async (activityId: string) => {
+    try {
+      await deleteActivity(activityId)
+      setActivitiesItems(prevItems => prevItems.filter(item => item.id !== activityId))
+      toast({
+        title: "Activity Deleted",
+        description: "Activity has been deleted successfully",
+      })
+    } catch (error) {
+      console.error("Error deleting activity:", error)
+      toast({
+        title: "Error",
+        description: "Failed to delete activity. Please try again.",
+        variant: "destructive",
+      })
+    }
+  }
+
+  const handleAddActivity = (newActivity: ActivitiesType) => {
+    setActivitiesItems(prevItems => [...prevItems, newActivity])
+    setIsDialogOpen(false)
+    toast({
+      title: "Activity Added",
+      description: "New activity has been added successfully",
+    })
+  }
 
   return (
     <div className="flex flex-col w-full h-[calc(100vh-5vh)]">
@@ -60,7 +85,7 @@ export function ActivityActionArea({
             <div className="flex space-y-2 flex-col">
               <p className='text-lg font-poppins font-semibold'>Activities Management</p>
               <div className="flex space-x-2">
-                <Dialog>
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogTrigger asChild>
                     <Button className='font-poppins text-white dark:bg-green-500'>Add Activity</Button>
                   </DialogTrigger>
@@ -70,7 +95,7 @@ export function ActivityActionArea({
                         <p className='flex items-start text-center font-poppins dark:text-green-200 text-green-800'>Add Activity</p>
                       </DialogTitle>
                     </DialogHeader>
-                    <AddActivityForm authors={authors} onSubmit={(data) => setActivitiesItems([...activitiesItems, data])} />
+                    <AddActivityForm authors={authors} onSubmit={handleAddActivity} onClose={() => setIsDialogOpen(false)} />
                   </DialogContent>
                 </Dialog>
               </div>
@@ -97,8 +122,8 @@ export function ActivityActionArea({
       <ScrollArea className="flex-grow ">
         <div className="p-4">
           <div className="grid max-w-7xl mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {filteredActivites.map((activity) => (
-              <ActivityItem activity={activity} key={activity.id} />
+            {currentActivities.map((activity) => (
+              <ActivityItem activity={activity} key={activity.id} onDelete={handleDeleteActivity} />
             ))}
           </div>
         </div>
@@ -107,7 +132,7 @@ export function ActivityActionArea({
         <Button
           onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
-          className=' bg-black dark:bg-gray-600'
+          className='bg-black dark:bg-gray-600'
         >
           Previous
         </Button>
@@ -117,7 +142,7 @@ export function ActivityActionArea({
         <Button
           onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
           disabled={currentPage === totalPages}
-          className=' bg-black dark:bg-gray-600'
+          className='bg-black dark:bg-gray-600'
         >
           Next
         </Button>

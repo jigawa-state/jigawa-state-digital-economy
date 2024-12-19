@@ -16,7 +16,7 @@ export async function DashboardSummary({
 }) {
 //   const summary = await fetchSummary(type)
   return (
-    <Card className=' bg-white space-y-2 text-green-300  dark:bg-black/30'>
+    <Card className=' bg-white space-y-2 dark:text-green-300 text-green-900  dark:bg-black/30'>
       <CardHeader>
         <CardTitle className="capitalize flex items-center justify-between">
             <p className=''>{title}</p>

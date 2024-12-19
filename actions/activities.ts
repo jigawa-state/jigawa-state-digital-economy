@@ -1,6 +1,7 @@
 "use server"
 import { db } from '@/lib/db'
 import { createActivitySchema } from '@/lib/schema'
+import { slugify } from '@/lib/utils'
 import * as z from 'zod'
 
 
@@ -22,6 +23,7 @@ export const createActivities = async (values: z.infer<typeof createActivitySche
             content,
             imageUrl,
             published,
+            slug: slugify(title),
             title,
             author: {
                  connect: {
@@ -91,7 +93,14 @@ export const updateActivity = async (id: string, values: z.infer<typeof createAc
         data: {
             content,
             imageUrl,
+            slug: slugify(title),
             published,
+            
+            author: {
+                connect: {
+                    id: author
+                }
+            },
             title,
         }
     })
