@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 
 
 
-
 import {
     Sheet,
     SheetContent,
@@ -43,7 +42,7 @@ export const PublicNavigations = () => {
         <div className="container mx-auto px-4 py-4 h-full flex justify-between items-center">
           <motion.div initial="hidden" animate="visible" className=' justify-start' variants={fadeIn}>
             <div className=" flex items-start w-full justify-start">
-                <Image src={logo} className='h-10 w-full object-contain object-start ' alt='' />
+                {/* <Image src={logo} className='h-10 w-full object-contain object-start ' alt='' /> */}
             </div>
           </motion.div>
           <Sheet>
@@ -57,7 +56,7 @@ export const PublicNavigations = () => {
             <SheetContent side="left">
             <div className="flex space-y-4 md:space-y-0 items-start flex-col lg:space-x-6 h-full font-poppins lg:items-center">
                 <div className="">
-                <Image src={logo} className='h-10 w-full object-contain object-start ' alt='' />
+                {/* <Image src={logo} className='h-10 w-full object-contain object-start ' alt='' /> */}
                 </div>
                     {menuItems.map((item) => (
                         <SheetTrigger key={item.id}>
