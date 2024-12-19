@@ -2,6 +2,12 @@
 import { db } from '@/lib/db'
 import { createNewsSchema } from '@/lib/schema'
 import * as z from 'zod'
+import { slugify } from '@/lib/utils'
+
+
+
+
+
 
 
 export const createNewsAction = async (values: z.infer<typeof createNewsSchema >) => {
@@ -22,6 +28,7 @@ export const createNewsAction = async (values: z.infer<typeof createNewsSchema >
             content,
             imageUrl,
             published,
+            slug: slugify(title),
             title,
             author: {
                  connect: {
@@ -91,8 +98,14 @@ export const updateNews = async (id: string, values: z.infer<typeof createNewsSc
         data: {
             content,
             imageUrl,
+            slug: slugify(title),
             published,
             title,
+            author: {
+                    connect: {
+                            id: author
+                    }
+            }
         }
     })
 

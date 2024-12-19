@@ -1,11 +1,10 @@
 'use client'
 
-import { startTransition, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { Button } from "@/components/ui/button"
-import { useTransition } from 'react'
 import { Textarea } from '@/components/ui/textarea'
 import { Input } from "@/components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
@@ -13,50 +12,57 @@ import { useRouter } from 'next/navigation'
 import { createGallerySchema } from '@/lib/schema'
 import { GalleryType } from '@/typings'
 import { createGallery } from '@/actions/galleries'
+import { useToast } from '@/hooks/use-toast'
+import { uploadFileToS3 } from '@/actions/amazon-s3'
 
-
-
-type GalleryTypeInterface = {
+interface AddGalleryFormProps {
   onSubmit: (data: GalleryType) => void
+  onClose: () => void
 }
 
-export function AddGalleryForm({ onSubmit }: GalleryTypeInterface) {
+export function AddGalleryForm({ onSubmit, onClose }: AddGalleryFormProps) {
   const [isPending, setIsPending] = useState(false)
-  // const [isPending, startTransition] = useTransition()
-  const [error, setError] = useState<string | undefined>('')
-  const [success, setSuccess] = useState<string | undefined>('')
   const router = useRouter()
+  const { toast } = useToast()
 
   const form = useForm<z.infer<typeof createGallerySchema>>({
     resolver: zodResolver(createGallerySchema),
     defaultValues: {
       title: '',
       description: '',
-      imageUrl: ''
+      imageUrl: undefined
     },
   })
 
   async function handleSubmit(values: z.infer<typeof createGallerySchema>) {
-    setError('')
-    setSuccess('')
-
     setIsPending(true)
     try {
-    const data = await createGallery(values)
-    console.log(data)
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      let formDataToSubmit: any = { ...values };
+
+      if (values.imageUrl) {
+        formDataToSubmit.imageUrl = await uploadFileToS3(values.imageUrl, 'jigawa-state');
+      }
+
+      const data = await createGallery(formDataToSubmit)
       onSubmit(data.gallery as GalleryType)
       form.reset()
+      onClose()
+      toast({
+        title: "Gallery Added",
+        description: "New gallery has been added successfully",
+      })
     } catch (error) {
       console.error('Error submitting form:', error)
+      toast({
+        title: "Error",
+        description: "Failed to add gallery. Please try again.",
+        variant: "destructive",
+      })
     } finally {
       setIsPending(false)
       router.refresh()
     }
   }
-
-
-
 
   return (
     <Form {...form}>
@@ -89,39 +95,19 @@ export function AddGalleryForm({ onSubmit }: GalleryTypeInterface) {
             )}
           />
 
-<FormField
-            control={form.control}
-            name="imageUrl"
-            render={({ field: { value, onChange, ...field } }) => (
-              <FormItem>
-                <FormLabel>Image URL (if any)</FormLabel>
-                <FormControl>
-                  <Input disabled={isPending} className=' border-green-400'
-                    type="file"
-                    accept="image/*"
-                    multiple
-                    onChange={(e) => onChange(e.target.files)}
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-
-        <FormField
+          <FormField
             control={form.control}
             name="imageUrl"
             render={({ field: { value, onChange, ...field } }) => (
               <FormItem>
                 <FormLabel>Picture</FormLabel>
                 <FormControl>
-                  <Input disabled={isPending} className=' border-green-400'
+                  <Input
+                    disabled={isPending}
+                    className='border-green-400'
                     type="file"
                     accept="image/*"
-                    multiple
-                    onChange={(e) => onChange(e.target.files)}
+                    onChange={(e) => onChange(e.target.files?.[0])}
                     {...field}
                   />
                 </FormControl>
@@ -129,8 +115,6 @@ export function AddGalleryForm({ onSubmit }: GalleryTypeInterface) {
               </FormItem>
             )}
           />
-          
-        
         </div>
         <Button type="submit" disabled={isPending}>
           {isPending ? 'Submitting...' : 'Submit'}
@@ -139,5 +123,4 @@ export function AddGalleryForm({ onSubmit }: GalleryTypeInterface) {
     </Form>
   )
 }
-
 

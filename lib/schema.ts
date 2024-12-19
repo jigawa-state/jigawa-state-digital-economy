@@ -122,38 +122,42 @@ export const loginSchema = z.object({
     title: z.string().min(3, {
       message: "Title is required"
     }),
-    imageUrl: z.string().optional(),
+    imageUrl: fileValidation(5000000, ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']).optional(),
     content: z.string().min(3, {
       message: "Content is required"
     }),
 
     published: z.boolean().default(false),
-    author: z.string().optional(),
+    author: z.string().min(3, {
+      message: "Author is required"
+    }),
   })
 
 
   export const createGallerySchema = z.object({
     title: z.string(),
-    imageUrl: z.string().min(3, {
-      message: "Image is required"
-    }),
+    imageUrl: fileValidation(5000000, ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']).optional(),
     description: z.string().optional(),
   })
 
   export const createActivitySchema = z.object({
     title: z.string(),
-    imageUrl: z.string(),
+    imageUrl: fileValidation(5000000, ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']).optional(),
     content: z.string(),
-    published: z.boolean(),
-    author: z.string(),
+    published: z.boolean().default(false),
+    author: z.string().min(3, {
+      message: "Please select or create an Author"
+    })
   })
 
   export const createPolicySchema = z.object({
     title: z.string(),
     // imageUrl: z.string(),
-    imageUrl: fileValidation(5000000, ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']).optional(),
+    fileUrl: fileValidation(5000000, ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']).optional(),
     description: z.string(),
     published: z.boolean(),
-    author: z.string(),
+    author: z.string().min(3, {
+      message: "Please select or create an Author"
+    }),
   })
 

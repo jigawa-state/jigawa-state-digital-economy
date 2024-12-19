@@ -1,14 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { signOut, useSession } from 'next-auth/react'
-import Link from 'next/link'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
-import { DarkButton } from '@/components/DarkButton'
+import { signOut } from 'next-auth/react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -38,6 +31,7 @@ export function AuthorActionArea({
   const [authorsItems, setAuthorItems] = useState<AuthorType[]>([...authors])
   const [currentPage, setCurrentPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
   const { toast } = useToast()
 
   const itemsPerPage = 20
@@ -70,6 +64,15 @@ export function AuthorActionArea({
     }
   }
 
+  const handleAddAuthor = (newAuthor: AuthorType) => {
+    setAuthorItems(prevItems => [...prevItems, newAuthor])
+    setIsDialogOpen(false)
+    toast({
+      title: "Author Added",
+      description: "New author has been added successfully",
+    })
+  }
+
   return (
     <div className="flex flex-col w-full h-[calc(100vh-5vh)]">
       <div className="flex flex-col max-h-min py-0 my-0 bg-white dark:bg-dark-bg border-b drop-shadow-sm  w-full">
@@ -78,7 +81,7 @@ export function AuthorActionArea({
             <div className="flex space-y-2 flex-col">
               <p className='text-lg font-poppins font-semibold'>Author Management</p>
               <div className="flex space-x-2">
-                <Dialog>
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogTrigger asChild>
                     <Button className='font-poppins text-white dark:bg-green-500'>Add Author</Button>
                   </DialogTrigger>
@@ -88,7 +91,7 @@ export function AuthorActionArea({
                         <p className='flex items-start text-center font-poppins text-green-800 dark:text-green-300'>Add Author</p>
                       </DialogTitle>
                     </DialogHeader>
-                    <AddAuthorForm onSubmit={(data) => setAuthorItems([...authorsItems, data])} />
+                    <AddAuthorForm onSubmit={handleAddAuthor} onClose={() => setIsDialogOpen(false)} />
                   </DialogContent>
                 </Dialog>
               </div>

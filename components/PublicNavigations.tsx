@@ -109,7 +109,7 @@ export const PublicNavigations = () => {
                     </div>
             </SheetContent>
           </Sheet>
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex bg-red-300 items-center space-x-8">
 
           {menuItems.map((item) => (
                     <motion.a

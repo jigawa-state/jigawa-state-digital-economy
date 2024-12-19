@@ -1,7 +1,22 @@
+import { useCurrentUser } from '@/hooks/use-current-user'
 import Image from 'next/image'
 import Link from 'next/link'
 import jigawalogo from '@/app/images/jigawalogo.jpg'
 import jigawaLogo from '@/app/assets/images/gigital-economy-logo.jpg'
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
+import { useSession } from 'next-auth/react'
+// import { Auth } from '@auth/core'
+import { auth } from '@/auth'
+
 
 
 import {
@@ -10,6 +25,7 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { NavComponents } from './NavComponents'
 
 
 const navigations = [ 
@@ -27,7 +43,19 @@ const navigations = [
 
 
 
-const Topnav = () => {
+const Topnav = async () => {
+
+
+  const session = await auth()
+
+
+
+
+
+
+  // const { data: session } = useSession()
+  // const user = useCurrentUser()
+
   return (
     <div className=' w-full dark:text-gray-900 shadow-md py-3 fixed bg-fixed top-0 z-10 bg-white px-4 border-b'>
         <div className=" max-w-7xl mx-auto flex justify-between ">
@@ -37,16 +65,20 @@ const Topnav = () => {
           </Link>
 
           <div className=" md:flex space-x-6 hidden items-center">
-            {
-              navigations.map(( nav ) => {
-                return (
-                  <Link href={nav.url} key={nav.url} className=' font-poppins font-semibold text-sm'>{ nav.name }</Link>
-                )
-              })
-            }
+
+            <NavComponents />
+
+            
               {/* <Link href={'/'} className=' font-poppins font-semibold'>Home</Link>
               <Link href={'/activities'} className=' font-poppins font-semibold'>Activities</Link> */}
-              {/* <Link href={'/oneapi'} className=' font-poppins font-semibold bg-green-500 px-4 py-2 rounded-md text-white'>OneAPI</Link> */}
+
+              {
+                session ? 
+                <Link href={'/user/home'} className='font-poppins font-semibold bg-green-500 hover:bg-green-400 hover:text-green-200 px-6 py-2 rounded-full text-white'>Dashboard</Link>
+                : 
+                <Link href={'/login'} className='font-poppins font-semibold bg-green-500 hover:bg-green-400 hover:text-green-200 px-6 py-2 rounded-full text-white'>Login</Link> 
+                
+              }
           </div>
           <div className=" flex md:hidden items-center">
           <Sheet>
