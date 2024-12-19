@@ -24,7 +24,7 @@ interface PoliciesType {
   description:    string;
   published:      boolean;
   slug:           string;
-  author:         string;
+  author:         AuthorType
   authorId:       string | null;
 }
 
