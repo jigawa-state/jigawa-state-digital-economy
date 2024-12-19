@@ -1,0 +1,124 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                    String                  @id @default(auto()) @map("_id") @db.ObjectId
+  name                  String?                 
+  email                 String?                 @unique
+  password              String?
+  phone                 String?
+  emailVerified         DateTime?
+  image                 String?
+  role                  String                  @default("user")
+  accounts              Account[]
+  isTwoFactorEnabled    Boolean                 @default(false)
+  TwoFactorConfirmation TwoFactorConfirmation?
+}
+
+model Account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model PasswordResetToken {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  email   String
+  token   String   @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model TwoFactorToken {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  email   String
+  token   String   @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model TwoFactorConfirmation {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId])
+}
+
+
+model Author {
+    id            String  @id @default(auto()) @map("_id") @db.ObjectId
+    name          String
+    designation   String
+    news          News[]
+    activities    Activities[]
+    policies      Policies[]
+    @@map("authors")
+}
+
+
+
+model Policies {
+    id                  String      @id @default(auto()) @map("_id") @db.ObjectId
+    fileUrl             String?      // @default("https://via.placeholder.com/150") to be added later
+    title               String
+    description         String
+    slug                String
+    published           Boolean
+    author              Author?     @relation(fields: [authorId], references: [id], onDelete: SetNull)
+    authorId            String?     @db.ObjectId
+}
+
+
+
+model Activities {
+    id            String      @id @default(auto()) @map("_id") @db.ObjectId
+    title         String
+    imageUrl      String      // @default("https://via.placeholder.com/150") to be added later
+    content       String
+    slug          String
+    published     Boolean
+    author        Author?     @relation(fields: [authorId], references: [id], onDelete: SetNull)
+    authorId      String?     @db.ObjectId
+}
+
+model News {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  imageUrl      String?      // @default("https://via.placeholder.com/150") to be added later
+  content       String
+  slug          String
+  published     Boolean
+  author        Author?     @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  authorId      String?     @db.ObjectId
+}
+
+
+model Gallery {
+    id            String      @id @default(auto()) @map("_id") @db.ObjectId
+    imageUrl      String      // @default("https://via.placeholder.com/150") to be added later
+    title         String
+    description   String?
+    published     Boolean
+}
+
