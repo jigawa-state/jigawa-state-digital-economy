@@ -2,24 +2,30 @@
 import { db } from '@/lib/db'
 import { AuthorSchema, createPolicySchema } from '@/lib/schema'
 import { slugify } from '@/lib/utils'
+import { revalidatePath } from 'next/cache'
 import * as z from 'zod'
 
 
 
 export const getAllPolicies = async () => {
-    return await db.policies.findMany({
+    const policies =  await db.policies.findMany({
         include: {
             author: true
         }
     })
+
+    revalidatePath('/user')
+    return policies
 }
 
 export const getPolcyById = async (id: string) => {
-    return await db.policies.findUnique({
+    const policy = await db.policies.findUnique({
         where: {
             id
         }
     })
+    revalidatePath('/user')
+    return policy
 }
 
 export const createPolicy = async (data: z.infer<typeof createPolicySchema>) => {
@@ -53,6 +59,8 @@ export const createPolicy = async (data: z.infer<typeof createPolicySchema>) => 
         }
     })
 
+
+    revalidatePath('/user')
     return { success: "Policy has been created successfully", policy: policy }
 }
 
@@ -88,7 +96,7 @@ export const updatePolicy = async (id: string, data: z.infer<typeof createPolicy
         }
     })
 
-
+    revalidatePath('/user')
     return { success: "Policy has been updated successfully", policy: policy }
 }
 
@@ -111,6 +119,7 @@ export const deletePolicy = async (id: string) => {
         }
     })
 
+    revalidatePath('/user')
     return { success: "Policy has been deleted successfully" }
 }
 

@@ -3,6 +3,7 @@ import { db } from '@/lib/db'
 import { createNewsSchema } from '@/lib/schema'
 import * as z from 'zod'
 import { slugify } from '@/lib/utils'
+import { revalidatePath } from 'next/cache'
 
 
 
@@ -39,7 +40,7 @@ export const createNewsAction = async (values: z.infer<typeof createNewsSchema >
         }
      })
 
-
+     revalidatePath('/user')
      return { success: "News has been created successfully", news: news}
 
 }
@@ -51,6 +52,8 @@ export const getAllNews = async () => {
         }
     })
 
+
+    revalidatePath('/user')
     return news
 }
 
@@ -64,6 +67,9 @@ export const getNewsById = async (id: string) => {
             author: true
         }
     })
+
+
+    revalidatePath('/user')
     return news
 }
 
@@ -74,6 +80,7 @@ export const deleteNews = async (id: string) => {
             id
         }
     })
+    revalidatePath('/user')
     return {success: "News has been deleted successfully"}
 }
 
@@ -109,5 +116,7 @@ export const updateNews = async (id: string, values: z.infer<typeof createNewsSc
         }
     })
 
+
+    revalidatePath('/user')
     return { success: "News has been updated successfully", news: news}
 }
