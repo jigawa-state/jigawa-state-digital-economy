@@ -83,7 +83,7 @@ model Policies {
     fileUrl             String?      // @default("https://via.placeholder.com/150") to be added later
     title               String
     description         String
-    slug                String
+    slug                String     @unique
     published           Boolean
     author              Author?     @relation(fields: [authorId], references: [id], onDelete: SetNull)
     authorId            String?     @db.ObjectId
@@ -96,7 +96,9 @@ model Activities {
     title         String
     imageUrl      String      // @default("https://via.placeholder.com/150") to be added later
     content       String
-    slug          String
+    slug          String   @unique
+    location      String
+    date          DateTime
     published     Boolean
     author        Author?     @relation(fields: [authorId], references: [id], onDelete: SetNull)
     authorId      String?     @db.ObjectId
@@ -107,7 +109,7 @@ model News {
   title         String
   imageUrl      String?      // @default("https://via.placeholder.com/150") to be added later
   content       String
-  slug          String
+  slug          String      @unique
   published     Boolean
   author        Author?     @relation(fields: [authorId], references: [id], onDelete: SetNull)
   authorId      String?     @db.ObjectId

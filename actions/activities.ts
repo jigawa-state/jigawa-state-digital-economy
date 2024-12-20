@@ -14,6 +14,8 @@ export const createActivities = async (values: z.infer<typeof createActivitySche
         author,
         content,
         published,
+        date,
+        location,
         imageUrl,
         title,
      } = fieldValidation.data
@@ -23,6 +25,8 @@ export const createActivities = async (values: z.infer<typeof createActivitySche
             content,
             imageUrl,
             published,
+            date: new Date(date),
+            location: location,
             slug: slugify(title),
             title,
             author: {
@@ -82,6 +86,8 @@ export const updateActivity = async (id: string, values: z.infer<typeof createAc
         author,
         content,
         published,
+        date,
+        location,
         imageUrl,
         title,
      } = fieldValidation.data
@@ -95,7 +101,8 @@ export const updateActivity = async (id: string, values: z.infer<typeof createAc
             imageUrl,
             slug: slugify(title),
             published,
-            
+            date: new Date(date),
+            location,
             author: {
                 connect: {
                     id: author

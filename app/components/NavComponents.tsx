@@ -111,7 +111,7 @@ export function NavComponents() {
               </li>
              {
               components.map((component) => {
-                return  <ListItem className=" text-sm" href={component.href} title={ component.title }> { component.description } </ListItem>
+                return  <ListItem key={component.href} className=" text-sm" href={component.href} title={ component.title }> { component.description } </ListItem>
               })
              }
              

@@ -1,6 +1,7 @@
 "use server"
 import { db } from '@/lib/db'
 import { createGallerySchema } from '@/lib/schema'
+import { revalidatePath } from 'next/cache'
 import * as z from 'zod'
 
 
@@ -24,7 +25,7 @@ export const createGallery = async (values: z.infer<typeof createGallerySchema >
         }
      })
 
-
+     revalidatePath('/user')
      return { success: "Gallery has been created successfully", gallery: gallery}
 
 }
@@ -41,6 +42,8 @@ export const getGalleryById = async (id: string) => {
             id
         },
     })
+
+    revalidatePath('/user')
     return gallery
 }
 
@@ -78,6 +81,8 @@ export const updateGallery = async (id: string, values: z.infer<typeof createGal
 
         }
     })
+
+    revalidatePath('/user')
 
     return { success: "Gallery has been updated successfully", gallery: gallery}
 }

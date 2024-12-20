@@ -127,6 +127,36 @@ export function AddActivityForm({ authors, onSubmit, onClose }: AddActivityFormP
             )}
           />
 
+
+        <FormField
+            control={form.control}
+            name="date"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Date</FormLabel>
+                <FormControl>
+                  <Input type='date' disabled={isPending} {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+        <FormField
+            control={form.control}
+            name="location"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Location</FormLabel>
+                <FormControl>
+                  <Input disabled={isPending} {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+
           <FormField
             control={form.control}
             name="imageUrl"
