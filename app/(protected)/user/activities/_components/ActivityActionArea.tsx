@@ -121,7 +121,7 @@ export function ActivityActionArea({
       </div>
       <ScrollArea className="flex-grow ">
         <div className="p-4">
-          <div className="grid max-w-7xl mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <div className="grid max-w-7xl mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3">
             {currentActivities.map((activity) => (
               <ActivityItem activity={activity} key={activity.id} onDelete={handleDeleteActivity} />
             ))}

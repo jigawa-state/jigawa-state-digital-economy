@@ -53,7 +53,7 @@ export function NewsItemCard({ news, onDelete }:{
       <Link href={`/news/${news?.slug}`}   className=" font-poppins font-semibold text-green-500 hover:text-green-400">Read More</Link>
       <AlertDialog>
           <AlertDialogTrigger>
-            <p className="dark:text-red-300 px-3 py-2 font-semibold transition-all hover:underline hover:dark:text-red-300 hover:text-red-600">Delete Author</p>
+            <p className="dark:text-red-300 px-3 py-2 font-semibold transition-all hover:underline hover:dark:text-red-300 hover:text-red-600">Delete News</p>
           </AlertDialogTrigger>
           <AlertDialogContent className="w-[90%] md:w-[500px] rounded-xl">
             <AlertDialogHeader>
@@ -66,7 +66,7 @@ export function NewsItemCard({ news, onDelete }:{
             <AlertDialogFooter>
               <AlertDialogCancel>Cancel</AlertDialogCancel>
               <AlertDialogAction className="dark:text-red-500/30" onClick={handleDelete}>
-                <Button className="transition-all hover:no-underline dark:text-black text-white" variant={'link'}>Delete Author</Button>
+                <Button className="transition-all hover:no-underline dark:text-black text-white" variant={'link'}>Delete News</Button>
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>

@@ -1,6 +1,6 @@
 import { auth } from "@/auth"
 import { stat } from "fs"
-import { z } from "zod"
+import { date, z } from "zod"
 
 
 const isBrowser = typeof window !== 'undefined';
@@ -144,6 +144,8 @@ export const loginSchema = z.object({
     title: z.string(),
     imageUrl: fileValidation(5000000, ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']).optional(),
     content: z.string(),
+    location: z.string(),
+    date: z.string(),
     published: z.boolean().default(false),
     author: z.string().min(3, {
       message: "Please select or create an Author"

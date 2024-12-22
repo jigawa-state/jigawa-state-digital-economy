@@ -32,6 +32,8 @@ interface PoliciesType {
 interface ActivitiesType {
   id:            string      
   imageUrl:      string      
+  date:          Date
+  location:      string
   title:         string
   content:       string
   slug:          string

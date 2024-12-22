@@ -73,6 +73,22 @@ export const getNewsById = async (id: string) => {
     return news
 }
 
+export const getNewsBySlug = async (slug: string) => {
+    const news = await db.news.findUnique({
+        where: {
+            slug,
+        },
+        include: {
+            author: true
+        }
+    })
+
+
+    revalidatePath('/user')
+    return news
+}
+
+
 
 export const deleteNews = async (id: string) => {
     const news = await db.news.delete({
