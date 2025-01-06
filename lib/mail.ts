@@ -6,10 +6,20 @@ import { Resend } from 'resend'
 const env = process.env.NODE_ENV
 const resend = new Resend(process.env.RESEND_API_KEY)
 let baseUrl;
+let redirrectUrl;
 
 
 if (env === 'production') {
-    baseUrl = 'https://ict.jg.gov.ng'
+    redirrectUrl = 'https://ict.jg.gov.ng'
+
+} else {
+    redirrectUrl = 'http://localhost:3000'
+}
+
+
+
+if (env === 'production') {
+    baseUrl = 'mail.doudgaya.xyz'
 } else {
     baseUrl = 'http://localhost:3000'
 }
@@ -124,7 +134,7 @@ interface EmailTemplateProps {
   };
   
   export const sendPasswordResetEmail = async (email: string, token: string) => {
-    const resetLink = `${baseUrl}/new-password?token=${token}`;
+    const resetLink = `${redirrectUrl}/new-password?token=${token}`;
   
     await resend.emails.send({
       from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@mail.doudgaya.xyz>',
@@ -220,7 +230,7 @@ interface WelcomeEmailTemplateProps {
   };
   
   export const sendVerificationEmail = async (email: string, token: string) => {
-    const confirmationLink = `${baseUrl}/email-verification?token=${token}`;
+    const confirmationLink = `${redirrectUrl}/email-verification?token=${token}`;
     await resend.emails.send({
       from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@mail.doudgaya.xyz>',
       to: email,
