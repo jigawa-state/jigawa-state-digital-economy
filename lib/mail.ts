@@ -10,7 +10,7 @@ let redirrectUrl;
 
 
 if (env === 'production') {
-    redirrectUrl = 'https://ict.jg.gov.ng'
+    redirrectUrl = 'https://doudgaya.xyz'
 
 } else {
     redirrectUrl = 'http://localhost:3000'
@@ -19,7 +19,7 @@ if (env === 'production') {
 
 
 if (env === 'production') {
-    baseUrl = 'mail.doudgaya.xyz'
+    baseUrl = 'https://doudgaya.xyz'
 } else {
     baseUrl = 'http://localhost:3000'
 }
@@ -73,7 +73,7 @@ interface EmailTemplateProps {
   
   export const sendTwoFactorEmail = async (email: string, token: string) => {
     await resend.emails.send({
-      from: "Jigawa ICT and Digital Economy (JICTDE) <noreply@mail.doudgaya.xyz>",
+      from: "Jigawa ICT and Digital Economy (JICTDE) <noreply@doudgaya.xyz>",
       to: email,
       subject: "Confirm Your Email",
       html: EmailTemplate({ token })
@@ -137,7 +137,7 @@ interface EmailTemplateProps {
     const resetLink = `${redirrectUrl}/new-password?token=${token}`;
   
     await resend.emails.send({
-      from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@mail.doudgaya.xyz>',
+      from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@doudgaya.xyz>',
       to: email,
       subject: "Reset Your Password",
       html: PasswordResetEmailTemplate({ resetLink })
@@ -153,7 +153,7 @@ interface EmailTemplateProps {
 //     const resetLink =  `${baseUrl}/new-password?token=${token}`
 
 //     await resend.emails.send({
-//         from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@mail.doudgaya.xyz>',
+//         from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@doudgaya.xyz>',
 //         to: email,
 //         subject: "Forgot Password Request",
 //         html: `<p>Click the link to <a href="${resetLink}">Reset your password</a></p>`
@@ -167,7 +167,7 @@ interface EmailTemplateProps {
 
 //     const confirmationLink = `${baseUrl}/email-verification?token=${token}`
 //     await resend.emails.send({
-//         from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@mail.doudgaya.xyz>',
+//         from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@doudgaya.xyz>',
 //         to: email,
 //         subject: "Verify your Jigawa ICT and Digital Economy (JICTDE) Account",
 //         html: `<p>Click the link to <a href="${confirmationLink}">Confirm your Email </a></p>`
@@ -232,7 +232,7 @@ interface WelcomeEmailTemplateProps {
   export const sendVerificationEmail = async (email: string, token: string) => {
     const confirmationLink = `${redirrectUrl}/email-verification?token=${token}`;
     await resend.emails.send({
-      from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@mail.doudgaya.xyz>',
+      from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@doudgaya.xyz>',
       to: email,
       subject: "Welcome to JICTDE - Verify Your Admin Account",
       html: WelcomeEmailTemplate({ confirmationLink })
