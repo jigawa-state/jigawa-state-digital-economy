@@ -42,7 +42,7 @@ interface EmailTemplateProps {
         <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; background-color: #ffffff;">
           <tr>
             <td style="background-color: #10B981; padding: 20px; text-align: center;">
-              <img src=".${baseUrl}/jictde.png" alt="JICTDE Logo" style="max-width: 150px;">
+              <img src=".${redirrectUrl}/jictde.png" alt="JICTDE Logo" style="max-width: 150px;">
             </td>
           </tr>
           <tr>
@@ -73,7 +73,7 @@ interface EmailTemplateProps {
   
   export const sendTwoFactorEmail = async (email: string, token: string) => {
     await resend.emails.send({
-      from: "Jigawa ICT and Digital Economy (JICTDE) <noreply@ict.jg.gov.ng>",
+      from: "Jigawa ICT and Digital Economy (JICTDE) <noreply@stablebricks.com>",
       to: email,
       subject: "Confirm Your Email",
       html: EmailTemplate({ token })
@@ -99,7 +99,7 @@ interface EmailTemplateProps {
         <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; background-color: #ffffff;">
           <tr>
             <td style="background-color: #10B981; padding: 20px; text-align: center;">
-              <img src=".${baseUrl}/jictde.png" alt="JICTDE Logo" style="max-width: 150px;">
+              <img src=".${redirrectUrl}/jictde.png" alt="JICTDE Logo" style="max-width: 150px;">
             </td>
           </tr>
           <tr>
@@ -137,7 +137,7 @@ interface EmailTemplateProps {
     const resetLink = `${redirrectUrl}/new-password?token=${token}`;
   
     await resend.emails.send({
-      from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@ict.jg.gov.ng>',
+      from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@stablebricks.com>',
       to: email,
       subject: "Reset Your Password",
       html: PasswordResetEmailTemplate({ resetLink })
@@ -153,7 +153,7 @@ interface EmailTemplateProps {
 //     const resetLink =  `${baseUrl}/new-password?token=${token}`
 
 //     await resend.emails.send({
-//         from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@ict.jg.gov.ng>',
+//         from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@stablebricks.com>',
 //         to: email,
 //         subject: "Forgot Password Request",
 //         html: `<p>Click the link to <a href="${resetLink}">Reset your password</a></p>`
@@ -167,7 +167,7 @@ interface EmailTemplateProps {
 
 //     const confirmationLink = `${baseUrl}/email-verification?token=${token}`
 //     await resend.emails.send({
-//         from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@ict.jg.gov.ng>',
+//         from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@stablebricks.com>',
 //         to: email,
 //         subject: "Verify your Jigawa ICT and Digital Economy (JICTDE) Account",
 //         html: `<p>Click the link to <a href="${confirmationLink}">Confirm your Email </a></p>`
@@ -232,7 +232,7 @@ interface WelcomeEmailTemplateProps {
   export const sendVerificationEmail = async (email: string, token: string) => {
     const confirmationLink = `${redirrectUrl}/email-verification?token=${token}`;
     await resend.emails.send({
-      from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@ict.jg.gov.ng>',
+      from: 'Jigawa ICT and Digital Economy (JICTDE) <noreply@stablebricks.com>',
       to: email,
       subject: "Welcome to JICTDE - Verify Your Admin Account",
       html: WelcomeEmailTemplate({ confirmationLink })
