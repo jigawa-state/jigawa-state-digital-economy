@@ -10,7 +10,7 @@ let redirrectUrl;
 
 
 if (env === 'production') {
-    redirrectUrl = 'https://stablebricks.com'
+    redirrectUrl = 'https://ict.jg.gov.ng'
 
 } else {
     redirrectUrl = 'http://localhost:3000'
