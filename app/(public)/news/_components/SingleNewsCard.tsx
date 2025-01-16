@@ -19,13 +19,13 @@ export default function SingleNewsCard({ news }: SingleNewsViewProps) {
     <div className="container mx-auto px-4 py-8">
       <article className="max-w-3xl mx-auto">
         <h1 className="text-3xl font-bold text-green-800 mb-4">{news.title}</h1>
-        <Image
+        {/* <Image
           src={news.imageUrl}
           alt={news.title}
           width={800}
           height={400}
           className="w-full h-auto rounded-lg mb-6"
-        />
+        /> */}
         <div className="prose max-w-none mb-8">
           <p>{news.content}</p>
         </div>

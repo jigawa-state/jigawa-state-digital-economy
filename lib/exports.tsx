@@ -568,9 +568,9 @@ export const ministries =  [
     
     {
       id: 6,
-      url: "",
-      name: "Ministry of Informations, Youth Sport and Culture",
-      image: information
+      url: "https://moh.jg.gov.ng",
+      name: "Ministry of Health",
+      image: hmis
     },
     
     {
