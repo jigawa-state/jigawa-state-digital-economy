@@ -12,6 +12,7 @@ import information from '@/app/images/information.png'
 import jgwebsite from '@/app/images/jgwebsite1.png'
 import land from '@/app/images/land1.png'
 import specialduties from '@/app/images/specialduties.png'
+import healthlogo from '@/app/images/healthlogo.png'
 import water from '@/app/images/water.png'
 import geo from '@/app/images/Geography.png'
 // import engage from '@/app/images/Engagement.png'
@@ -570,7 +571,7 @@ export const ministries =  [
       id: 6,
       url: "https://moh.jg.gov.ng",
       name: "Ministry of Health",
-      image: hmis
+      image: healthlogo
     },
     
     {
