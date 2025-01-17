@@ -579,7 +579,7 @@ export const ministries =  [
       url: "",
       name: "Ministry of Special Duties",
       image: specialduties
-    },
+    }, 
     {
       id: 8,
       url: "https://finance.jg.gov.ng",
