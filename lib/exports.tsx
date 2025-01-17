@@ -12,6 +12,7 @@ import information from '@/app/images/information.png'
 import jgwebsite from '@/app/images/jgwebsite1.png'
 import land from '@/app/images/land1.png'
 import specialduties from '@/app/images/specialduties.png'
+import healthlogo from '@/app/images/healthlogo.png'
 import water from '@/app/images/water.png'
 import geo from '@/app/images/Geography.png'
 // import engage from '@/app/images/Engagement.png'
@@ -568,9 +569,9 @@ export const ministries =  [
     
     {
       id: 6,
-      url: "",
-      name: "Ministry of Informations, Youth Sport and Culture",
-      image: information
+      url: "https://moh.jg.gov.ng",
+      name: "Ministry of Health",
+      image: healthlogo
     },
     
     {
@@ -578,7 +579,7 @@ export const ministries =  [
       url: "",
       name: "Ministry of Special Duties",
       image: specialduties
-    },
+    }, 
     {
       id: 8,
       url: "https://finance.jg.gov.ng",
