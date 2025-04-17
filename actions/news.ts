@@ -74,7 +74,7 @@ export const getNewsById = async (id: string) => {
 }
 
 export const getNewsBySlug = async (slug: string) => {
-    const news = await db.news.findUnique({
+    const news = await db.news.findFirst({
         where: {
             slug,
         },

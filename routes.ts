@@ -16,6 +16,7 @@ export const publicRoutes = [
     '/news/:slug',
     '/impact',
     '/kpi',
+    '/informatics-applications',
     '/news',
     'progress-reports'
 ]

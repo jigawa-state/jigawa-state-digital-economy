@@ -99,6 +99,25 @@ model Policies {
 }
 
 
+model Application {
+  id              String     @id @default(auto()) @map("_id") @db.ObjectId
+  studentId       String
+  studentName     String
+  localGovtArea   String
+  yearOfGraduation Int
+  classOfAward    String
+  email           String
+  phone           String
+  address         String
+  qualification   String
+  experience      String
+  skills          String
+  interest        String
+  submittedAt     DateTime @default(now())
+}
+
+
+
 
 model Activities {
     id            String      @id @default(auto()) @map("_id") @db.ObjectId
