@@ -14,7 +14,7 @@ export default async function ActivitiesPage() {
   const dbActivities = await getAllActivities() as ActivitiesType[]
   return (
     <div className="min-h-screen bg-gray-50">
-      <PagesBanner message='Recent and upcoming events in ICT and Digital Economy' />
+      <PagesBanner subtitle='' message='Recent and upcoming events in ICT and Digital Economy' />
       <main className="container mx-auto px-4 py-12">
       <div className="grid gap-8 md:grid-cols-2">
           {dbActivities.map((activity) => (

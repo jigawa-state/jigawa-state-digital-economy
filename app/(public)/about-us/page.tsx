@@ -9,7 +9,7 @@ export default function AboutUs() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <PagesBanner  message="Jigawa State ICT and Digital Economy"/>
+      <PagesBanner subtitle=""  message="Jigawa State ICT and Digital Economy"/>
 
        <div className=" w-full bg-gray-100">
           <div className=" max-w-6xl py-10 md:py-20 grid gap-x-6 gap-y-3 grid-cols-1 md:grid-cols-2 w-full mx-auto">
