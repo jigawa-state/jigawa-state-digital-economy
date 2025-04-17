@@ -202,7 +202,7 @@ export default function PolicyPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <PagesBanner message='Jigawa State Policies' />
+      <PagesBanner subtitle='' message='Jigawa State Policies' />
       <main className="container mx-auto px-4 py-12">
         <div className=" flex flex-col space-y-4">
           {currentPolicies.map((policy) => (
