@@ -35,6 +35,10 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
     experience: "",
     skills: "",
     interest: "",
+    employmentStatus: "",
+    placeOfWork: "",
+    jigawaStateGovtEmployment: "",
+    studentId: student.studentId,
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -64,15 +68,18 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
       if (result.success) {
         toast("Application Submitted", {
           description: "Your application has been submitted successfully.",
+          className: "border-green-500 border text-green-700 bg-green-50",
         })
       } else {
         toast("Submission Failed", {
           description: result.error || "Failed to submit application. Please try again.",
+          className: "border border-red-500 text-red-700 bg-red-50",
         })
       }
     } catch (error) {
       toast("Error", {
         description: "An error occurred while submitting your application. Please try again.",
+        className: "border border-red-500 text-red-700 bg-red-50",
       })
     } finally {
       setIsSubmitting(false)
@@ -113,7 +120,7 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className=" grid  gap-6">
         <div className="space-y-2">
           <Label htmlFor="email">Email Address</Label>
           <Input
@@ -141,16 +148,34 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="address">Current Address</Label>
-          <Textarea
-            id="address"
-            name="address"
-            value={formData.address}
+          <Label htmlFor="employmentStatus">Employment Status</Label>
+          <Input
+            id="employmentStatus"
+            name="employmentStatus"
+            type="tel"
+            value={formData.employmentStatus}
             onChange={handleChange}
-            placeholder="Enter your current address"
+            placeholder="Emplowment Status"
             required
           />
         </div>
+
+
+        <div className="space-y-2">
+          <Label htmlFor="phone">Place of Work</Label>
+          <Input
+            id="placeOfWork"
+            name="placeOfWork"
+            type="text"
+            value={formData.placeOfWork}
+            onChange={handleChange}
+            placeholder="What is your current place of work?"
+            required
+          />
+        </div>
+
+
+       
 
         <div className="space-y-2">
           <Label htmlFor="qualification">Highest Qualification</Label>
@@ -163,8 +188,19 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
             required
           />
         </div>
-
         <div className="space-y-2">
+          <Label htmlFor="skills">Technical Skills</Label>
+          <Input
+            id="skills"
+            name="skills"
+            value={formData.skills}
+            onChange={handleChange}
+            placeholder="List your technical skills"
+            required
+          />
+        </div>
+
+        <div className="space-y-2 ">
           <Label htmlFor="experience">Work Experience</Label>
           <Textarea
             id="experience"
@@ -175,38 +211,31 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
             required
           />
         </div>
-
         <div className="space-y-2">
-          <Label htmlFor="skills">Technical Skills</Label>
+          <Label htmlFor="address">Current Address</Label>
           <Textarea
-            id="skills"
-            name="skills"
-            value={formData.skills}
+            id="address"
+            name="address"
+            value={formData.address}
             onChange={handleChange}
-            placeholder="List your technical skills"
+            placeholder="Enter your current address"
             required
           />
         </div>
-
+      
         <div className="space-y-2">
-          <Label htmlFor="interest">Area of Interest</Label>
+          <Label htmlFor="jigawaStateGovtEmployment">Are you Employed by Jigawa State Government?</Label>
           <Select
-            name="interest"
-            value={formData.interest}
-            onValueChange={(value) => handleSelectChange("interest", value)}
+            name="jigawaStateGovtEmployment"
+            value={formData.jigawaStateGovtEmployment}
+            onValueChange={(value) => handleSelectChange("jigawaStateGovtEmployment", value)}
           >
             <SelectTrigger>
-              <SelectValue placeholder="Select your area of interest" />
+              <SelectValue placeholder="Are you employed by the state government?" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="software-development">Software Development</SelectItem>
-              <SelectItem value="data-science">Data Science</SelectItem>
-              <SelectItem value="cybersecurity">Cybersecurity</SelectItem>
-              <SelectItem value="networking">Networking</SelectItem>
-              <SelectItem value="cloud-computing">Cloud Computing</SelectItem>
-              <SelectItem value="artificial-intelligence">Artificial Intelligence</SelectItem>
-              <SelectItem value="digital-marketing">Digital Marketing</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
+              <SelectItem value="YES">Yes</SelectItem>
+              <SelectItem value="NO">No</SelectItem>
             </SelectContent>
           </Select>
         </div>

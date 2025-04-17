@@ -100,20 +100,22 @@ model Policies {
 
 
 model Application {
-  id              String     @id @default(auto()) @map("_id") @db.ObjectId
-  studentId       String
-  studentName     String
-  localGovtArea   String
-  yearOfGraduation Int
-  classOfAward    String
-  email           String
-  phone           String
-  address         String
-  qualification   String
-  experience      String
-  skills          String
-  interest        String
-  submittedAt     DateTime @default(now())
+  id                                String     @id @default(auto()) @map("_id") @db.ObjectId
+  studentId                         String
+  studentName                       String
+  localGovtArea                     String
+  yearOfGraduation                  Int
+  classOfAward                      String
+  email                             String
+  phone                             String
+  employmentStatus                  String
+  placeOfWork                       String
+  address                           String
+  qualification                     String
+  experience                        String
+  skills                            String
+  jigawaStateGovtEmployment         String
+  submittedAt                       DateTime @default(now())
 }
 
 
