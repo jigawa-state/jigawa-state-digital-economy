@@ -1,5 +1,4 @@
-// import { ValidationForm } from "@/components/validation-form"
-// import { ValidationForm } from "@/app/components/validation-form"
+
 import PagesBanner from "@/app/components/PagesBanner"
 import { ValidationForm } from "@/components/validation-form"
 
