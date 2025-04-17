@@ -8,7 +8,7 @@ const page = ( ) => {
    
   return (
     <div className=' w-full'>
-      <PagesBanner message='The Executive Governor of Jigawa State ' />
+      <PagesBanner subtitle='' message='The Executive Governor of Jigawa State ' />
       <div className=" max-w-6xl px-10 flex flex-col justify-center text-center md:text-start mx-auto w-full md:px-0">
        <div className=" flex md:flex-row w-full flex-col space-x-3  justify-center">
             <div className=" h-[150px] md:h-[250px] flex-none w-[150px] md:w-[250px] overflow-hidden rounded-full border-green-200 border-4 -mt-20 bg-white">

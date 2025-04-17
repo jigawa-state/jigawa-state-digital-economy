@@ -73,7 +73,7 @@ export default function GalleryPage() {
           <p className="text-xl">Capturing moments from our ICT and Digital Economy initiatives</p>
         </div>
       </header> */}
-      <PagesBanner message='Gallery' />
+      <PagesBanner subtitle='' message='Gallery' />
 
       <main className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -47,7 +47,7 @@ const reportSections = [
 export default function JEMISProgressReport() {
   return (
     <div className=" mx-auto bg-gray-50">
-      <PagesBanner message="Jigawa State ICT and Digital Economy Progress Report" />
+      <PagesBanner subtitle='' message="Jigawa State ICT and Digital Economy Progress Report" />
       <main className="container max-w-6xl mx-auto px-4 py-12">
           <CardHeader>
             <CardTitle className="text-3xl font-bold text-green-700">JEMIS Progress Report</CardTitle>

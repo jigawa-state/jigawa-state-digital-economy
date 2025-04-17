@@ -74,7 +74,7 @@ export default function KPIPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <PagesBanner message='JICTDE Key Performance Indicators' />
+      <PagesBanner subtitle='' message='JICTDE Key Performance Indicators' />
       <main className="container mx-auto px-4 py-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
           <Card>

@@ -10,7 +10,7 @@ export default function AboutUs() {
   return (
     <div className=" bg-gray-100 dark:bg-gray-800">
       {/* Hero Section */}
-    <PagesBanner message="Creating Centralized Plaftorm for Jigawa State to improve accountablity and" />
+    <PagesBanner subtitle="" message="Creating Centralized Plaftorm for Jigawa State to improve accountablity and" />
 
     <section className=" bg-white dark:bg-black mx-auto flex flex-col">
        <div className=" w-full dark:bg-black bg-white">

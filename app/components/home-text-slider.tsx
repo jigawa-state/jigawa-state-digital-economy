@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 import JGLogo from '@/app/assets/images/jg-logo-white.png'
 import jictde from "@/app/assets/images/jictde.png"
+import Link from 'next/link'
 // import homeBanner from '@/app/assets/images/home-banner.png'
 import homeBanner1 from '@/app/assets/images/banner.png'
 import Image from 'next/image'
@@ -56,9 +57,6 @@ export default function TextBannerSlider() {
         <div className="grid grid-cols-1 justify-center h-full md:grid-cols-3 gap-10 items-center">
           <div className="space-y-4 flex bg-white/80 col-span-2 px-10 py-6 shadow-sm flex-col">
             <div className=" w-full ">
-              {/* <div className=" text-4xl font-bold text-white font-poppins">
-                JICTDE
-              </div> */}
                 <Image src={jictde} alt='' className=' h-32 object-center object-contain md:object-left' />
             </div>
             <AnimatePresence mode="wait">
@@ -105,6 +103,9 @@ export default function TextBannerSlider() {
                 >
                   <ChevronRightIcon className="w-5 h-5" />
                 </button>
+                <Link href={'/informatics-applications'} className=" rounded-full px-6 py-2 hover:text-white text-white bg-green-900 hover:bg-green-700 transition duration-300 font-semibold">
+                  Applications for Our Empowerment Program
+                </Link>
               </div>
             </motion.div>
             <div className="">

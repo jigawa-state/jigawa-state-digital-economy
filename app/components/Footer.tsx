@@ -38,7 +38,7 @@ import logo from '@/app/assets/images/gigital-economy-logo.jpg'
 
 export const Footer = () => {
   return (
-    <div className=' w-full px-4 dark:text-gray-900 bg-white mt-20 '>
+    <div className=' w-full px-4 dark:text-gray-900 bg-gray-100 mt-20 '>
         <div className=" grid gap-6 grid-cols-1 md:grid-cols-2 gap-x-6 max-w-5xl mx-auto py-10">
             <div className=" flex flex-col">
                 <div className=" border-b-2 border-jyellow flex flex-col  space-y-3 py-1">
@@ -70,14 +70,14 @@ export const Footer = () => {
                         <form className=' space-y-4'>
                             <div className=" flex flex-col space-y-2">
                                 <label htmlFor="email" className=" font-poppins font-semibold">Email</label>
-                                <input type="email" name="email" id="email" className=" border-2 border-gray-400 rounded-md p-2" />
+                                <input type="email" name="email" id="email" className=" border-2 border-green-700/50 rounded-md p-2" />
                             </div>
                             <div className=" flex flex-col space-y-2">
                                 <label htmlFor="message" className=" font-poppins font-semibold">Message</label>
-                                <textarea name="message" id="message" className=" border-2 border-gray-400 rounded-md p-2"></textarea>
+                                <textarea name="message" id="message" className=" border-2 border-green-700/50 rounded-md p-2"></textarea>
                             </div>
                             <div className=" flex flex-col space-y-2">
-                                <button className=" bg-green-500 text-white rounded-md p-2">Send</button>
+                                <button className=" bg-green-900 text-white rounded-md p-2">Send</button>
                             </div>
                         </form>
                    </div>

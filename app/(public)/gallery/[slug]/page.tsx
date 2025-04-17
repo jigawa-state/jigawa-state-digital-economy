@@ -5,7 +5,7 @@ const page = ( {params}: any ) => {
     console.log(params.slug)
   return (
     <div>
-        <PagesBanner message='Gallery' />
+        <PagesBanner subtitle='' message='Gallery' />
     </div>
   )
 }

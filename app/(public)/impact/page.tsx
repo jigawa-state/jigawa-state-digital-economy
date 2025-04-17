@@ -7,7 +7,7 @@ import PagesBanner from "../../components/PagesBanner"
 export default function ImpactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <PagesBanner message='Transforming Jigawa State through ICT and Digital Economy Initiatives' />
+      <PagesBanner subtitle="" message='Transforming Jigawa State through ICT and Digital Economy Initiatives' />
 
       <main className="container mx-auto flex flex-col space-y-6 px-4 py-12">
         <Tabs defaultValue="overview" className="space-y-4 rounded-lg py-6 flex-wrap">
