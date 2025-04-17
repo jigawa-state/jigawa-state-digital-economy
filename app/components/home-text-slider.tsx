@@ -56,9 +56,6 @@ export default function TextBannerSlider() {
         <div className="grid grid-cols-1 justify-center h-full md:grid-cols-3 gap-10 items-center">
           <div className="space-y-4 flex bg-white/80 col-span-2 px-10 py-6 shadow-sm flex-col">
             <div className=" w-full ">
-              {/* <div className=" text-4xl font-bold text-white font-poppins">
-                JICTDE
-              </div> */}
                 <Image src={jictde} alt='' className=' h-32 object-center object-contain md:object-left' />
             </div>
             <AnimatePresence mode="wait">
@@ -105,6 +102,9 @@ export default function TextBannerSlider() {
                 >
                   <ChevronRightIcon className="w-5 h-5" />
                 </button>
+                <div className="">
+                  Applications
+                </div>
               </div>
             </motion.div>
             <div className="">
