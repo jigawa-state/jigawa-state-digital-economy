@@ -64,7 +64,7 @@ export function ValidationForm() {
   }
 
   return (
-    <div>
+    <div className="">
       <div className="mb-6">
         <h2 className="text-xl font-semibold mb-2">Verify Your Eligibility</h2>
         <p className="text-gray-600">Please verify your eligibility by providing your student information.</p>
@@ -126,7 +126,7 @@ export function ValidationForm() {
           <div className="p-4 bg-red-50 border border-red-200 rounded-md text-red-700">{validationError}</div>
         )}
 
-        <Button type="submit" className="w-full" disabled={isValidating}>
+        <Button type="submit" className="w-full bg-green-900" disabled={isValidating}>
           {isValidating ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Validating...

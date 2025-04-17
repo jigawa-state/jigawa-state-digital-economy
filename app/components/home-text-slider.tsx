@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 import JGLogo from '@/app/assets/images/jg-logo-white.png'
 import jictde from "@/app/assets/images/jictde.png"
+import Link from 'next/link'
 // import homeBanner from '@/app/assets/images/home-banner.png'
 import homeBanner1 from '@/app/assets/images/banner.png'
 import Image from 'next/image'
@@ -102,9 +103,9 @@ export default function TextBannerSlider() {
                 >
                   <ChevronRightIcon className="w-5 h-5" />
                 </button>
-                <div className="">
-                  Applications
-                </div>
+                <Link href={'/informatics-applications'} className=" rounded-full px-6 py-2 hover:text-white text-white bg-green-900 hover:bg-green-700 transition duration-300 font-semibold">
+                  Applications for Our Empowerment Program
+                </Link>
               </div>
             </motion.div>
             <div className="">
