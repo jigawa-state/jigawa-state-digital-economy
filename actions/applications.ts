@@ -29,6 +29,9 @@ interface ApplicationData {
   address: string
   qualification: string
   experience: string
+  employmentStatus: string
+  placeOfWork: string
+  jigawaStateGovtEmployment: string
   skills: string
   interest: string
 }
@@ -114,7 +117,10 @@ export async function submitApplication(data: ApplicationData): Promise<Applicat
         qualification: data.qualification,
         experience: data.experience,
         skills: data.skills,
-        interest: data.interest,
+        employmentStatus: data.employmentStatus,
+        placeOfWork: data.placeOfWork,
+        jigawaStateGovtEmployment: data.jigawaStateGovtEmployment,
+      
       },
     })
 
