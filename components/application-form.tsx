@@ -148,8 +148,38 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="employmentStatus">Employment Status</Label>
-          <Input
+          {/* <Label htmlFor="employmentStatus">Employment Status</Label> */}
+
+          <Label htmlFor="employmentStatus">Are you Employed?</Label>
+          <Select
+            name="employmentStatus"
+            value={formData.employmentStatus}
+            onValueChange={(value) => handleSelectChange("employmentStatus", value)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Are you employed by the state government?" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="YES">Yes</SelectItem>
+              <SelectItem value="NO">No</SelectItem>
+            </SelectContent>
+          </Select>
+          
+          {/* <Select
+            name="employmentStatus"
+            value={formData.jigawaStateGovtEmployment}
+            onValueChange={(value) => handleSelectChange("employmentStatus", value)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder={formData.jigawaStateGovtEmployment || 'Select Your employment status'} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem disabled value="YES">Select Your employment</SelectItem>
+              <SelectItem value="YES">Employed</SelectItem>
+              <SelectItem value="NO">Unemployed</SelectItem>
+            </SelectContent>
+          </Select> */}
+          {/* <Input
             id="employmentStatus"
             name="employmentStatus"
             type="tel"
@@ -157,7 +187,7 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
             onChange={handleChange}
             placeholder="Emplowment Status"
             required
-          />
+          /> */}
         </div>
 
 
@@ -179,14 +209,34 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
 
         <div className="space-y-2">
           <Label htmlFor="qualification">Highest Qualification</Label>
-          <Input
+          <Select
+            name="qualification"
+            value={formData.qualification}
+            onValueChange={(value) => handleSelectChange("qualification", value)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Highest Qualification?" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="Doctorate Degree certificate (Ph.D)">Doctorate Degree certificate (Ph.D)</SelectItem>
+              <SelectItem value="Master's Degree certificate (M.Sc, M.A, M.Eng, etc.)">Master's Degree certificate (M.Sc, M.A, M.Eng, etc.)</SelectItem>
+              <SelectItem value="Bachelor's Degree certificate (B.Sc, B.A, B.Eng, etc. )">Bachelor's Degree certificate (B.Sc, B.A, B.Eng, etc. )</SelectItem>
+              <SelectItem value="Professional Certificate (e.g., PMP, Cisco, etc.)">Professional Certificate (e.g., PMP, Cisco, etc.)</SelectItem>
+              <SelectItem value="Higher National Diploma (HND)">Higher National Diploma (HND)</SelectItem>
+              <SelectItem value="National Diploma (ND) ">National Diploma (ND)</SelectItem>
+              <SelectItem value="Nigeria Certificate In Education (NCE)">Nigeria Certificate In Education (NCE)</SelectItem>
+              <SelectItem value="Primary School Certificate">Primary School Certificate</SelectItem>
+              <SelectItem value="Secondary School Certificate">Secondary School Certificate</SelectItem>
+            </SelectContent>
+          </Select>
+          {/* <Input
             id="qualification"
             name="qualification"
             value={formData.qualification}
             onChange={handleChange}
             placeholder="Enter your highest qualification"
             required
-          />
+          /> */}
         </div>
         <div className="space-y-2">
           <Label htmlFor="skills">Technical Skills</Label>
