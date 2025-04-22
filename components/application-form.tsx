@@ -31,7 +31,7 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
     email: "",
     phone: "",
     address: "",
-    qualification: student.certificateAwarded,
+    qualification: '',
     experience: "",
     skills: "",
     interest: "",
@@ -208,17 +208,17 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
        
 
         <div className="space-y-2">
-          <Label htmlFor="qualification">Highest Qualification</Label>
+        <Label htmlFor="qualification">Highest Qualification?</Label>
           <Select
             name="qualification"
             value={formData.qualification}
             onValueChange={(value) => handleSelectChange("qualification", value)}
           >
             <SelectTrigger>
-              <SelectValue placeholder="Highest Qualification?" />
+              <SelectValue placeholder="Select highest qualification" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="Doctorate Degree certificate (Ph.D)">Doctorate Degree certificate (Ph.D)</SelectItem>
+            <SelectItem value="Doctorate Degree certificate (Ph.D)">Doctorate Degree certificate (Ph.D)</SelectItem>
               <SelectItem value="Master's Degree certificate (M.Sc, M.A, M.Eng, etc.)">Master's Degree certificate (M.Sc, M.A, M.Eng, etc.)</SelectItem>
               <SelectItem value="Bachelor's Degree certificate (B.Sc, B.A, B.Eng, etc. )">Bachelor's Degree certificate (B.Sc, B.A, B.Eng, etc. )</SelectItem>
               <SelectItem value="Professional Certificate (e.g., PMP, Cisco, etc.)">Professional Certificate (e.g., PMP, Cisco, etc.)</SelectItem>
@@ -229,6 +229,27 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
               <SelectItem value="Secondary School Certificate">Secondary School Certificate</SelectItem>
             </SelectContent>
           </Select>
+
+
+
+          {/* <Label htmlFor="qualification">Highest Qualification</Label>
+          <Select
+            name="qualification"
+            value={formData.qualification}
+            onValueChange={(value) => handleSelectChange("qualification", value)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Highest Qualification?" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="SSCE">SSCE</SelectItem>
+              <SelectItem value="ND">ND</SelectItem>
+              <SelectItem value="HND">HND</SelectItem>
+              <SelectItem value="BSc">BSc</SelectItem>
+              <SelectItem value="MSc">MSc</SelectItem>
+              <SelectItem value="PhD">PhD</SelectItem>
+            </SelectContent>
+          </Select> */}
           {/* <Input
             id="qualification"
             name="qualification"
