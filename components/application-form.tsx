@@ -36,6 +36,7 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
     skills: "",
     interest: "",
     employmentStatus: "",
+    dateOfBirth: "",
     placeOfWork: "",
     jigawaStateGovtEmployment: "",
     studentId: student.studentId,
@@ -164,30 +165,7 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
               <SelectItem value="NO">No</SelectItem>
             </SelectContent>
           </Select>
-          
-          {/* <Select
-            name="employmentStatus"
-            value={formData.jigawaStateGovtEmployment}
-            onValueChange={(value) => handleSelectChange("employmentStatus", value)}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder={formData.jigawaStateGovtEmployment || 'Select Your employment status'} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem disabled value="YES">Select Your employment</SelectItem>
-              <SelectItem value="YES">Employed</SelectItem>
-              <SelectItem value="NO">Unemployed</SelectItem>
-            </SelectContent>
-          </Select> */}
-          {/* <Input
-            id="employmentStatus"
-            name="employmentStatus"
-            type="tel"
-            value={formData.employmentStatus}
-            onChange={handleChange}
-            placeholder="Emplowment Status"
-            required
-          /> */}
+         
         </div>
 
 
@@ -204,8 +182,19 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
           />
         </div>
 
+        <div className="space-y-2">
+          <Label htmlFor="dateOfBirth">Date of Birth</Label>
+          <Input
+            id="dateOfBirth"
+            name="dateOfBirth"
+            type="date"
+            value={formData.dateOfBirth}
+            onChange={handleChange}
+            placeholder="Date of Birth"
+            required
+          />
+        </div>
 
-       
 
         <div className="space-y-2">
         <Label htmlFor="qualification">Highest Qualification?</Label>
@@ -229,46 +218,30 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
               <SelectItem value="Secondary School Certificate">Secondary School Certificate</SelectItem>
             </SelectContent>
           </Select>
-
-
-
-          {/* <Label htmlFor="qualification">Highest Qualification</Label>
-          <Select
-            name="qualification"
-            value={formData.qualification}
-            onValueChange={(value) => handleSelectChange("qualification", value)}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Highest Qualification?" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="SSCE">SSCE</SelectItem>
-              <SelectItem value="ND">ND</SelectItem>
-              <SelectItem value="HND">HND</SelectItem>
-              <SelectItem value="BSc">BSc</SelectItem>
-              <SelectItem value="MSc">MSc</SelectItem>
-              <SelectItem value="PhD">PhD</SelectItem>
-            </SelectContent>
-          </Select> */}
-          {/* <Input
-            id="qualification"
-            name="qualification"
-            value={formData.qualification}
-            onChange={handleChange}
-            placeholder="Enter your highest qualification"
-            required
-          /> */}
         </div>
         <div className="space-y-2">
           <Label htmlFor="skills">Technical Skills</Label>
-          <Input
+          <Select
+            name="skills"
+            value={formData.qualification}
+            onValueChange={(value) => handleSelectChange("skills", value)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Do you have tecnical skills??" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="SSCE">Yes</SelectItem>
+              <SelectItem value="ND">No</SelectItem>
+            </SelectContent>
+          </Select>
+          {/* <Input
             id="skills"
             name="skills"
             value={formData.skills}
             onChange={handleChange}
             placeholder="List your technical skills"
             required
-          />
+          /> */}
         </div>
 
         <div className="space-y-2 ">

@@ -110,6 +110,7 @@ model Application {
   phone                             String
   employmentStatus                  String
   placeOfWork                       String
+  DateOfBirth                       String
   address                           String
   qualification                     String
   experience                        String

@@ -27,6 +27,7 @@ interface ApplicationData {
   email: string
   phone: string
   address: string
+  DateOfBirth: string
   qualification: string
   experience: string
   employmentStatus: string
@@ -112,6 +113,7 @@ export async function submitApplication(data: ApplicationData): Promise<Applicat
         yearOfGraduation: data.yearOfGraduation,
         classOfAward: data.classOfAward,
         email: data.email,
+        DateOfBirth: data.DateOfBirth,
         phone: data.phone,
         address: data.address,
         qualification: data.qualification,
