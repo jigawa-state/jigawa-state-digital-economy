@@ -217,18 +217,18 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
           </Select>
         </div>
         <div className="space-y-2">
-          <Label htmlFor="skills">Technical Skills</Label>
+          <Label htmlFor="skills">Do you have technical Skills</Label>
           <Select
             name="skills"
             value={formData.qualification}
             onValueChange={(value) => handleSelectChange("skills", value)}
           >
             <SelectTrigger>
-              <SelectValue placeholder="Do you have tecnical skills??" />
+              <SelectValue placeholder="Do you have tecnical skills?" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="SSCE">Yes</SelectItem>
-              <SelectItem value="ND">No</SelectItem>
+              <SelectItem value="YES">Yes</SelectItem>
+              <SelectItem value="NO">No</SelectItem>
             </SelectContent>
           </Select>
         </div>
