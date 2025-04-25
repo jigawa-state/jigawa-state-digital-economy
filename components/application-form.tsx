@@ -69,6 +69,7 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
         techSkillsDetails: formData.techSkillsDetails,
         DateOfBirth: formData.dateOfBirth,
         gitHubProfileUrl: formData.gitHubProfileUrl,
+        employmentStatus: formData.employmentStatus,
         doYouHaveTechnicalSkills: formData.doYouHaveTechnicalSkills,
         yearOfGraduation: student.yearOfGraduation,
         classOfAward: student.classOfAward,
@@ -223,10 +224,9 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
           </Select>
         </div>
 
-        {formData.employmentStatus !== "Unemployed" && (
+        {formData.employmentStatus === "Employed" && (
           <>
-
-<div className="space-y-2">
+        <div className="space-y-2">
           <Label htmlFor="jigawaStateGovtEmployment">Are you Employed by Jigawa State Government?</Label>
           <Select
             name="jigawaStateGovtEmployment"
