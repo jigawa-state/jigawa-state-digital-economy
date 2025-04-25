@@ -199,8 +199,8 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
               <SelectItem value="Higher National Diploma (HND)">Higher National Diploma (HND)</SelectItem>
               <SelectItem value="National Diploma (ND) ">National Diploma (ND)</SelectItem>
               <SelectItem value="Nigeria Certificate In Education (NCE)">Nigeria Certificate In Education (NCE)</SelectItem>
-              <SelectItem value="Primary School Certificate">Primary School Certificate</SelectItem>
               <SelectItem value="Secondary School Certificate">Secondary School Certificate</SelectItem>
+              <SelectItem value="Primary School Certificate">Primary School Certificate</SelectItem>
             </SelectContent>
           </Select>
         </div>
