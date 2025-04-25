@@ -88,8 +88,9 @@ export default function TextBannerSlider() {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="flex items-center space-x-4"
             >
-              <div className="flex w-full justify-center md:justify-start space-x-6">
-                <button 
+              <div className="flex flex-col md:items-start space-y-3 w-full justify-center md:justify-start ">
+               <div className="space-x-6 flex">
+               <button 
                   onClick={goToPrevious}
                   className="p-2 bg-transparent border-green-500 border hover:text-white rounded-full hover:bg-green-500 transition duration-300"
                   aria-label="Previous headline"
@@ -103,8 +104,9 @@ export default function TextBannerSlider() {
                 >
                   <ChevronRightIcon className="w-5 h-5" />
                 </button>
-                <Link href={'/informatics-applications'} className=" rounded-full px-6 py-2 hover:text-white text-white bg-green-900 hover:bg-green-700 transition duration-300 font-semibold">
-                  Applications for Our Empowerment Program
+               </div>
+                <Link href={'/informatics-applications'} className=" rounded-full px-6 py-2 max-w-max hover:text-white text-white bg-green-900 hover:bg-green-700 transition duration-300 font-semibold">
+                  Our Empowerment Program
                 </Link>
               </div>
             </motion.div>
