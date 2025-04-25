@@ -38,6 +38,7 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
     skills: "",
     gitHubProfileUrl: '',
     doYouHaveTechnicalSkills: "",
+    nameOfMinistry: "",
     techSkillsDetails: "",
     employmentStatus: "",
     dateOfBirth: "",
@@ -70,6 +71,7 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
         DateOfBirth: formData.dateOfBirth,
         gitHubProfileUrl: formData.gitHubProfileUrl,
         employmentStatus: formData.employmentStatus,
+        nameOfMinistry: formData.nameOfMinistry,
         doYouHaveTechnicalSkills: formData.doYouHaveTechnicalSkills,
         yearOfGraduation: student.yearOfGraduation,
         classOfAward: student.classOfAward,
@@ -226,37 +228,58 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
 
         {formData.employmentStatus === "Employed" && (
           <>
-        <div className="space-y-2">
-          <Label htmlFor="jigawaStateGovtEmployment">Are you Employed by Jigawa State Government?</Label>
-          <Select
-            name="jigawaStateGovtEmployment"
-            value={formData.jigawaStateGovtEmployment}
-            onValueChange={(value) => handleSelectChange("jigawaStateGovtEmployment", value)}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Are you employed by the state government?" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="YES">Yes</SelectItem>
-              <SelectItem value="NO">No</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+
+          <div className="space-y-2">
+                  <Label htmlFor="jigawaStateGovtEmployment">Are you Employed by Jigawa State Government?</Label>
+                  <Select
+                    name="jigawaStateGovtEmployment"
+                    value={formData.jigawaStateGovtEmployment}
+                    onValueChange={(value) => handleSelectChange("jigawaStateGovtEmployment", value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Are you employed by the state government?" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="YES">Yes</SelectItem>
+                      <SelectItem value="NO">No</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
 
 
+          {formData.jigawaStateGovtEmployment === 'YES' ? (
+            <>
+             <div className="space-y-2">
+                  <Label htmlFor="nameOfMinistry"> Jigawa State Agency / Ministry / Institute:</Label>
+                  <Input
+                    id="nameOfMinistry"
+                    name="nameOfMinistry"
+                    type="text"
+                    value={formData.nameOfMinistry}
+                    onChange={handleChange}
+                    placeholder="Name of Ministry?"
+                    required
+                  />
+                </div>
+            </>
+          ) : (
 
-        <div className="space-y-2">
-          <Label htmlFor="placeOfWork">Place of Work:</Label>
-          <Input
-            id="placeOfWork"
-            name="placeOfWork"
-            type="text"
-            value={formData.placeOfWork}
-            onChange={handleChange}
-            placeholder="What is your current place of work?"
-            required
-          />
-        </div>
+            <div className="space-y-2">
+            <Label htmlFor="placeOfWork">Place of Work:</Label>
+            <Input
+              id="placeOfWork"
+              name="placeOfWork"
+              type="text"
+              value={formData.placeOfWork}
+              onChange={handleChange}
+              placeholder="What is your current place of work?"
+              required
+            />
+          </div>
+
+          )}
+
+       
         <div className="space-y-2 ">
           <Label htmlFor="experience">Work Experience</Label>
           <Textarea

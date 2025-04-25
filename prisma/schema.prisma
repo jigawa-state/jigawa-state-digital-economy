@@ -115,6 +115,7 @@ model Application {
   jigawaStateGovtEmployment         String
   placeOfWork                       String
   workExperience                    String?
+  nameOfMinistry                    String?
   gitHubProfileUrl                  String?
   techSkillsDetails                 String?
   doYouHaveTechnicalSkills          String

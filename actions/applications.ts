@@ -31,6 +31,7 @@ interface ApplicationData {
   doYouHaveTechnicalSkills: string
   techSkillsDetails: string | null
   DateOfBirth: string
+  nameOfMinistry: string
   qualification: string
   experience: string
   employmentStatus: string
@@ -123,6 +124,7 @@ export async function submitApplication(data: ApplicationData): Promise<Applicat
         phone: data.phone,
         address: data.address,
         qualification: data.qualification,
+        nameOfMinistry: data.nameOfMinistry,
         experience: data.experience,
         skills: data.skills,
         employmentStatus: data.employmentStatus,
@@ -148,41 +150,3 @@ interface Summary {
   count: number
   recentItems: { title: string }[]
 }
-
-// export async function fetchSummary(type: string): Promise<Summary> {
-//   // Simulate fetching data from a database or API
-//   await new Promise((resolve) => setTimeout(resolve, 500))
-
-//   const summaries: { [key: string]: Summary } = {
-//     policies: {
-//       count: 120,
-//       recentItems: [
-//         { title: "Policy on Digital Transformation" },
-//         { title: "Cybersecurity Policy" },
-//         { title: "Data Privacy Regulations" },
-//       ],
-//     },
-//     galleries: {
-//       count: 45,
-//       recentItems: [{ title: "Tech Expo 2024" }, { title: "Innovation Summit" }, { title: "Digital Art Exhibition" }],
-//     },
-//     news: {
-//       count: 210,
-//       recentItems: [
-//         { title: "New Tech Hub Opens" },
-//         { title: "Government Invests in AI" },
-//         { title: "Digital Literacy Program Launched" },
-//       ],
-//     },
-//     activities: {
-//       count: 80,
-//       recentItems: [
-//         { title: "Coding Workshop for Youth" },
-//         { title: "Startup Mentoring Session" },
-//         { title: "E-commerce Training" },
-//       ],
-//     },
-//   }
-
-//   return summaries[type] || { count: 0, recentItems: [] }
-// }
