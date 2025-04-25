@@ -23,10 +23,13 @@ interface ApplicationData {
   studentName: string
   localGovtArea: string
   yearOfGraduation: number
+  gitHubProfileUrl: string | null
   classOfAward: string
   email: string
   phone: string
   address: string
+  doYouHaveTechnicalSkills: string
+  techSkillsDetails: string | null
   DateOfBirth: string
   qualification: string
   experience: string
@@ -34,7 +37,6 @@ interface ApplicationData {
   placeOfWork: string
   jigawaStateGovtEmployment: string
   skills: string
-  interest: string
 }
 
 interface ApplicationResponse {
@@ -114,6 +116,10 @@ export async function submitApplication(data: ApplicationData): Promise<Applicat
         classOfAward: data.classOfAward,
         email: data.email,
         DateOfBirth: data.DateOfBirth,
+        doYouHaveTechnicalSkills: data.doYouHaveTechnicalSkills,
+        techSkillsDetails: data.techSkillsDetails,
+        gitHubProfileUrl: data.gitHubProfileUrl,
+        workExperience: data.experience,
         phone: data.phone,
         address: data.address,
         qualification: data.qualification,

@@ -20,6 +20,8 @@ interface ApplicationFormProps {
     studentId: string
     studentName: string
     certificateAwarded: string
+    techSkillsDetails: string
+    DateOfBirth: string
     yearOfGraduation: number
     classOfAward: string
     localGovtArea: string
@@ -34,7 +36,9 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
     qualification: '',
     experience: "",
     skills: "",
-    interest: "",
+    gitHubProfileUrl: '',
+    doYouHaveTechnicalSkills: "",
+    techSkillsDetails: "",
     employmentStatus: "",
     dateOfBirth: "",
     placeOfWork: "",
@@ -62,7 +66,10 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
         studentId: student.studentId,
         studentName: student.studentName,
         localGovtArea: student.localGovtArea,
+        techSkillsDetails: formData.techSkillsDetails,
         DateOfBirth: formData.dateOfBirth,
+        gitHubProfileUrl: formData.gitHubProfileUrl,
+        doYouHaveTechnicalSkills: formData.doYouHaveTechnicalSkills,
         yearOfGraduation: student.yearOfGraduation,
         classOfAward: student.classOfAward,
       })
@@ -122,7 +129,7 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className=" grid  gap-6">
+      <form onSubmit={handleSubmit} className=" grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <Label htmlFor="email">Email Address</Label>
           <Input
@@ -149,37 +156,7 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
           />
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="employmentStatus">Employment Status</Label>
-          <Select
-            name="employmentStatus"
-            value={formData.employmentStatus}
-            onValueChange={(value) => handleSelectChange("employmentStatus", value)}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Employment Status" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="Employed">Employed</SelectItem>
-              <SelectItem value="Unemployed">Unemployed</SelectItem>
-            </SelectContent>
-          </Select>
-         
-        </div>
-
-
-        <div className="space-y-2">
-          <Label htmlFor="phone">Place of Work</Label>
-          <Input
-            id="placeOfWork"
-            name="placeOfWork"
-            type="text"
-            value={formData.placeOfWork}
-            onChange={handleChange}
-            placeholder="What is your current place of work?"
-            required
-          />
-        </div>
+       
 
         <div className="space-y-2">
           <Label htmlFor="dateOfBirth">Date of Birth</Label>
@@ -190,6 +167,17 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
             value={formData.dateOfBirth}
             onChange={handleChange}
             placeholder="Date of Birth"
+            required
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="address">Current Address</Label>
+          <Textarea
+            id="address"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            placeholder="Enter your current address"
             required
           />
         </div>
@@ -216,46 +204,29 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
             </SelectContent>
           </Select>
         </div>
+
+
         <div className="space-y-2">
-          <Label htmlFor="skills">Do you have technical Skills</Label>
+          <Label htmlFor="employmentStatus">Employment Status</Label>
           <Select
-            name="skills"
-            value={formData.qualification}
-            onValueChange={(value) => handleSelectChange("skills", value)}
+            name="employmentStatus"
+            value={formData.employmentStatus}
+            onValueChange={(value) => handleSelectChange("employmentStatus", value)}
           >
             <SelectTrigger>
-              <SelectValue placeholder="Do you have tecnical skills?" />
+              <SelectValue placeholder="Employment Status" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="YES">Yes</SelectItem>
-              <SelectItem value="NO">No</SelectItem>
+              <SelectItem value="Employed">Employed</SelectItem>
+              <SelectItem value="Unemployed">Unemployed</SelectItem>
             </SelectContent>
           </Select>
         </div>
-        <div className="space-y-2 ">
-          <Label htmlFor="experience">Work Experience</Label>
-          <Textarea
-            id="experience"
-            name="experience"
-            value={formData.experience}
-            onChange={handleChange}
-            placeholder="Describe your relevant work experience"
-            required
-          />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="address">Current Address</Label>
-          <Textarea
-            id="address"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            placeholder="Enter your current address"
-            required
-          />
-        </div>
-      
-        <div className="space-y-2">
+
+        {formData.employmentStatus !== "Unemployed" && (
+          <>
+
+<div className="space-y-2">
           <Label htmlFor="jigawaStateGovtEmployment">Are you Employed by Jigawa State Government?</Label>
           <Select
             name="jigawaStateGovtEmployment"
@@ -272,7 +243,128 @@ export function ApplicationForm({ student }: ApplicationFormProps) {
           </Select>
         </div>
 
-        <Button type="submit" className="w-full" disabled={isSubmitting}>
+
+
+        <div className="space-y-2">
+          <Label htmlFor="placeOfWork">Place of Work:</Label>
+          <Input
+            id="placeOfWork"
+            name="placeOfWork"
+            type="text"
+            value={formData.placeOfWork}
+            onChange={handleChange}
+            placeholder="What is your current place of work?"
+            required
+          />
+        </div>
+        <div className="space-y-2 ">
+          <Label htmlFor="experience">Work Experience</Label>
+          <Textarea
+            id="experience"
+            name="experience"
+            value={formData.experience}
+            onChange={handleChange}
+            placeholder="Describe your relevant work experience"
+            required
+          />
+        </div>
+          </>
+        )}
+
+      
+
+        <div className="space-y-2">
+          <Label htmlFor="doYouHaveTechnicalSkills">Do you have any technical skill?</Label>
+          <Select
+            name="doYouHaveTechnicalSkills"
+            value={formData.doYouHaveTechnicalSkills}
+            onValueChange={(value) => handleSelectChange("doYouHaveTechnicalSkills", value)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select Option" />
+            </SelectTrigger>
+            <SelectContent>
+            <SelectItem value="Yes">Yes</SelectItem>
+              <SelectItem value="No">No</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+
+        {formData.doYouHaveTechnicalSkills === "Yes" && (
+            <>
+
+      <div className="space-y-2">
+          <Label htmlFor="skills">Select Your Tecnical Skills</Label>
+          <Select
+            name="skills"
+            value={formData.skills}
+            onValueChange={(value) => handleSelectChange("skills", value)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select your technical skill" />
+            </SelectTrigger>
+            <SelectContent>
+            <SelectItem value="Programming">Programming</SelectItem>
+              <SelectItem value="Frontend Development">Frontend Development</SelectItem>
+              <SelectItem value="Backend Development">Backend Development</SelectItem>
+              <SelectItem value="Full Stack Development">Full Stack Development</SelectItem>
+              <SelectItem value="DevOps">DevOps</SelectItem>
+              <SelectItem value="Cloud Computing">Cloud Computing</SelectItem>
+              <SelectItem value="Database Management">Database Management</SelectItem>
+              <SelectItem value="Mobile Development">Mobile Development</SelectItem>
+              <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
+              <SelectItem value="Data Science">Data Science</SelectItem>
+              <SelectItem value="Machine Learning">Machine Learning</SelectItem>
+              <SelectItem value="Cybersecurity">Cybersecurity</SelectItem>
+              <SelectItem value="Quality Assurance">Quality Assurance</SelectItem>
+              <SelectItem value="Project Management">Project Management</SelectItem>
+              <SelectItem value="Software Testing">Software Testing</SelectItem>
+              <SelectItem value="Agile Methodologies">Agile Methodologies</SelectItem>
+              <SelectItem value="System Architecture">System Architecture</SelectItem>
+              <SelectItem value="Networking">Networking</SelectItem>
+              <SelectItem value="IT Support">IT Support</SelectItem>
+              <SelectItem value="Technical Writing">Technical Writing</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="gitHubProfileUrl">GitHub Profile URL:</Label>
+          <Input
+            id="gitHubProfileUrl"
+            name="gitHubProfileUrl"
+            type="text"
+            value={formData.gitHubProfileUrl}
+            onChange={handleChange}
+            placeholder="https://github.com/"
+            required
+          />
+        </div>
+       
+
+        <div className="space-y-2 md:col-span-2 ">
+          <Label htmlFor="techSkillsDetails">Describe your Technical Skills (Optional)</Label>
+          <Textarea
+            id="techSkillsDetails"
+            name="techSkillsDetails"
+            value={formData.experience}
+            onChange={handleChange}
+            placeholder="Describe details about your skills technical skills (Optional) "
+            required
+          />
+        </div>
+             
+            </>
+          )}
+       
+
+      
+       
+      
+      
+
+        <Button type="submit" className="w-full md:col-span-2" disabled={isSubmitting}>
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Submitting...
