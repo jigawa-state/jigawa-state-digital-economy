@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import { getAllAuthors } from '@/actions/author'
 import { getAllNews } from '@/actions/news'
 import React from 'react'

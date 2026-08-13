@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import { Suspense } from 'react'
 
 import { DashboardSummary } from './_components/dashboard-summary'

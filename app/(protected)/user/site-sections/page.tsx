@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import { getAllSiteSections } from "@/actions/site-sections"
 import { SiteSectionsActionArea } from "./_components/SiteSectionsActionArea"
 import { PublicSiteSection } from "@/lib/site-content"

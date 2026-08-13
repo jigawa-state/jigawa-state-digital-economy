@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import { getAllTeamMembers } from "@/actions/team-members"
 import { TeamMembersActionArea } from "./_components/TeamMembersActionArea"
 import { PublicTeamMember } from "@/lib/site-content"
